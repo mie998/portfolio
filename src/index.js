@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/index.css';
+import './js/components/layout';
 
 ReactDOM.render(
-    <h1>Hello React!</h1>,
+    <layout/>,
     document.getElementById('root')
 );
