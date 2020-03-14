@@ -1,17 +1,20 @@
-import './App.css';
 import React from 'react';
-import logo from './logo.svg';
+import About from './components/About'
+import History from './components/History'
+import Skill from './components/Skill'
+import Top from './components/Top'
+import Works from './components/Works'
 
 function App() {
-  return (
-    <div className='App'>
-      <Top />
-      <About />
-      <History />
-      <Skill />
-      <Works />
-    </div>
-  );
+    return (
+        <>
+            <Top/>
+            <About/>
+            <History/>
+            <Skill/>
+            <Works/>
+        </>
+    );
 }
 
 export default App;

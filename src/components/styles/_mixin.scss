@@ -1,0 +1,15 @@
+@import "colors";
+
+@mixin container {
+  width: 90%;
+  text-align: center;
+}
+
+@mixin content-title {
+  font-size: 15px;
+  color: #282c34;
+}
+
+@mixin content {
+  font-size: 12px;
+}

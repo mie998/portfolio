@@ -1,0 +1,9 @@
+@import "mixin";
+
+.content-title {
+  @include content-title;
+}
+
+.about-content {
+  @include content;
+}
