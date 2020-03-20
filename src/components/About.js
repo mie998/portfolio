@@ -13,17 +13,28 @@ class About extends React.Component {
             {key: 'Contact', value: 'nishiwaki.kyoto[at]gmail.com', url: ''},
         ];
 
-        for (var i in data) {
+        const setUrl = function (value, url) {
+            if (url !== '') {
+                return (
+                    <td><a href={url}>{value}</a></td>
+                );
+            } else {
+                return (
+                    <td>{value}</td>
+                );
+            }
+        };
+        for (let i in data) {
             table_content.push(
                 <tr>
                     <th>{data[i].key}</th>
-                    <td>{data[i].value}</td>
+                    {setUrl(data[i].value, data[i].url)}
                 </tr>
             );
         }
 
         return (
-            <div className="about-wrapper">
+            <div id="about" className="about-wrapper">
                 <h2 className="about-title">About</h2>
                 <div className="box-wrapper">
                     <table className="about-content">

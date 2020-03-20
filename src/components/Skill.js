@@ -25,7 +25,7 @@ class Skill extends React.Component {
         }
 
         return (
-            <div class="skill-wrapper">
+            <div id="skill" class="skill-wrapper">
                 <h2 class="skill-title">Skill/Qualification</h2>
                 <div className="box-wrapper">
                     <table className="skill-content">

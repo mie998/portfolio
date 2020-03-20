@@ -21,7 +21,7 @@ class History extends React.Component {
         }
 
         return (
-            <div class="history-wrapper">
+            <div id="history" class="history-wrapper">
                 <h2 class="history-title">History</h2>
                 <div className="box-wrapper">
                     <table className="history-content">

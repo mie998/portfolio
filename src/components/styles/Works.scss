@@ -9,6 +9,21 @@
 
   .work-content {
     @include content;
+
+    h3 {
+
+      a {
+        color: white;
+
+        &:hover {
+          color: $hover-white;
+        }
+      }
+    }
+
+    p {
+      text-align: center;
+    }
   }
 
   .box-wrapper {

@@ -16,14 +16,14 @@ class Works extends React.Component {
         for (var i in data) {
             table_content.push(
                 <>
-                    <h3>{data[i].key}</h3>
+                    <h3><a href={data[i].url}>{data[i].key}</a></h3>
                     <p>{data[i].description}</p>
                 </>
             );
         }
 
         return (
-            <div class="work-wrapper">
+            <div id="works" class="work-wrapper">
                 <h2 class="work-title">Works</h2>
                 <div className="box-wrapper">
                     <table className="work-content">

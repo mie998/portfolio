@@ -9,6 +9,18 @@
 
   .about-content {
     @include content;
+
+    tr {
+      td {
+        a {
+          color: white;
+
+          &:hover {
+            color: $hover-white;
+          }
+        }
+      }
+    }
   }
 
   .box-wrapper {
