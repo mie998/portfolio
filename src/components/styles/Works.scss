@@ -1,0 +1,17 @@
+@import "mixin";
+
+.work-wrapper {
+  @include content-wrapper;
+
+  .work-title {
+    @include title;
+  }
+
+  .work-content {
+    @include content;
+  }
+
+  .box-wrapper {
+    @include box-wrapper;
+  }
+}

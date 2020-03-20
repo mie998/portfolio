@@ -1,9 +1,17 @@
 @import "mixin";
 
-.content-title {
-  @include content-title;
-}
+.about-wrapper {
+  @include content-wrapper;
 
-.about-content {
-  @include content;
+  .about-title {
+    @include title;
+  }
+
+  .about-content {
+    @include content;
+  }
+
+  .box-wrapper {
+    @include box-wrapper;
+  }
 }

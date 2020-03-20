@@ -1,21 +1,17 @@
 @import "mixin";
 
-.skill-wrapper {
+.history-wrapper {
   @include content-wrapper;
 
-  .skill-title {
+  .history-title {
     @include title;
   }
 
-  .skill-content {
+  .history-content {
     @include content;
   }
 
   .box-wrapper {
     @include box-wrapper;
-
-    li {
-      color: white;
-    }
   }
 }
