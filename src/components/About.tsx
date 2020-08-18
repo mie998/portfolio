@@ -13,14 +13,13 @@ interface Content {
     value: string;
     url: string;
 }
-export default function About() {
+const About: React.FC = () => {
     let table_content: any[] = [];
     let data: Content[] = [
         { key: 'Name', value: 'Keisuke Nishiwaki', url: '' },
         {
             key: 'University',
-            value:
-                'Informatics and Mathematical science faculty in Kyoto University',
+            value: '京都大学情報学科',
             url: '',
         },
         { key: 'GitHub', value: 'mie998', url: 'https://github.com/mie998' },
@@ -32,7 +31,7 @@ export default function About() {
         { key: 'Contact', value: 'nishiwaki.kyoto[at]gmail.com', url: '' },
     ];
 
-    const setUrl: any = (value, url) => {
+    const setUrl = (value: string, url: string) => {
         if (url !== '') {
             return (
                 <td>
@@ -60,4 +59,6 @@ export default function About() {
             </div>
         </div>
     );
-}
+};
+
+export default About;
