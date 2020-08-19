@@ -38,8 +38,8 @@ const Experiences: React.FC = () => {
     }
 
     return (
-        <div id="history" class="history-wrapper">
-            <h2 class="history-title">History</h2>
+        <div id="history" className="history-wrapper">
+            <h2 className="history-title">Experiences</h2>
             <div className="box-wrapper">
                 <table className="history-content">{table_content}</table>
             </div>

@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Footer: React.FC = () => {
     return (
-        <div class="footer-wrapper">
+        <div className="footer-wrapper">
             <p>Produced by Keisuke Nishiwaki</p>
             <p>last modified: 00/00</p>
         </div>

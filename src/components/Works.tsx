@@ -31,8 +31,8 @@ const Works: React.FC = () => {
     }
 
     return (
-        <div id="works" class="work-wrapper">
-            <h2 class="work-title">Works</h2>
+        <div id="works" className="work-wrapper">
+            <h2 className="work-title">Works</h2>
             <div className="box-wrapper">
                 <table className="work-content">{table_content}</table>
             </div>

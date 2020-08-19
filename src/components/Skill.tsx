@@ -30,8 +30,8 @@ const Skill: React.FC = () => {
     }
 
     return (
-        <div id="skill" class="skill-wrapper">
-            <h2 class="skill-title">Skill/Qualification</h2>
+        <div id="skill" className="skill-wrapper">
+            <h2 className="skill-title">Skill/Qualification</h2>
             <div className="box-wrapper">
                 <table className="skill-content">{table_content}</table>
             </div>

@@ -1,5 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Grid } from '@material-ui/core';
+import polyImg from './images/polygon2.jpg';
 import './styles/About.scss';
 
 const useStyles = makeStyles((theme) => ({
@@ -25,7 +27,7 @@ const About: React.FC = () => {
         { key: 'GitHub', value: 'mie998', url: 'https://github.com/mie998' },
         {
             key: 'Twitter',
-            value: '@MIE98838',
+            value: 'MIE98838',
             url: 'https://twitter.com/Mie98838',
         },
         { key: 'Contact', value: 'nishiwaki.kyoto[at]gmail.com', url: '' },
@@ -53,10 +55,40 @@ const About: React.FC = () => {
 
     return (
         <div id="about" className="about-wrapper">
-            <h2 className="about-title">About</h2>
-            <div className="box-wrapper">
-                <table className="about-content">{table_content}</table>
-            </div>
+            <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+            >
+                <h2 className="about-title">About</h2>
+                <Grid container direction="column" justify="center">
+                    <Grid xs={6} item>
+                        <div>
+                            <img src={polyImg} width="70%" />
+                        </div>
+                        <a href="https://github.com/mie998">
+                            <i
+                                style={{ paddingLeft: '30px' }}
+                                className="fa fa-github fa-2x"
+                            ></i>
+                        </a>
+                        <a href="https://twitter.com/Mie98838">
+                            <i
+                                style={{ paddingLeft: '30px' }}
+                                className="fa fa-twitter fa-2x"
+                            ></i>
+                        </a>
+                    </Grid>
+                    <Grid xs={6} item>
+                        <div className="box-wrapper">
+                            <table className="about-content">
+                                {table_content}
+                            </table>
+                        </div>
+                    </Grid>
+                </Grid>
+            </Grid>
         </div>
     );
 };
