@@ -10,19 +10,26 @@ import polyImg from './images/polygon2.jpg';
 
 interface Contents {
     key: string;
-    url: String;
+    url: string;
     description: string;
+    img: string;
 }
 
 const useStyles = makeStyles((theme) => ({
-    ref: { textDecoration: 'none' },
+    ref: {
+        textDecoration: 'none',
+        '&:hover': {
+            opacity: '0.5',
+        },
+    },
     card: { display: 'flex', flexdirection: 'column' },
+    cover: { width: '80%' },
 }));
 
 const Works: React.FC = () => {
     const classes = useStyles();
     let table_content = [];
-    let data = [
+    let data: Contents[] = [
         {
             key: 'portfolio',
             url: 'https://mie998.github.io/portfolio/',
@@ -48,8 +55,12 @@ const Works: React.FC = () => {
                                 {data[i].description}
                             </Typography>
                         </CardContent>
+                        <CardMedia
+                            className={classes.cover}
+                            image={polyImg}
+                            title="portfolio"
+                        ></CardMedia>
                     </Card>
-                    <CardMedia image={data[i].img}></CardMedia>,
                 </a>
             </Grid>,
         );
