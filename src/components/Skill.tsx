@@ -15,7 +15,7 @@ const Skill: React.FC = () => {
         { key: 'C++' },
         { key: 'Python' },
         { key: 'Rust' },
-        { key: 'Unity' },
+        { key: 'Unity(C#)' },
         { key: 'bash/zsh' },
         { key: 'vim' },
         { key: 'TOEIC 870' },
@@ -30,11 +30,9 @@ const Skill: React.FC = () => {
     }
 
     return (
-        <div id="skill" className="skill-wrapper">
-            <h2 className="skill-title">Skill/Qualification</h2>
-            <div className="box-wrapper">
-                <table className="skill-content">{table_content}</table>
-            </div>
+        <div id="skill" className="content-wrapper">
+            <h2 className="title">Skill/Qualification</h2>
+            <table className="table-wrapper">{table_content}</table>
         </div>
     );
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     aboutTitle: {
@@ -25,7 +26,11 @@ const Experiences: React.FC = () => {
             role: 'Engineer internship',
             period: 'Mid August/2019 ~ Early September/2019',
         },
-        { key: '株式会社SUS', role: '', period: 'February/2020~' },
+        {
+            key: '株式会社SUS',
+            role: 'Unity Enginner',
+            period: 'February/2020~',
+        },
     ];
     for (var i in data) {
         table_content.push(
@@ -38,11 +43,9 @@ const Experiences: React.FC = () => {
     }
 
     return (
-        <div id="history" className="history-wrapper">
-            <h2 className="history-title">Experiences</h2>
-            <div className="box-wrapper">
-                <table className="history-content">{table_content}</table>
-            </div>
+        <div id="experience" className="content-wrapper">
+            <h2 className="title">Experiences</h2>
+            <table className="table-wrapper">{table_content}</table>
         </div>
     );
 };

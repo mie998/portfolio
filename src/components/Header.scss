@@ -1,3 +1,5 @@
+@import 'colors';
+
 $header-height: 6%;
 .header-wrapper {
     width: 100%;
@@ -9,8 +11,8 @@ $header-height: 6%;
 }
 
 .header-left {
-    // padding: $header-height/2 0;
-    // transition: all 0.5s;
+    margin: 1.2rem 0;
+    transition: all 0.5s;
     display: inline-block;
 
     a {
@@ -25,7 +27,7 @@ $header-height: 6%;
 
 .header-right {
     float: right;
-    // padding: $header-height/2 0;
+    margin: 0.75rem 0;
     font-size: 2rem;
     margin-right: 2rem;
     color: white;

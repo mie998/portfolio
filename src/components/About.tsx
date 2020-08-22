@@ -2,11 +2,18 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import polyImg from './images/polygon2.jpg';
-import './styles/About.scss';
+import './mixin.scss';
 
 const useStyles = makeStyles((theme) => ({
-    aboutTitle: {
-        textAlign: 'center',
+    hovers: {
+        color: 'white',
+        '&:hover': {
+            color: 'rgba(255, 255, 255, .3)',
+        },
+    },
+    imgs: {
+        width: '70%',
+        borderRadius: '50%',
     },
 }));
 
@@ -16,6 +23,7 @@ interface Content {
     url: string;
 }
 const About: React.FC = () => {
+    const classes = useStyles();
     let table_content: any[] = [];
     let data: Content[] = [
         { key: 'Name', value: 'Keisuke Nishiwaki', url: '' },
@@ -37,7 +45,9 @@ const About: React.FC = () => {
         if (url !== '') {
             return (
                 <td>
-                    <a href={url}>{value}</a>
+                    <a href={url} className={classes.hovers}>
+                        {value}
+                    </a>
                 </td>
             );
         } else {
@@ -54,39 +64,30 @@ const About: React.FC = () => {
     }
 
     return (
-        <div id="about" className="about-wrapper">
+        <div id="about" className="content-wrapper">
+            {/* <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="flex-start"
+            > */}
+            <h2 className="title">About</h2>
             <Grid
                 container
                 direction="row"
                 justify="center"
                 alignItems="center"
+                spacing={3}
+                className="content"
             >
-                <h2 className="about-title">About</h2>
-                <Grid container direction="column" justify="center">
-                    <Grid xs={6} item>
-                        <div>
-                            <img src={polyImg} width="70%" />
-                        </div>
-                        <a href="https://github.com/mie998">
-                            <i
-                                style={{ paddingLeft: '30px' }}
-                                className="fa fa-github fa-2x"
-                            ></i>
-                        </a>
-                        <a href="https://twitter.com/Mie98838">
-                            <i
-                                style={{ paddingLeft: '30px' }}
-                                className="fa fa-twitter fa-2x"
-                            ></i>
-                        </a>
-                    </Grid>
-                    <Grid xs={6} item>
-                        <div className="box-wrapper">
-                            <table className="about-content">
-                                {table_content}
-                            </table>
-                        </div>
-                    </Grid>
+                <Grid xs={3} item>
+                    <img src={polyImg} className={classes.imgs} />
+                    {/* <a href="https://github.com/mie998"> <i style={{ paddingLeft: '30px' }} className="fa fa-github fa-2x" ></i> </a> <a href="https://twitter.com/Mie98838"> <i style={{ paddingLeft: '30px' }} className="fa fa-twitter fa-2x" ></i> </a> */}
+                </Grid>
+                <Grid xs={3} item>
+                    <div>
+                        <table className="table-wrapper">{table_content}</table>
+                    </div>
                 </Grid>
             </Grid>
         </div>

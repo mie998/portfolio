@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import './styles/Header.scss';
+import './Header.scss';
 
 const useStyles = makeStyles((theme) => ({
     aboutTitle: {
