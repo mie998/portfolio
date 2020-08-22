@@ -17,10 +17,8 @@ const useStyles = makeStyles((theme) => ({
     },
     imgs: {
         width: '70%',
-        borderRadius: '50%',
-        '@media(max_width: 670px)': {
-            display: 'none',
-        },
+        border: '1px solid black',
+        borderRadius: '1rem',
     },
 }));
 
@@ -116,7 +114,7 @@ const About: React.FC = () => {
                         Human Robot Interaction に関する研究を行なっている。
                     </p>
                     <p>
-                        ゲーム開発やWEB開発,ロボット開発などさまざまな分野に対して広く興味を持っている。
+                        ゲーム開発やWEB開発,ロボットプログラミングなどさまざまな分野に対して広く興味を持っている。
                     </p>
                     <p className={classes.contact}>
                         連絡先: nishiwaki.kyoto[at]gmail.com

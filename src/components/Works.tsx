@@ -1,41 +1,72 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import './styles/Works.scss';
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import polyImg from './images/polygon2.jpg';
 
 interface Contents {
     key: string;
     url: String;
     description: string;
 }
+
+const useStyles = makeStyles((theme) => ({
+    ref: { textDecoration: 'none' },
+    card: { display: 'flex', flexdirection: 'column' },
+}));
+
 const Works: React.FC = () => {
+    const classes = useStyles();
     let table_content = [];
     let data = [
         {
             key: 'portfolio',
             url: 'https://mie998.github.io/portfolio/',
             description:
-                '自身のポートフォリオサイトを作成しました. React でフロントエンドを処理し, Github Pages にてホスティングしています。',
+                '自身のポートフォリオサイト. React, TypeScript などを使用.',
+            img: './images/polygon2.jpg',
         },
-        { key: '', url: '', description: '' },
     ];
 
     for (var i in data) {
         table_content.push(
-            <>
-                <h3>
-                    <a href={data[i].url}>{data[i].key}</a>
-                </h3>
-                <p>{data[i].description}</p>
-            </>,
+            <Grid item xs={4}>
+                <a href={data[i].url} className={classes.ref}>
+                    <Card className={classes.card}>
+                        <CardContent>
+                            <Typography component="h5" variant="h5">
+                                {data[i].key}
+                            </Typography>
+                            <Typography
+                                variant="subtitle1"
+                                color="textSecondary"
+                            >
+                                {data[i].description}
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                    <CardMedia image={data[i].img}></CardMedia>,
+                </a>
+            </Grid>,
         );
     }
 
     return (
-        <div id="works" className="work-wrapper">
-            <h2 className="work-title">Works</h2>
-            <div className="box-wrapper">
-                <table className="work-content">{table_content}</table>
-            </div>
+        <div id="works" className="content-wrapper">
+            <h2 className="title">Works</h2>
+            <Grid
+                container
+                spacing={3}
+                direction="row"
+                justify="center"
+                alignItems="center"
+            >
+                {table_content}
+            </Grid>
         </div>
     );
 };

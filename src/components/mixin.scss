@@ -9,7 +9,7 @@
 .content-wrapper {
     padding: 5rem 0;
     color: white;
-    font-size: 1.2em;
+    font-size: 1.2rem;
 }
 
 .title {
@@ -29,6 +29,11 @@
     tr {
         td {
             padding: 8px;
+        }
+        li {
+            font-size: 1.2rem;
+            padding-bottom: 0.5rem;
+            flex-wrap: nowrap;
         }
     }
 }

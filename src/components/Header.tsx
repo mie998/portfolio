@@ -13,7 +13,7 @@ const Header: React.FC = () => {
         <div className="header-wrapper">
             <div className="header-left">
                 <a href="#about">About</a>
-                <a href="#history">History</a>
+                <a href="#experience">History</a>
                 <a href="#skill">Skill</a>
                 <a href="#works">Works</a>
             </div>
