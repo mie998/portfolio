@@ -27,6 +27,35 @@ $header-height: 6%;
 
 .header-right {
     float: right;
+    // display: inline;
+    margin: 0.75rem 0;
+    margin-right: 1rem;
+    font-size: 1rem;
+    a {
+        margin-right: 1rem;
+        .fa-github {
+            color: white;
+            &:hover {
+                color: $hover-white;
+            }
+        }
+        .fa-twitter-square {
+            color: $favicon-blue;
+            &:hover {
+                color: $hover-favicon-blue;
+            }
+        }
+        .fa-blog {
+            color: white;
+            &:hover {
+                color: $hover-white;
+            }
+        }
+    }
+}
+
+.header-menu {
+    float: right;
     margin: 0.75rem 0;
     font-size: 2rem;
     margin-right: 2rem;
@@ -43,6 +72,10 @@ $header-height: 6%;
     }
 
     .header-right {
+        display: none;
+    }
+
+    .header-menu {
         display: block;
     }
 }

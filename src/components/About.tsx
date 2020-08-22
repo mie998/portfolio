@@ -1,10 +1,14 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import polyImg from './images/polygon2.jpg';
 import './mixin.scss';
 
 const useStyles = makeStyles((theme) => ({
+    contact: {
+        fontSize: '1.5rem',
+    },
     hovers: {
         color: 'white',
         '&:hover': {
@@ -14,8 +18,33 @@ const useStyles = makeStyles((theme) => ({
     imgs: {
         width: '70%',
         borderRadius: '50%',
+        '@media(max_width: 670px)': {
+            display: 'none',
+        },
     },
 }));
+
+export const useWindowDimensions = () => {
+    const getWindowDimensions = () => {
+        const { innerWidth: width, innerHeight: height } = window;
+        return {
+            width,
+            height,
+        };
+    };
+
+    const [windowDimensions, setWindowDimensions] = useState(
+        getWindowDimensions(),
+    );
+    useEffect(() => {
+        const onResize = () => {
+            setWindowDimensions(getWindowDimensions());
+        };
+        window.addEventListener('resize', onResize);
+        return () => window.removeEventListener('resize', onResize);
+    }, []);
+    return windowDimensions;
+};
 
 interface Content {
     key: string;
@@ -62,15 +91,10 @@ const About: React.FC = () => {
             </tr>,
         );
     }
-
+    const { width, height } = useWindowDimensions();
+    console.log(width);
     return (
         <div id="about" className="content-wrapper">
-            {/* <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="flex-start"
-            > */}
             <h2 className="title">About</h2>
             <Grid
                 container
@@ -78,17 +102,27 @@ const About: React.FC = () => {
                 justify="center"
                 alignItems="center"
                 spacing={3}
-                className="content"
             >
-                <Grid xs={3} item>
-                    <img src={polyImg} className={classes.imgs} />
-                    {/* <a href="https://github.com/mie998"> <i style={{ paddingLeft: '30px' }} className="fa fa-github fa-2x" ></i> </a> <a href="https://twitter.com/Mie98838"> <i style={{ paddingLeft: '30px' }} className="fa fa-twitter fa-2x" ></i> </a> */}
+                {width > 670 ? (
+                    <Grid xs={3} item>
+                        <img src={polyImg} className={classes.imgs} />
+                    </Grid>
+                ) : (
+                    <></>
+                )}
+                <Grid xs={width > 670 ? 5 : 8} item>
+                    <p>
+                        京都大学情報学科現4回生。ゲームは古来からの趣味であり、嵌まり込みすぎて情報学科に入学。現在は京都大学の神田研究室にて
+                        Human Robot Interaction に関する研究を行なっている。
+                    </p>
+                    <p>
+                        ゲーム開発やWEB開発,ロボット開発などさまざまな分野に対して広く興味を持っている。
+                    </p>
+                    <p className={classes.contact}>
+                        連絡先: nishiwaki.kyoto[at]gmail.com
+                    </p>
                 </Grid>
-                <Grid xs={3} item>
-                    <div>
-                        <table className="table-wrapper">{table_content}</table>
-                    </div>
-                </Grid>
+                {/* <table className="table-wrapper">{table_content}</table> */}
             </Grid>
         </div>
     );
