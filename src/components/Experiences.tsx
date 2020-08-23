@@ -14,8 +14,7 @@ interface WorkData {
     period: string;
 }
 const Experiences: React.FC = () => {
-    let table_content: any[] = [];
-    let data: WorkData[] = [
+    const data: WorkData[] = [
         {
             key: '株式会社スマイル',
             role: 'Frontend Enginner',
@@ -32,20 +31,18 @@ const Experiences: React.FC = () => {
             period: 'February/2020 ~ May/2020',
         },
     ];
-    for (var i in data) {
-        table_content.push(
-            <tr>
-                <th>{data[i].key}</th>
-                <td>{data[i].role}</td>
-                <td>{data[i].period}</td>
-            </tr>,
-        );
-    }
+    const table_contents = data.map((item) => (
+        <tr>
+            <th>{item.key}</th>
+            <td>{item.role}</td>
+            <td>{item.period}</td>
+        </tr>
+    ));
 
     return (
         <div id="experience" className="content-wrapper">
             <h2 className="title">Experiences</h2>
-            <table className="table-wrapper">{table_content}</table>
+            <table className="table-wrapper">{table_contents}</table>
         </div>
     );
 };

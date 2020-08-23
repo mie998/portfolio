@@ -2,14 +2,11 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import './styles/Skill.scss';
 
-const useStyles = makeStyles((theme) => ({
-    aboutTitle: {
-        textAlign: 'center',
-    },
-}));
+interface Content {
+    key: string;
+}
 const Skill: React.FC = () => {
-    let table_content = [];
-    let data = [
+    const data: Content[] = [
         { key: 'html/css(scss)' },
         { key: 'JS/TS/React' },
         { key: 'C++' },
@@ -21,18 +18,16 @@ const Skill: React.FC = () => {
         { key: 'TOEIC 870' },
     ];
 
-    for (var i in data) {
-        table_content.push(
-            <tr>
-                <li>{data[i].key}</li>
-            </tr>,
-        );
-    }
+    const table_contents = data.map((item) => (
+        <tr>
+            <li>{item.key}</li>
+        </tr>
+    ));
 
     return (
         <div id="skill" className="content-wrapper">
             <h2 className="title">Skill</h2>
-            <table className="table-wrapper">{table_content}</table>
+            <table className="table-wrapper">{table_contents}</table>
         </div>
     );
 };

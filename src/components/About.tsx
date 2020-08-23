@@ -5,7 +5,8 @@ import { Grid } from '@material-ui/core';
 import polyImg from './images/polygon2.jpg';
 import './mixin.scss';
 
-const useStyles = makeStyles((theme) => ({
+const smartPhoneMaxSize = 670;
+const useStyles = makeStyles(() => ({
     contact: {
         fontSize: '1.5rem',
     },
@@ -51,8 +52,7 @@ interface Content {
 }
 const About: React.FC = () => {
     const classes = useStyles();
-    let table_content: any[] = [];
-    let data: Content[] = [
+    const data: Content[] = [
         { key: 'Name', value: 'Keisuke Nishiwaki', url: '' },
         {
             key: 'University',
@@ -68,29 +68,18 @@ const About: React.FC = () => {
         { key: 'Contact', value: 'nishiwaki.kyoto[at]gmail.com', url: '' },
     ];
 
-    const setUrl = (value: string, url: string) => {
-        if (url !== '') {
-            return (
-                <td>
-                    <a href={url} className={classes.hovers}>
-                        {value}
-                    </a>
-                </td>
-            );
-        } else {
-            return <td>{value}</td>;
-        }
-    };
-    for (let i in data) {
-        table_content.push(
-            <tr>
-                <th>{data[i].key}</th>
-                {setUrl(data[i].value, data[i].url)}
-            </tr>,
-        );
-    }
+    const table_contents = data.map((item) => (
+        <tr>
+            <th>{item.key}</th>
+            <td>
+                <a href={item.url} className={classes.hovers}>
+                    {item.value}
+                </a>
+            </td>
+        </tr>
+    ));
+
     const { width, height } = useWindowDimensions();
-    console.log(width);
     return (
         <div id="about" className="content-wrapper">
             <h2 className="title">About</h2>
@@ -101,7 +90,7 @@ const About: React.FC = () => {
                 alignItems="center"
                 spacing={3}
             >
-                {width > 670 ? (
+                {width > smartPhoneMaxSize ? (
                     <Grid xs={3} item>
                         <img src={polyImg} className={classes.imgs} />
                     </Grid>
@@ -120,7 +109,7 @@ const About: React.FC = () => {
                         連絡先: nishiwaki.kyoto[at]gmail.com
                     </p>
                 </Grid>
-                {/* <table className="table-wrapper">{table_content}</table> */}
+                {/* <table className="table-wrapper">{table_contents}</table> */}
             </Grid>
         </div>
     );
