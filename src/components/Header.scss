@@ -67,15 +67,11 @@ $header-height: 6%;
 }
 
 @media (max-width: 670px) {
-    .header-left {
-        display: none;
-    }
-
     .header-right {
         display: none;
     }
 
     .header-menu {
-        display: block;
+        display: inline-block;
     }
 }

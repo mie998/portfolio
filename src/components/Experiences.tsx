@@ -29,7 +29,7 @@ const Experiences: React.FC = () => {
         {
             key: '株式会社SUS',
             role: 'Unity Enginner',
-            period: 'February/2020~',
+            period: 'February/2020 ~ May/2020',
         },
     ];
     for (var i in data) {

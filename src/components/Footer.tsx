@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import './styles/Footer.scss';
 
 const useStyles = makeStyles((theme) => ({
     footerWrapper: {

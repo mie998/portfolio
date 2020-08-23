@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export const useWindowDimensions = () => {
+export const useWindowDimensions: any = () => {
     const getWindowDimensions = () => {
         const { innerWidth: width, innerHeight: height } = window;
         return {

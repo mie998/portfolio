@@ -4,6 +4,7 @@
     "private": true,
     "homepage": "https://mie998.github.io/portfolio",
     "dependencies": {
+        "@babel/plugin-proposal-class-properties": "^7.10.4",
         "@emotion/core": "^10.0.28",
         "@material-ui/core": "^4.11.0",
         "@testing-library/jest-dom": "^4.2.4",
