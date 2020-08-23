@@ -108,7 +108,7 @@ const Header: React.FC = () => {
         },
         {
             name: 'hatena',
-            url: 'https://blog.hatena.ne.jp/MIE999/mie999.hatenablog.com/',
+            url: 'https://mie999.hatenablog.com/',
             class: 'fas fa-blog fa-2x',
         },
     ];

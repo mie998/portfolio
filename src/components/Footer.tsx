@@ -3,7 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     footerWrapper: {
-        padding: '1rem 0',
+        paddingTop: '1rem',
+        paddingBottom: '1rem',
+        paddingRight: '1rem',
+        width: '100%',
         color: 'white',
         textAlign: 'center',
         backgroundColor: 'rgba(0, 0, 0, .5)',

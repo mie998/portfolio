@@ -31,7 +31,7 @@ const Skill: React.FC = () => {
 
     return (
         <div id="skill" className="content-wrapper">
-            <h2 className="title">Skill/Qualification</h2>
+            <h2 className="title">Skill</h2>
             <table className="table-wrapper">{table_content}</table>
         </div>
     );
