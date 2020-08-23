@@ -1,5 +1,5 @@
 import React from 'react';
-import './components/styles/App.scss';
+import './components/mixin.scss';
 import Header from './components/Header';
 import About from './components/About';
 import History from './components/Experiences';

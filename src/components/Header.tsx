@@ -5,10 +5,9 @@ import ListItem, { ListItemProps } from '@material-ui/core/ListItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import EventListener from 'react-event-listener';
 import './Header.scss';
-// import useWindowDimensions from './About';
 
-const mobileSize = 670;
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
@@ -36,32 +35,10 @@ type Props = {
     refItems: References[];
 };
 
-export const useWindowDimensions: any = () => {
-    const getWindowDimensions = () => {
-        const { innerWidth: width, innerHeight: height } = window;
-        return {
-            width,
-            height,
-        };
-    };
-
-    const [windowDimensions, setWindowDimensions] = useState(
-        getWindowDimensions(),
-    );
-    useEffect(() => {
-        const onResize = () => {
-            setWindowDimensions(getWindowDimensions());
-        };
-        window.addEventListener('resize', onResize);
-        return () => window.removeEventListener('resize', onResize);
-    }, []);
-    return windowDimensions;
-};
-
-const ResponsiveDrawer: React.FC<Props> = (props) => {
+const ResponsiveDrawer: React.FC<Props> = (props: Props) => {
     const [mobileOpen, setMobileMenuIsOpen] = useState(false);
-    const classes = useStyles();
-    const references = props.refItems;
+    const classes: any = useStyles();
+    const references: References[] = props.refItems;
     const refItems = references.map((item) => (
         <ListItemLink href={item.url}>
             <ListItemIcon>
@@ -71,11 +48,12 @@ const ResponsiveDrawer: React.FC<Props> = (props) => {
         </ListItemLink>
     ));
 
-    // if (width > mobileSize) {
-    //     setMobileMenuIsOpen(false);
-    // }
+    const handleResize = (): void => {
+        setMobileMenuIsOpen(false);
+    };
     return (
         <>
+            <EventListener target="window" onResize={handleResize} />
             {mobileOpen ? (
                 <>
                     <div className="header-menu">
@@ -117,7 +95,6 @@ const ResponsiveDrawer: React.FC<Props> = (props) => {
 };
 
 const Header: React.FC = () => {
-    const classes = useStyles();
     const references: References[] = [
         {
             name: 'github',

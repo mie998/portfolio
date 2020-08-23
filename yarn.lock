@@ -1805,6 +1805,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-event-listener@^0.4.11":
+  version "0.4.11"
+  resolved "https://registry.yarnpkg.com/@types/react-event-listener/-/react-event-listener-0.4.11.tgz#4217054b31fd9615748458ec39c9433df5bd25f4"
+  integrity sha512-epq48AJ8jVGbxIFqDaGp888lkRhfs5ZGXzgG6pIp98ltw54vn/SzgIOLJi27g67hhr2ug7KJcVdUimw8LJD36g==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-transition-group@^4.2.0":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.0.tgz#882839db465df1320e4753e6e9f70ca7e9b4d46d"
