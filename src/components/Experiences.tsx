@@ -21,7 +21,7 @@ const Experiences: React.FC = () => {
             period: 'October/2018 ~ Aplil/2019',
         },
         {
-            key: 'Chatwork',
+            key: 'Chatwork株式会社',
             role: 'Engineer internship',
             period: 'Mid August/2019 ~ Early September/2019',
         },
@@ -30,13 +30,20 @@ const Experiences: React.FC = () => {
             role: 'Unity Enginner',
             period: 'February/2020 ~ May/2020',
         },
+        {
+            key: '株式会社ロバリフ',
+            role: 'Enginner',
+            period: 'September/2020 ~',
+        },
     ];
-    const table_contents = data.map((item) => (
-        <tr>
-            <th>{item.key}</th>
-            <td>{item.role}</td>
-            <td>{item.period}</td>
-        </tr>
+    const table_contents: JSX.Element[] = data.map((item) => (
+        <tbody key={item.key}>
+            <tr>
+                <th>{item.key}</th>
+                <td>{item.role}</td>
+                <td>{item.period}</td>
+            </tr>
+        </tbody>
     ));
 
     return (

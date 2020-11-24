@@ -68,16 +68,16 @@ const About: React.FC = () => {
         { key: 'Contact', value: 'nishiwaki.kyoto[at]gmail.com', url: '' },
     ];
 
-    const table_contents = data.map((item) => (
-        <tr>
-            <th>{item.key}</th>
-            <td>
-                <a href={item.url} className={classes.hovers}>
-                    {item.value}
-                </a>
-            </td>
-        </tr>
-    ));
+    // const table_contents = data.map((item) => (
+    //     <tr>
+    //         <th>{item.key}</th>
+    //         <td>
+    //             <a href={item.url} className={classes.hovers}>
+    //                 {item.value}
+    //             </a>
+    //         </td>
+    //     </tr>
+    // ));
 
     const { width, height } = useWindowDimensions();
     return (

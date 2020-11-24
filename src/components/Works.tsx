@@ -2,10 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useState, useEffect } from 'react';
 import Grid, { GridProps } from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
+import { Card, CardContent, CardMedia, Typography } from '@material-ui/core';
 import polyImg from './images/polygon2.jpg';
 
 const tabletSizeMax = 1000;
@@ -37,6 +34,10 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         width: '25rem',
         height: '10rem',
+        transition: 'box-shadow 1s',
+        '&:hover': {
+            boxShadow: '0 1rem 1rem gray',
+        },
     },
     mediumCard: {
         display: 'flex',
@@ -87,7 +88,7 @@ const Works: React.FC = () => {
     const { width, height } = useWindowDimensions();
 
     const table_contents = data.map((item) => (
-        <Grid item xl>
+        <Grid item xl key={item.key}>
             <a href={item.url} className={classes.ref}>
                 <Card
                     className={

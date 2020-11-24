@@ -113,7 +113,7 @@ const Header: React.FC = () => {
         },
     ];
     const refItems: JSX.Element[] = references.map((item) => (
-        <a href={item.url}>
+        <a href={item.url} key={item.name}>
             <i className={item.class}></i>
         </a>
     ));
