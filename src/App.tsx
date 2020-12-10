@@ -1,5 +1,5 @@
 import React from 'react';
-import './components/mixin.scss';
+import './components/styles/mixin.scss';
 import Header from './components/Header';
 import About from './components/About';
 import History from './components/Experiences';
@@ -9,17 +9,17 @@ import Works from './components/Works';
 import Footer from './components/Footer';
 
 const App: React.FC = () => {
-    return (
-        <div className="container">
-            <Header />
-            <Top />
-            <About />
-            <History />
-            <Skill />
-            <Works />
-            <Footer />
-        </div>
-    );
+  return (
+    <div className="container">
+      <Header />
+      <Top />
+      <About />
+      <History />
+      <Skill />
+      <Works />
+      <Footer />
+    </div>
+  );
 };
 
 export default App;

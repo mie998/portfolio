@@ -1,46 +1,77 @@
-$header-height: 6%;
+@import 'colors';
+
+$header-height: 3.4rem;
 .header-wrapper {
-    width: 100%;
-    height: $header-height;
-    position: fixed;
-    background-color: rgba(0, 0, 0, 1);
-    top: 0;
-    z-index: 10;
+  width: 100%;
+  box-sizing: border-box;
+  height: $header-height;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 1);
+  top: 0;
+  z-index: 10;
 }
 
 .header-left {
-    // padding: $header-height/2 0;
-    // transition: all 0.5s;
-    display: inline-block;
+  padding-top: 1.2rem;
+  padding-bottom: 0.95rem;
+  transition: all 0.5s;
+  display: inline-block;
 
-    a {
-        padding: 0 0.5rem;
-        color: white;
+  a {
+    padding: 0 0.5rem;
+    color: white;
 
-        &:hover {
-            color: $hover-white;
-        }
+    &:hover {
+      color: $hover-white;
     }
+  }
 }
 
 .header-right {
-    float: right;
-    // padding: $header-height/2 0;
-    font-size: 2rem;
-    margin-right: 2rem;
-    color: white;
-    display: none;
+  float: right;
+  padding-top: 1rem;
+  font-size: 0.8rem;
+  a {
+    padding-right: 1.3rem;
+    .fa-github {
+      color: white;
+      &:hover {
+        color: $hover-white;
+      }
+    }
+    .fa-twitter-square {
+      color: $favicon-blue;
+      &:hover {
+        color: $hover-favicon-blue;
+      }
+    }
+    .fa-blog {
+      color: white;
+      &:hover {
+        color: $hover-white;
+      }
+    }
+  }
+}
+
+.header-menu {
+  float: right;
+  padding-top: 0.75rem;
+  padding-right: 1.3rem;
+  font-size: 2rem;
+  color: white;
+  display: none;
 }
 
 @media (max-width: 1000px) {
 }
 
 @media (max-width: 670px) {
-    .header-left {
-        display: none;
-    }
+  .header-right {
+    display: none;
+  }
 
-    .header-right {
-        display: block;
-    }
+  .header-menu {
+    display: inline-block;
+  }
 }
