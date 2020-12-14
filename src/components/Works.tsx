@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useState, useEffect } from 'react';
 import Grid, { GridProps } from '@material-ui/core/Grid';
 import { Card, CardContent, CardMedia, Typography } from '@material-ui/core';
+import Container from '@material-ui/core/Container';
 import { useWindowDimensions } from './common/UsefulHooks';
 import polyImg from './images/polygon2.jpg';
 
@@ -33,9 +34,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     width: '25rem',
     height: '10rem',
-    transition: 'box-shadow 1s',
+    // transition: 'box-shadow 1s',
     '&:hover': {
-      boxShadow: '0 1rem 1rem gray',
+      // boxShadow: '0 1rem 1rem gray',
     },
   },
   mediumCard: {

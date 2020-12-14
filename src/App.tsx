@@ -1,24 +1,24 @@
-import React from 'react';
-import './components/styles/mixin.scss';
-import Header from './components/Header';
-import About from './components/About';
-import History from './components/Experiences';
-import Skill from './components/Skill';
-import Top from './components/Top';
-import Works from './components/Works';
-import Footer from './components/Footer';
+import React, { FC, useEffect } from 'react';
+import { Navigate, Route, Routes, useLocation } from 'react-router';
+import Home from './components/Home';
 
-const App: React.FC = () => {
+const App: FC = () => {
+  const { hash, pathname } = useLocation();
+
+  useEffect(() => {
+    if (!hash) window.scrollTo(0, 0);
+  }, [hash, pathname]);
+
   return (
-    <div className="container">
-      <Header />
-      <Top />
-      <About />
-      <History />
-      <Skill />
-      <Works />
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      {/* <Route path="posts" element={<Posts />}>
+        <Route path="/" element={<AllPosts />} />
+        <Route path=":tagCode" element={<TagPosts />} />
+        <Route path=":postCode" element={<Post />} />
+      </Route> */}
+      <Route path="*" element={<Navigate to="/" replace />} />;
+    </Routes>
   );
 };
 

@@ -33,6 +33,12 @@ $header-height: 3.4rem;
   font-size: 0.8rem;
   a {
     padding-right: 1.3rem;
+    .fa-home {
+      color: #663300;
+      &:hover {
+        color: $hover-blown;
+      }
+    }
     .fa-github {
       color: white;
       &:hover {

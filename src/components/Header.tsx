@@ -7,6 +7,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import EventListener from 'react-event-listener';
 import './styles/Header.scss';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -22,12 +23,10 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const ListItemLink = (props: ListItemProps<'a', { button?: true }>) => {
-  return <ListItem button component="a" {...props} />;
-};
 interface References {
   name: string;
-  url: string;
+  foreign: boolean;
+  link: string;
   class: string;
 }
 type Props = {
@@ -35,12 +34,15 @@ type Props = {
   refItems: References[];
 };
 
+const ListItemLink = (props: ListItemProps<'a', { button?: true }>) => {
+  return <ListItem button component="a" {...props} />;
+};
 const ResponsiveDrawer: React.FC<Props> = (props: Props) => {
   const [mobileOpen, setMobileMenuIsOpen] = useState(false);
   const classes: any = useStyles();
   const references: References[] = props.refItems;
   const refItems = references.map((item) => (
-    <ListItemLink href={item.url}>
+    <ListItemLink href={item.link}>
       <ListItemIcon>
         <i className={item.class}></i>
       </ListItemIcon>
@@ -90,26 +92,41 @@ const ResponsiveDrawer: React.FC<Props> = (props: Props) => {
 const Header: React.FC = () => {
   const references: References[] = [
     {
+      name: 'home',
+      foreign: false,
+      link: '/',
+      class: 'fas fa-home fa-2x',
+    },
+    {
       name: 'github',
-      url: 'https://github.com/mie998',
+      foreign: true,
+      link: 'https://github.com/mie998',
       class: 'fa fa-github fa-2x',
     },
     {
       name: 'twitter',
-      url: 'https://twitter.com/Mie98838',
+      foreign: true,
+      link: 'https://twitter.com/Mie98838',
       class: 'fa fa-twitter-square fa-2x',
     },
     {
       name: 'hatena',
-      url: 'https://mie999.hatenablog.com/',
+      foreign: true,
+      link: 'https://mie999.hatenablog.com/',
       class: 'fas fa-blog fa-2x',
     },
   ];
-  const refItems: JSX.Element[] = references.map((item) => (
-    <a href={item.url} key={item.name}>
-      <i className={item.class}></i>
-    </a>
-  ));
+  const refItems: JSX.Element[] = references.map((item) =>
+    item.foreign ? (
+      <a href={item.link} key={item.name}>
+        <i className={item.class} />
+      </a>
+    ) : (
+      <Link to="/" key={item.name}>
+        <i className={item.class} />
+      </Link>
+    ),
+  );
 
   return (
     <div className="header-wrapper">
