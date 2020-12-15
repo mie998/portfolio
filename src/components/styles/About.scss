@@ -1,28 +1,28 @@
 @import 'mixin';
 
 .about-wrapper {
-    @include content-wrapper;
+  @include content-wrapper;
 
-    .about-title {
-        @include title;
-    }
-    .about-content {
-        @include content;
+  .about-title {
+    @include title;
+  }
+  .about-content {
+    @include content;
 
-        tr {
-            td {
-                a {
-                    color: white;
+    tr {
+      td {
+        a {
+          color: white;
 
-                    &:hover {
-                        color: $hover-white;
-                    }
-                }
-            }
+          &:hover {
+            color: $hover-white;
+          }
         }
+      }
     }
+  }
 
-    .box-wrapper {
-        @include box-wrapper;
-    }
+  .box-wrapper {
+    @include box-wrapper;
+  }
 }

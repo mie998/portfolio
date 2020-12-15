@@ -1,6 +1,11 @@
 import React, { FC, useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router';
+
 import Home from './components/Home';
+import Posts from './components/Posts';
+import AllPosts from './components/posts/AllPosts';
+import TagPosts from './components/posts/TagPosts';
+import DescribePost from './components/posts/DescribePost';
 
 const App: FC = () => {
   const { hash, pathname } = useLocation();
@@ -12,11 +17,11 @@ const App: FC = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      {/* <Route path="posts" element={<Posts />}>
+      <Route path="posts" element={<Posts />}>
         <Route path="/" element={<AllPosts />} />
         <Route path=":tagCode" element={<TagPosts />} />
-        <Route path=":postCode" element={<Post />} />
-      </Route> */}
+        <Route path=":postCode" element={<DescribePost />} />
+      </Route>
       <Route path="*" element={<Navigate to="/" replace />} />;
     </Routes>
   );

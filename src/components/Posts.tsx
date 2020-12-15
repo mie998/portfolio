@@ -4,7 +4,7 @@ import { Divider } from 'semantic-ui-react';
 
 import HomeButton from './common/HomeButton';
 
-const Characters: FC = () => (
+const Posts: FC = () => (
   <>
     <header>
       <h1>『SLAM DUNK』登場人物</h1>
@@ -15,4 +15,4 @@ const Characters: FC = () => (
   </>
 );
 
-export default Characters;
+export default Posts;

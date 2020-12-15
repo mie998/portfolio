@@ -11,7 +11,7 @@ type Props = {
   isLoading?: boolean;
 };
 
-const Post: FC<Props> = ({ post, isLoading = false }) => (
+const DescribePost: FC<Props> = ({ post, isLoading = false }) => (
   <>
     {isLoading ? (
       <Spinner />
@@ -24,4 +24,4 @@ const Post: FC<Props> = ({ post, isLoading = false }) => (
   </>
 );
 
-export default Post;
+export default DescribePost;

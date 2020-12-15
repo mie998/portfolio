@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { postsData } from '../data/posts';
+import { postsData } from './data/posts';
 import { Link } from 'react-router-dom';
 import { List } from 'semantic-ui-react';
 

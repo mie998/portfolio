@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Dimmer, Loader, Segment } from 'semantic-ui-react';
 
-import './Spinner.scss';
+import './spinner.scss';
 
 const Spinner: FC = () => (
   <Segment className="spinner">
