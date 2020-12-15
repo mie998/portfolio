@@ -5,11 +5,11 @@ import PostCardList from './PostCardList';
 import { Post } from './data/posts';
 
 type Props = {
-  posts: Post[];
+  posts?: Post[];
   isLoading?: boolean;
 };
 
-const AllPosts: FC<Props> = ({ posts, isLoading = false }) => (
+const AllPosts: FC<Props> = ({ posts = [], isLoading = false }) => (
   <>
     <Helmet>
       <title>投稿一覧</title>

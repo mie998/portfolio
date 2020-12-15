@@ -10,7 +10,7 @@ type Props = {
   isLoading?: boolean;
 };
 
-const PostCard: FC<Props> = ({ post, isLoading = false }) => (
+const PostCard: FC<Props> = ({ post = {}, isLoading = false }) => (
   <>
     <Link to={`Posts/${post.id}`}>{post.title}</Link>
   </>

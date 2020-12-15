@@ -7,19 +7,20 @@ import Spinner from '../common/Spinner';
 import { Post } from './data/posts';
 
 type Props = {
-  post: Post;
+  post?: Post;
   isLoading?: boolean;
 };
 
-const DescribePost: FC<Props> = ({ post, isLoading = false }) => (
+const DescribePost: FC<Props> = ({ post = {}, isLoading = false }) => (
   <>
     {isLoading ? (
       <Spinner />
     ) : (
-      render(
-        <ReactMarkdown plugins={[gfm]} children={post.body} />,
-        document.body,
-      )
+      <></>
+      // render(
+      //   <ReactMarkdown plugins={[gfm]} source={post.body} />,
+      //   document.body,
+      // )
     )}
   </>
 );

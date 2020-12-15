@@ -15,7 +15,7 @@ const TagList: FC = () => {
       <h2>タグ一覧</h2>
       <List as="ul">
         {tags.map((tag) => (
-          <List.Item as="li" key={tag}>
+          <List.Item as="li">
             <Link to={`/posts/${tag}`}>{tag}</Link>
           </List.Item>
         ))}

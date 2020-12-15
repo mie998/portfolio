@@ -9,7 +9,7 @@ type Props = {
   isLoading?: boolean;
 };
 
-const PostCardList: FC<Props> = ({ posts, isLoading = false }) => (
+const PostCardList: FC<Props> = ({ posts = [], isLoading = false }) => (
   <>
     <Helmet>
       <title>投稿一覧</title>
