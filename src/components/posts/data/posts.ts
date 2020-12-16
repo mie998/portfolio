@@ -1,7 +1,7 @@
 export type Post = {
   id: number;
   title: string;
-  date: string;
+  date: number;
   body: string;
 };
 
@@ -20,8 +20,19 @@ export const postsData: PostsData = {
     posts: [
       {
         id: 1,
-        title: '',
-        date: '20210101',
+        title: 'インターンシップに行ってきました',
+        date: 20210101,
+        body: `**test**`,
+      },
+    ],
+  },
+  math: {
+    tagName: 'math',
+    posts: [
+      {
+        id: 2,
+        title: '環準同型とは',
+        date: 20210122,
         body: `**test**`,
       },
     ],

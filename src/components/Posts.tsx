@@ -1,17 +1,22 @@
 import React, { FC } from 'react';
+import { Helmet } from 'react-helmet';
 import { Outlet } from 'react-router-dom';
-import { Divider } from 'semantic-ui-react';
 
+import Header from './Header';
+import Footer from './Footer';
 import HomeButton from './common/HomeButton';
+import './styles/mixin.scss';
 
 const Posts: FC = () => (
   <>
-    <header>
-      <h1>『SLAM DUNK』登場人物</h1>
-    </header>
-    <Outlet />
-    <Divider hidden />
-    <HomeButton />
+    <Helmet>
+      <title>POST</title>
+    </Helmet>
+    <div className="container">
+      <Outlet />
+      <HomeButton />
+      <Footer />
+    </div>
   </>
 );
 
