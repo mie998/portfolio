@@ -13,8 +13,8 @@ const Posts: FC = () => (
       <title>POST</title>
     </Helmet>
     <div className="container">
+      <Header/>
       <Outlet />
-      <HomeButton />
       <Footer />
     </div>
   </>

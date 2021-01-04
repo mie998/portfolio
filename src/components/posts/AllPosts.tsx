@@ -20,10 +20,8 @@ const AllPosts: FC = () => {
   const classes = useStyles();
   const { search } = useLocation();
   const isLoading = !!parse(search)?.loading;
-  const posts = Object.values(postsData)
-    .map((v) => v.posts)
-    .flat()
-    .sort((a, b) => a.date - b.date);
+  const posts = postsData.sort((a, b) => a.date - b.date);
+
   return (
     <>
       <Helmet>

@@ -23,6 +23,9 @@ const TagPosts: FC = () => {
   const isLoading = !!parse(search)?.loading;
   const postTagList = Object.keys(postsData);
 
+  console.log(tagCode);
+  console.log(postTagList);
+
   if (postTagList.includes(tagCode)) {
     const { tagName, posts } = postsData[tagCode];
     return (
@@ -36,8 +39,9 @@ const TagPosts: FC = () => {
         </div>
       </>
     );
+  } else {
+    return <Navigate to="/posts/" replace />;
   }
-  return <Navigate to="/posts/" replace />;
 };
 
 export default TagPosts;
