@@ -19,8 +19,8 @@ const App: FC = () => {
       <Route path="/" element={<Home />} />
       <Route path="posts" element={<Posts />}>
         <Route path="/" element={<AllPosts />} />
-        <Route path=":tagCode" element={<TagPosts />} />
-        <Route path=":postCode" element={<DescribePost />} />
+        <Route path=":postId" element={<DescribePost />} />
+        <Route path=":tagName" element={<TagPosts />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />;
     </Routes>
