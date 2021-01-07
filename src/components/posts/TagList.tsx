@@ -7,9 +7,9 @@ import { List } from 'semantic-ui-react';
 import { Outlet } from 'react-router-dom';
 
 const TagList: FC = () => {
-  const tags = postsData.map((post: Post) => ({
-    post
-  }));
+  const tags = postsData
+    .map((post: Post) => (post.tag))
+    .filter((x, i, self) => self.indexOf(x) === i);
 
   return (
     <>
@@ -17,15 +17,15 @@ const TagList: FC = () => {
         <title>タグ一覧</title>
       </Helmet>
       <div id="tag-posts" className="content-wrapper">
-      <h2>タグ一覧</h2>
-      <List as="ul">
-        {tags.map((tag) => (
-          <List.Item as="li">
-            <Link to={`/posts/tags/${tag}`}>{tag}</Link>
-          </List.Item>
-        ))}
-      </List>
-      <Outlet/>
+        <h2>タグ一覧</h2>
+        <List as="ul">
+          {tags.map((tag) => (
+            <List.Item as="li">
+              <Link to={`/posts/tags/${tag}`}>{tag}</Link>
+            </List.Item>
+          ))}
+        </List>
+        <Outlet/>
       </div>
     </>
   );

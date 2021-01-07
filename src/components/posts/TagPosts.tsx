@@ -21,13 +21,13 @@ const TagPosts: FC = () => {
   const { tagCode } = useParams();
   const { search } = useLocation();
   const isLoading = !!parse(search)?.loading;
-  const postTagList = Object.keys(postsData);
+  const postsDataFilteredByTagCode: Post[] = postsData.filter(post => post.tag === tagCode)
 
-  console.log(tagCode);
-  console.log(postTagList);
-
-  if (postTagList.includes(tagCode)) {
-    const { tagName, posts } = postsData[tagCode];
+  if (postsDataFilteredByTagCode.length === 0) {
+    return <Navigate to="/posts/" replace />;
+  } else {
+    const tagName = tagCode
+    const posts = postsDataFilteredByTagCode
     return (
       <>
         <Helmet>
@@ -39,8 +39,6 @@ const TagPosts: FC = () => {
         </div>
       </>
     );
-  } else {
-    return <Navigate to="/posts/" replace />;
   }
 };
 

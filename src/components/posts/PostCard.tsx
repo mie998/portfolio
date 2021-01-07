@@ -40,7 +40,13 @@ const PostCard: FC<Props> = ({ post = {}, isLoading = false }) => {
         </CardContent>
         <CardActions className={classes.readMore}>
           <Button size="large">
-            <Link to={`/posts/${post.id}`}>この記事を読む</Link>
+            <Link
+              to={{
+                pathname: `/posts/${post.id}`,
+              }}
+            >
+              この記事を読む
+            </Link>
           </Button>
         </CardActions>
       </Card>
