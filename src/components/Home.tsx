@@ -9,6 +9,7 @@ import Top from './Top';
 import Works from './Works';
 import Footer from './Footer';
 import './styles/mixin.scss';
+import AllPosts from './posts/AllPosts';
 
 const Home: React.FC = () => {
   return (
@@ -23,6 +24,7 @@ const Home: React.FC = () => {
         <History />
         <Skill />
         <Works />
+        <AllPosts/>
         <Footer />
       </div>
     </>

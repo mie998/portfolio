@@ -20,9 +20,9 @@ const DescribePost: FC = () => {
   const postFilteredById = postsData.filter(post => post.id === postId);
 
   return (
-  <div id="discribe" className="content-wrapper">
-    <ReactMarkdown plugins={[gfm]} source={getMarkdownFromPostsData(postFilteredById)} escapeHtml={false}/>,
-  </div>
+    <div id="discribe" className="content-wrapper">
+      <ReactMarkdown plugins={[gfm]} source={getMarkdownFromPostsData(postFilteredById)} escapeHtml={false}/>
+    </div>
   )
 };
 

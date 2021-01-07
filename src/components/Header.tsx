@@ -135,6 +135,7 @@ const Header: React.FC = () => {
         <a href="#experience">History</a>
         <a href="#skill">Skill</a>
         <a href="#works">Works</a>
+        <Link to="/posts/">Posts</Link>
       </div>
       <div className="header-right">{refItems}</div>
       <ResponsiveDrawer refItems={references} />

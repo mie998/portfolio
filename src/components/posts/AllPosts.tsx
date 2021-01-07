@@ -28,7 +28,7 @@ const AllPosts: FC = () => {
         <title>投稿一覧</title>
       </Helmet>
       <div id="all-posts" className="content-wrapper">
-        <h2 className={classes.title}>投稿一覧</h2>
+        <h2 className={classes.title}>Posts</h2>
         <PostCardList posts={posts} isLoading={isLoading} />
       </div>
     </>
