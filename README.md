@@ -9,7 +9,7 @@
 - [ ] markdown のみ別のファイルに切り出し、いい感じに json にパースできる処理を posts.ts に追加する。
 - [ ] post コンポーネントのデザインを考える.
 - [ ] Read More!の実装(Home ように recent posts コンポーネントを追加したい) 単なる Link でもいいかもしれない。とりあえず Recent Posts コンポーネントは必須.
-- [ ]
+- [ ] Semantic UI を使うのはパフォーマンス上よくないかも？ material UI で完結させたい
 - [ ]
 - [ ]
 
@@ -20,3 +20,5 @@
 - [ ] 今は tagCode をキーとして Post 配列を value とする連想配列が組まれているけど、これ本当に必要か？少なくとも TagCode と TagName の 2 つがあるのが冗長に思える.
 
 - [ ] post から About とかを押すとバグる.というかハッシュが無効だから意味なし。post には header を入れないという選択肢もある.
+
+-

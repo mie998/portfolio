@@ -6,8 +6,10 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import EventListener from 'react-event-listener';
-import './styles/Header.scss';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
+
+import './styles/Header.scss';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -131,10 +133,10 @@ const Header: React.FC = () => {
   return (
     <div className="header-wrapper">
       <div className="header-left">
-        <a href="#about">About</a>
-        <a href="#experience">History</a>
-        <a href="#skill">Skill</a>
-        <a href="#works">Works</a>
+        <HashLink	to="/#about">About</HashLink>
+        <HashLink	to="/#experience">Experience</HashLink>
+        <HashLink	to="/#skill">Skill</HashLink>
+        <HashLink	to="/#works">Works</HashLink>
         <Link to="/posts/">Posts</Link>
       </div>
       <div className="header-right">{refItems}</div>

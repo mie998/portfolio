@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
         color: 'white',
         textAlign: 'center',
         backgroundColor: 'rgba(0, 0, 0, .5)',
+        bottom: '0'
     },
 }));
 

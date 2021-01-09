@@ -1,37 +1,50 @@
 import React, { FC } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import ReactMarkdown from 'react-markdown/with-html';
-import { Navigate, useLocation, useParams } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown'
+// import ReactMarkdown from 'react-markdown/with-html';
+import { Navigate, useLocation, useParams, Link } from 'react-router-dom';
 import gfm from 'remark-gfm';
 import { Post, postsData } from './data/posts';
 
 const useStyles = makeStyles({
   articleWrapper: {
     textAlign: 'center',
-    padding: '1rem 15rem'
+    padding: '5rem 15rem'
   },
   articleTitle: {
     marginTop: '3rem',
     color: 'white',
+    lineHeight: '1.4em',
     fontSize: '3rem',
   },
   articleSuffix: {
     display: 'flex',
-    color: 'white',
-    fontSize: '3rem',
-    'p': {
-      color: 'white'
-    }
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
   },
-  articleMain: {
+  articleSuffixItem: {
+    fontSize: '1rem',
+    margin: '.8rem .5em',
+    color: 'rgb(200, 200, 200)',
+  },
+  articleMainContainer: {
     backgroundColor: 'white',
     borderRadius: '1rem',
-    padding: '0rem 1rem',
     boxShadow: '0 .5rem 1rem black',
-    fontSize: '100px',
-    // width: '80%'
+    margin: '1rem 0',
   },
+  articleMainWrapper: {
+    padding: '0.8rem 2.5rem',
+    textAlign: 'left',
+  },
+  articleMain: {
+    fontSize: '1.2rem',
+    lineHeight: '1.4rem',
+    wordWrap: 'break-word'
+  }
 });
+
 
 const DescribePost: FC = () => {
   const classes = useStyles();
@@ -48,12 +61,14 @@ const DescribePost: FC = () => {
     return (
       <div className={classes.articleWrapper}>
         <h2 className={classes.articleTitle}>{post.title}</h2>
-        <div className={classes.articleWrapper}>
-          <p>投稿日時: {post.date}</p>
-          <p>tag: {post.tag}</p>
+        <div className={classes.articleSuffix}>
+          <div className={classes.articleSuffixItem}>投稿日時: {post.date}</div>
+          <div className={classes.articleSuffixItem}>tag: <Link to={"/posts/tags/" + post.tag}>{post.tag}</Link></div>
         </div>
-        <div className={classes.articleMain}>
-          <ReactMarkdown plugins={[gfm]} source={post.body} escapeHtml={false} />
+        <div className={classes.articleMainContainer}>
+          <div className={classes.articleMainWrapper}>
+            <ReactMarkdown className={classes.articleMain} plugins={[gfm]} children={post.body} />
+          </div>
         </div>
       </div>
     )
