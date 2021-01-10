@@ -1,3 +1,5 @@
+import * as documentation from 'raw-loader!./Markdown/test.md'
+
 export type Post = {
   id: string;
   title: string;
@@ -12,43 +14,7 @@ export const postsData: Post[] = [
     title: 'テストtest',
     date: 100000,
     tag: 'test',
-    body: `## test
-
-新年早々に面白そうな記事を見つけました。ReactでのAPI呼出しを最適化するために 「部分的にサーバサイドで実行するコンポーネントを作る」というもののようです。
-
-長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い
-
-A paragraph with *emphasis* and **strong importance**.
-
-> A block quote with ~strikethrough~ and a URL: https://reactjs.org.
-
-* Lists
-* [ ] todo
-* [x] done
-
-A table:
-
-| a | b |
-| - | - |
-
-- うんち
-- TypeScript
-- console.log(unti)
-
-> quote
->> what?
-
-*Italic*
-
-1. 諦めないこと
-2. 信じ抜くこと
-
-Here is some JavaScript code:
-
-~~~js
-console.log('It works!')
-~~~
-`
+    body: documentation
   },
   {
     id: '1',
