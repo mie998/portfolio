@@ -41,7 +41,31 @@ const useStyles = makeStyles({
   articleMain: {
     fontSize: '1.2rem',
     lineHeight: '1.4rem',
-    wordWrap: 'break-word'
+    wordWrap: 'break-word',
+    '& > h1': {
+      borderBottom: '1px solid rgba(155,155,155,.7);',
+      marginBottom: '1rem',
+      lineHeight: '4rem',
+      fontSize: '2.5rem',
+      fontFamily: 'Anton, sans-serif;'
+    },
+    '& > h2': {
+      marginBottom: '.5rem',
+      lineHeight: '3rem',
+      fontSize: '2rem',
+      fontFamily: 'Anton, sans-serif;'
+    },
+    '& > pre': {
+      backgroundColor: '#272822',
+      color: "#fff",
+      borderRadius: '.5rem',
+      padding: '1rem',
+      display: 'block',
+      '& > code': {
+        fontSize: '.7rem',
+        fontFamily: 'SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji',
+      }
+    }
   }
 });
 

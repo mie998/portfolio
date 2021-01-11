@@ -1,4 +1,7 @@
-import * as documentation from 'raw-loader!./Markdown/test.md'
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import raw from 'raw.macro';
+
+const test = raw('./Markdown/test.md');
 
 export type Post = {
   id: string;
@@ -14,7 +17,7 @@ export const postsData: Post[] = [
     title: 'テストtest',
     date: 100000,
     tag: 'test',
-    body: documentation
+    body: test
   },
   {
     id: '1',
