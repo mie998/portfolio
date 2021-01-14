@@ -17,14 +17,14 @@ export const postsData: Post[] = [
     title: 'テストtest',
     date: 100000,
     tag: 'test',
-    body: test
+    body: test,
   },
   {
     id: '1',
     title: 'インターンシップに行ってきました',
     date: 20210101,
     tag: 'intern',
-    body: ``
+    body: ``,
   },
 
   {

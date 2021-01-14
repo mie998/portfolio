@@ -8,9 +8,12 @@
   },
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
-  "editor.tokenColorCustomizations": {
-    "semanticHighlighting": true
+  "editor.semanticTokenColorCustomizations": {
+    "enabled": true
   },
+  // "editor.tokenColorCustomizations": {
+  //   "semanticHighlighting": true
+  // },
   "editor.wordWrap": "on",
   "eslint.enable": true,
   "eslint.packageManager": "yarn",
