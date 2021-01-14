@@ -31,6 +31,7 @@ const Skill: React.FC = () => {
     { key: 'bash/zsh' },
     { key: 'vim' },
     { key: 'TOEIC 870' },
+    { key: '応用情報技術者' },
   ];
 
   const table_contents: JSX.Element[] = data.map((item) => (

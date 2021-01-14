@@ -20,7 +20,7 @@ const AllPosts: FC = () => {
   const classes = useStyles();
   const { search } = useLocation();
   const isLoading = !!parse(search)?.loading;
-  const posts = postsData.sort((a, b) => a.date - b.date);
+  const posts = postsData.sort((a, b) => (a > b ? 1 : -1));
 
   return (
     <>
