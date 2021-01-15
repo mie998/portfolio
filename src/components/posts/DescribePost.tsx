@@ -82,7 +82,7 @@ const useStyles = makeStyles({
       display: 'block',
       overflow: 'auto',
       '& > code': {
-        fontSize: '.7rem',
+        fontSize: '1rem',
         fontFamily:
           'SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji',
       },

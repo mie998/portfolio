@@ -18,8 +18,9 @@ $header-height: 3.4rem;
   display: inline-block;
 
   a {
-    padding: 0 0.5rem;
+    margin: auto 0.5rem;
     color: white;
+    text-decoration: none;
 
     &:hover {
       color: $hover-white;

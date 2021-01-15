@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Helmet } from 'react-helmet';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { parse } from 'query-string';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
@@ -22,6 +22,12 @@ const useStyles = makeStyles(() => ({
   readMore: {
     fontSize: '1.2rem',
     float: 'right',
+    '& > span': {
+      '& > a': {
+        color: 'inherit',
+        textDecoration: 'none',
+      },
+    },
   },
 }));
 
@@ -47,7 +53,7 @@ const RecentPosts: FC = () => {
             variant="contained"
             color="primary"
           >
-            {'>>'} Read More!
+            <Link to={`posts/`}>{'>>'} Read More!</Link>
           </Button>
         </div>
       </div>
