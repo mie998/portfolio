@@ -2,6 +2,7 @@
 import raw from 'raw.macro';
 
 const test = raw('./Markdown/test.md');
+const chatwork = raw('./Markdown/20191009.md');
 
 export type Post = {
   id: string;
@@ -21,10 +22,10 @@ export const postsData: Post[] = [
   },
   {
     id: '1',
-    title: 'インターンシップに行ってきました',
-    date: '2020/8/24',
+    title: 'chatworkにてインターンシップに行ってきました',
+    date: '20191009',
     tag: 'intern',
-    body: ``,
+    body: chatwork,
   },
 
   {

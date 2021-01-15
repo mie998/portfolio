@@ -64,12 +64,19 @@ const useStyles = makeStyles({
       fontFamily: 'Anton, sans-serif;',
     },
     '& > h2': {
+      borderBottom: '1px solid rgba(155,155,155,.7);',
       marginBottom: '.5rem',
       lineHeight: '3rem',
       fontSize: '2rem',
       fontFamily: 'Anton, sans-serif;',
     },
     '& > p': {
+      '& > a': {
+        textDecoration: 'none',
+        '&:hover': {
+          color: 'grey',
+        },
+      },
       '& > img': {
         maxWidth: '100%',
       },
@@ -104,7 +111,6 @@ const DescribePost: FC = () => {
   const classes = useStyles();
   const { postId } = useParams();
   const postFilteredById = postsData.filter((post) => post.id === postId);
-  const preElement = document.querySelector('pre');
 
   if (postFilteredById.length !== 1) {
     return <></>;
