@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
   cardContainer: {
     textAlign: 'center',
+    maxWidth: '100%',
   },
   cardDescription: {},
   noCardDescription: {

@@ -16,8 +16,8 @@ type Props = {
 
 const useStyles = makeStyles({
   root: {
-    width: '50%',
     margin: '1rem auto',
+    boxSizing: 'inherit',
   },
   readMore: {
     float: 'right',
@@ -38,9 +38,7 @@ const PostCard: FC<Props> = ({ post = {}, isLoading = false }) => {
         </CardContent>
         <CardActions className={classes.readMore}>
           <Button size="large">
-            <Link to={`/posts/${post.id}`}>
-              この記事を読む
-            </Link>
+            <Link to={`/posts/${post.id}`}>この記事を読む</Link>
           </Button>
         </CardActions>
       </Card>

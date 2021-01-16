@@ -3,9 +3,9 @@
 $header-height: 3.4rem;
 .header-wrapper {
   width: 100%;
-  box-sizing: border-box;
   height: $header-height;
   position: fixed;
+  box-sizing: border-box;
   background-color: rgba(0, 0, 0, 1);
   top: 0;
   z-index: 10;
@@ -30,7 +30,7 @@ $header-height: 3.4rem;
 
 .header-right {
   float: right;
-  padding-top: 1rem;
+  margin-top: 1rem;
   font-size: 0.8rem;
   a {
     padding-right: 1.3rem;
@@ -63,7 +63,7 @@ $header-height: 3.4rem;
 
 .header-menu {
   float: right;
-  padding-top: 0.75rem;
+  padding-top: 0.3rem;
   padding-right: 1.3rem;
   font-size: 2rem;
   color: white;

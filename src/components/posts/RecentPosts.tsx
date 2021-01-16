@@ -46,8 +46,8 @@ const RecentPosts: FC = () => {
     <>
       <div id="all-posts" className="content-wrapper">
         <h2 className={classes.title}>Recent Posts</h2>
-        <PostCardList posts={posts} isLoading={isLoading} />
         <div className={classes.cardWrapperRoot}>
+          <PostCardList posts={posts} isLoading={isLoading} />
           <Button
             className={classes.readMore}
             variant="contained"

@@ -5,7 +5,6 @@ const useStyles = makeStyles((theme) => ({
   footerWrapper: {
     paddingTop: '1rem',
     paddingBottom: '1rem',
-    paddingRight: '1rem',
     width: '100%',
     color: 'white',
     textAlign: 'center',

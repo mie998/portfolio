@@ -20,7 +20,7 @@ const App: FC = () => {
       <Route path="/" element={<Home />} />
       <Route path="posts" element={<Posts />}>
         <Route path="/" element={<AllPosts />} />
-        <Route path="tags" element={<TagList />} >
+        <Route path="tags">
           <Route path=":tagCode" element={<TagPosts />} />
         </Route>
         <Route path=":postId" element={<DescribePost />} />

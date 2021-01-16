@@ -1,23 +1,30 @@
 import React, { FC } from 'react';
 
 import { Post, postsData } from './data/posts';
-import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { List } from 'semantic-ui-react';
 import { Outlet } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(() => ({
+  topics: {
+    color: 'white',
+  },
+  tag: {
+    color: 'white',
+  },
+}));
 
 const TagList: FC = () => {
+  const classes = useStyles();
   const tags = postsData
-    .map((post: Post) => (post.tag))
+    .map((post: Post) => post.tag)
     .filter((x, i, self) => self.indexOf(x) === i);
 
   return (
     <>
-      <Helmet>
-        <title>タグ一覧</title>
-      </Helmet>
-      <div id="tag-posts" className="content-wrapper">
-        <h2>タグ一覧</h2>
+      <aside>
+        <h3>topics</h3>
         <List as="ul">
           {tags.map((tag) => (
             <List.Item as="li">
@@ -25,8 +32,7 @@ const TagList: FC = () => {
             </List.Item>
           ))}
         </List>
-        <Outlet/>
-      </div>
+      </aside>
     </>
   );
 };

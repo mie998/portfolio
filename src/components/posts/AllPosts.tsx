@@ -8,11 +8,15 @@ import PostCardList from './PostCardList';
 import { Post, postsData } from './data/posts';
 
 const useStyles = makeStyles(() => ({
-  title: {
-    fontSize: '4rem',
+  allPostsTitle: {
+    fontSize: '3rem',
     fontFamily: 'Anton, sans-serif',
     textAlign: 'center',
     margin: '1rem auto',
+  },
+  cardAdjust: {
+    width: '70%',
+    margin: '0 auto',
   },
 }));
 
@@ -28,8 +32,10 @@ const AllPosts: FC = () => {
         <title>投稿一覧</title>
       </Helmet>
       <div id="all-posts" className="content-wrapper">
-        <h2 className={classes.title}>Posts</h2>
-        <PostCardList posts={posts} isLoading={isLoading} />
+        <h2 className={classes.allPostsTitle}>過去投稿一覧</h2>
+        <div className={classes.cardAdjust}>
+          <PostCardList posts={posts} isLoading={isLoading} />
+        </div>
       </div>
     </>
   );

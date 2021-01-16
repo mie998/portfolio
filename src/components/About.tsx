@@ -20,6 +20,9 @@ const useStyles = makeStyles(() => ({
     border: '1px solid black',
     borderRadius: '1rem',
   },
+  gridContainer: {
+    maxWidth: '100%',
+  },
 }));
 
 interface Content {
@@ -27,6 +30,7 @@ interface Content {
   value: string;
   url: string;
 }
+
 const About: React.FC = () => {
   const classes = useStyles();
   const data: Content[] = [
@@ -66,6 +70,7 @@ const About: React.FC = () => {
         justify="center"
         alignItems="center"
         spacing={3}
+        className={classes.gridContainer}
       >
         {width > smartPhoneMaxSize ? (
           <Grid xs={3} item>
@@ -86,7 +91,6 @@ const About: React.FC = () => {
             連絡先: nishiwaki.kyoto[at]gmail.com
           </p>
         </Grid>
-        {/* <table className="table-wrapper">{table_contents}</table> */}
       </Grid>
     </div>
   );

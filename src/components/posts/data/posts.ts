@@ -27,7 +27,34 @@ export const postsData: Post[] = [
     tag: 'intern',
     body: chatwork,
   },
-
+  {
+    id: '2',
+    title: '環準同型とは',
+    date: '2020/11/11',
+    tag: 'math',
+    body: ``,
+  },
+  {
+    id: '2',
+    title: '環準同型とは',
+    date: '2020/11/11',
+    tag: 'math',
+    body: ``,
+  },
+  {
+    id: '2',
+    title: '環準同型とは',
+    date: '2020/11/11',
+    tag: 'math',
+    body: ``,
+  },
+  {
+    id: '2',
+    title: '環準同型とは',
+    date: '2020/11/11',
+    tag: 'math',
+    body: ``,
+  },
   {
     id: '2',
     title: '環準同型とは',
