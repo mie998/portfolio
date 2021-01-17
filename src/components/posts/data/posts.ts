@@ -23,7 +23,7 @@ export const postsData: Post[] = [
   {
     id: '1',
     title: 'chatworkにてインターンシップに行ってきました',
-    date: '20191009',
+    date: '2019/10/09',
     tag: 'intern',
     body: chatwork,
   },
