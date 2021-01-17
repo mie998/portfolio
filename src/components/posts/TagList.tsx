@@ -2,18 +2,27 @@ import React, { FC } from 'react';
 
 import { Post, postsData } from './data/posts';
 import { Link } from 'react-router-dom';
-import { List } from 'semantic-ui-react';
-import { Outlet } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(() => ({
-  topics: {
-    color: 'white',
+const useStyles = makeStyles({
+  wrapper: {
+    padding: '.5rem 0',
   },
-  tag: {
-    color: 'white',
+  tagList: {
+    '& > p': {
+      fontWeight: '900',
+      fontSize: '1.3rem',
+      margin: '.2rem .5rem',
+    },
+    '& > ul': {
+      margin: '0 auto',
+      '& > li': {
+        lineHeight: '1.5rem',
+        textDecoration: 'none',
+      },
+    },
   },
-}));
+});
 
 const TagList: FC = () => {
   const classes = useStyles();
@@ -23,15 +32,17 @@ const TagList: FC = () => {
 
   return (
     <>
-      <aside>
-        <h3>topics</h3>
-        <List as="ul">
-          {tags.map((tag) => (
-            <List.Item as="li">
-              <Link to={`/posts/tags/${tag}`}>{tag}</Link>
-            </List.Item>
-          ))}
-        </List>
+      <aside className={classes.wrapper}>
+        <div className={classes.tagList}>
+          <p>topics</p>
+          <ul>
+            {tags.map((tag) => (
+              <li>
+                <Link to={`/posts/tags/${tag}`}>{tag}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </aside>
     </>
   );

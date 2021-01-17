@@ -9,25 +9,31 @@ import TagList from './TagList';
 import { Post, postsData } from './data/posts';
 
 const useStyles = makeStyles(() => ({
+  Wrapper: {
+    display: 'flex',
+    width: '80%',
+    margin: '5rem auto',
+  },
   tagTitle: {
     fontSize: '2rem',
     fontFamily: 'Anton, sans-serif',
     textAlign: 'center',
-    color: 'white',
+    color: '',
   },
-  articleWrapper: {
-    display: 'flex',
+  articleListContainer: {
     width: '80%',
-    margin: '3rem auto',
+    borderRadius: '.5rem',
+    backgroundColor: 'white',
   },
-  articleMainWrapper: {
-    width: '80%',
-    marginRight: '2rem',
+  cardListContainer: {
+    width: '90%',
+    margin: '1rem auto',
   },
-  articleSidebarWrapper: {
+  SidebarWrapper: {
+    marginLeft: '2rem',
     width: '20%',
   },
-  articleSidebarContents: {
+  SidebarContents: {
     borderRadius: '.2rem',
     backgroundColor: 'white',
   },
@@ -52,13 +58,15 @@ const TagPosts: FC = () => {
         <Helmet>
           <title>{tagName}タグの投稿一覧</title>
         </Helmet>
-        <div className={classes.articleWrapper}>
-          <div className={classes.articleMainWrapper}>
+        <div className={classes.Wrapper}>
+          <div className={classes.articleListContainer}>
             <h3 className={classes.tagTitle}>#{tagName}</h3>
-            <PostCardList posts={posts} isLoading={isLoading} />
+            <div className={classes.cardListContainer}>
+              <PostCardList posts={posts} isLoading={isLoading} />
+            </div>
           </div>
-          <div className={classes.articleSidebarWrapper}>
-            <div className={classes.articleSidebarContents}>
+          <div className={classes.SidebarWrapper}>
+            <div className={classes.SidebarContents}>
               <TagList />
             </div>
           </div>

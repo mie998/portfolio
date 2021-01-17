@@ -100,8 +100,10 @@ const useStyles = makeStyles({
     },
   },
   articleShareButton: {
-    display: 'flex-center',
-    padding: '1rem 0',
+    width: '90%',
+    padding: '1.5rem 0',
+    margin: '3rem auto 0',
+    borderTop: '1px solid rgba(155,155,155,.7);',
     '& > button': {
       margin: '0 1rem',
       '&:hover': {
@@ -123,10 +125,7 @@ const useStyles = makeStyles({
     textAlign: 'left',
     position: 'sticky',
     top: '10rem',
-    // borderRadius: '.5rem',
-    // color: '#3b3b3b',
     padding: '.2rem 0',
-    // position: '-webkit-sticky',
     '& > p': {
       fontWeight: '900',
       fontSize: '1.3rem',
@@ -158,7 +157,7 @@ const DescribePost: FC = () => {
         <div className={classes.articleSuffix}>
           <div className={classes.articleSuffixItem}>投稿日時: {post.date}</div>
           <div className={classes.articleSuffixItem}>
-            tag: <Link to={'/posts/tags/' + post.tag}>{post.tag}</Link>
+            <Link to={'/posts/tags/' + post.tag}>#{post.tag}</Link>
           </div>
         </div>
         <div className={classes.articleContainer}>

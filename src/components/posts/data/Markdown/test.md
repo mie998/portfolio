@@ -54,6 +54,8 @@ export default defineComponent({
 });
 ```
 
+という。。。
+
 $${}\_n \mathrm{ P }\_k$$
 
 $$x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b}.$$
