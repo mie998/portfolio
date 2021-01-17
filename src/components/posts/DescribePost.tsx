@@ -14,20 +14,20 @@ import {
   LineShareButton,
 } from 'react-share';
 
+import CodeBlock from './CodeBlock';
 import { Post, postsData } from './data/posts';
 
 const useStyles = makeStyles({
   articleWrapper: {
     textAlign: 'center',
     padding: '5rem 15rem',
+    fontFamily: "'Open Sans', sans-serif'",
   },
   articleTitle: {
     marginTop: '3rem',
     color: 'white',
     lineHeight: '1.4em',
     fontSize: '3rem',
-    fontFamily:
-      '"Segoe UI", "Helvetica Neue", "Hiragino Kaku Gothic ProN", メイリオ, meiryo, sans-serif',
   },
   articleSuffix: {
     display: 'flex',
@@ -51,11 +51,10 @@ const useStyles = makeStyles({
     textAlign: 'left',
   },
   articleMain: {
-    fontSize: '1.2rem',
-    lineHeight: '1.6rem',
+    fontSize: '1.1rem',
+    lineHeight: '2rem',
+    color: '#3b3b3b',
     wordWrap: 'break-word',
-    fontFamily:
-      'SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace,"Segoe UI Emoji',
     '& > h1': {
       borderBottom: '1px solid rgba(155,155,155,.7);',
       marginBottom: '1rem',
@@ -64,8 +63,7 @@ const useStyles = makeStyles({
       fontFamily: 'Anton, sans-serif;',
     },
     '& > h2': {
-      borderBottom: '1px solid rgba(155,155,155,.7);',
-      marginBottom: '.5rem',
+      marginBottom: '1rem',
       lineHeight: '3rem',
       fontSize: '2rem',
       fontFamily: 'Anton, sans-serif;',
@@ -74,7 +72,7 @@ const useStyles = makeStyles({
       '& > a': {
         textDecoration: 'none',
         '&:hover': {
-          color: 'grey',
+          color: '#525252',
         },
       },
       '& > img': {
@@ -90,8 +88,7 @@ const useStyles = makeStyles({
       overflow: 'auto',
       '& > code': {
         fontSize: '1rem',
-        fontFamily:
-          'SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji',
+        fontFamily: 'Monaco',
       },
     },
   },
@@ -132,6 +129,7 @@ const DescribePost: FC = () => {
               className={classes.articleMain}
               plugins={[gfm]}
               children={post.body}
+              renderers={{ code: CodeBlock }}
             />
           </div>
           <div className={classes.articleShareButton}>

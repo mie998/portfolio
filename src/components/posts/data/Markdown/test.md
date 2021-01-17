@@ -54,8 +54,6 @@ export default defineComponent({
 });
 ```
 
-![エビフライトライアングル](http://i.imgur.com/Jjwsc.jpg)
-
 $${}\_n \mathrm{ P }\_k$$
 
 $$x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b}.$$
