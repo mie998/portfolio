@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     padding: '.5rem 0',
     backgroundColor: 'white',
     borderRadius: '.2rem',
-    boxShadow: '0 .5rem 1rem black',
+    boxShadow: '0 .2rem .5rem black',
   },
   tagList: {
     '& > p': {
