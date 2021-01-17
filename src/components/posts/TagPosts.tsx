@@ -17,7 +17,6 @@ const useStyles = makeStyles(() => ({
   },
   articleWrapper: {
     display: 'flex',
-    boxSizing: 'inherit',
     width: '80%',
     margin: '3rem auto',
   },
@@ -26,13 +25,10 @@ const useStyles = makeStyles(() => ({
     marginRight: '2rem',
   },
   articleSidebarWrapper: {
-    margin: 'auto',
     width: '20%',
   },
   articleSidebarContents: {
     borderRadius: '.2rem',
-    marginTop: '0',
-    paddingTop: '0',
     backgroundColor: 'white',
   },
 }));

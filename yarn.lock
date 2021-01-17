@@ -8091,7 +8091,7 @@ mdast-add-list-metadata@1.0.1:
   dependencies:
     unist-util-visit-parents "1.1.2"
 
-mdast-util-from-markdown@^0.8.0:
+mdast-util-from-markdown@0.8.4, mdast-util-from-markdown@^0.8.0:
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/mdast-util-from-markdown/-/mdast-util-from-markdown-0.8.4.tgz#2882100c1b9fc967d3f83806802f303666682d32"
   integrity sha512-jj891B5pV2r63n2kBTFh8cRI2uR9LQHsXG1zSDqfhXkIlDzrTcIlbB5+5aaYEkl8vOPIOPLf8VT7Ere1wWTMdw==
@@ -10456,6 +10456,13 @@ react-is@^17.0.1:
   version "17.0.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
+
+react-markdown-heading@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/react-markdown-heading/-/react-markdown-heading-1.1.2.tgz#8bdd4cedd05106cc2454bfd613e8f7898ecad173"
+  integrity sha512-4+GPZqMjtOLttvpTsEbrKFZ5ooTUEpv7kBlCdaAWWY36611fuqnL1Xx4CjW2GDCGO1fAsevAHxOxXLmVJTawQA==
+  dependencies:
+    mdast-util-from-markdown "0.8.4"
 
 react-markdown@^5.0.3:
   version "5.0.3"

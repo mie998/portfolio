@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Navigate, useLocation, useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import ReactMarkdownHeading from 'react-markdown-heading';
 import gfm from 'remark-gfm';
 import {
   TwitterIcon,
@@ -20,11 +21,16 @@ import { Post, postsData } from './data/posts';
 const useStyles = makeStyles({
   articleWrapper: {
     textAlign: 'center',
-    padding: '5rem 15rem',
+    margin: '5rem auto',
+    width: '80%',
+    height: '100%',
     fontFamily: "'Open Sans', sans-serif'",
   },
+  articleContainer: {
+    display: 'flex',
+  },
   articleTitle: {
-    marginTop: '3rem',
+    margin: '3rem 1rem 0 0',
     color: 'white',
     lineHeight: '1.4em',
     fontSize: '3rem',
@@ -34,6 +40,7 @@ const useStyles = makeStyles({
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
+    marginBottom: '1rem',
   },
   articleSuffixItem: {
     fontSize: '1rem',
@@ -44,7 +51,7 @@ const useStyles = makeStyles({
     backgroundColor: 'white',
     borderRadius: '1rem',
     boxShadow: '0 .5rem 1rem black',
-    margin: '1rem 0',
+    width: '75%',
   },
   articleMainWrapper: {
     padding: '0.8rem 2.5rem',
@@ -58,14 +65,14 @@ const useStyles = makeStyles({
     '& > h1': {
       borderBottom: '1px solid rgba(155,155,155,.7);',
       marginBottom: '1rem',
-      lineHeight: '4rem',
-      fontSize: '2.5rem',
+      lineHeight: '3rem',
+      fontSize: '2rem',
       fontFamily: 'Anton, sans-serif;',
     },
     '& > h2': {
       marginBottom: '1rem',
-      lineHeight: '3rem',
-      fontSize: '2rem',
+      lineHeight: '2rem',
+      fontSize: '1.5rem',
       fontFamily: 'Anton, sans-serif;',
     },
     '& > p': {
@@ -102,6 +109,37 @@ const useStyles = makeStyles({
       },
     },
   },
+  articleSideBarContainer: {
+    width: '20%',
+    marginLeft: '2rem',
+    display: 'unset',
+  },
+  articleSideBarContent: {
+    backgroundColor: 'white',
+    borderRadius: '.5rem',
+  },
+  articleTOC: {
+    color: 'white',
+    textAlign: 'left',
+    position: 'sticky',
+    top: '10rem',
+    // borderRadius: '.5rem',
+    // color: '#3b3b3b',
+    padding: '.2rem 0',
+    // position: '-webkit-sticky',
+    '& > p': {
+      fontWeight: '900',
+      fontSize: '1.3rem',
+      margin: '.2rem .5rem',
+    },
+    '& > ul': {
+      margin: '0 auto',
+      '& > li': {
+        lineHeight: '1.5rem',
+        textDecoration: 'none',
+      },
+    },
+  },
 });
 
 const DescribePost: FC = () => {
@@ -123,40 +161,48 @@ const DescribePost: FC = () => {
             tag: <Link to={'/posts/tags/' + post.tag}>{post.tag}</Link>
           </div>
         </div>
-        <div className={classes.articleMainContainer}>
-          <div className={classes.articleMainWrapper}>
-            <ReactMarkdown
-              className={classes.articleMain}
-              plugins={[gfm]}
-              children={post.body}
-              renderers={{ code: CodeBlock }}
-            />
+        <div className={classes.articleContainer}>
+          <div className={classes.articleMainContainer}>
+            <div className={classes.articleMainWrapper}>
+              <ReactMarkdown
+                className={classes.articleMain}
+                plugins={[gfm]}
+                children={post.body}
+                renderers={{ code: CodeBlock }}
+              />
+            </div>
+            <div className={classes.articleShareButton}>
+              <FacebookShareButton
+                url={`https://mie998.github.io/portfolio/posts/${post.id}`}
+                title={post.title}
+              >
+                <FacebookIcon size={50} round />
+              </FacebookShareButton>
+              <TwitterShareButton
+                url={`https://mie998.github.io/portfolio/posts/${post.id}`}
+                title={post.title}
+              >
+                <TwitterIcon size={50} round />
+              </TwitterShareButton>
+              <HatenaShareButton
+                url={`https://mie998.github.io/portfolio/posts/${post.id}`}
+                title={post.title}
+              >
+                <HatenaIcon size={50} round />
+              </HatenaShareButton>
+              <LineShareButton
+                url={`https://mie998.github.io/portfolio/posts/${post.id}`}
+                title={post.title}
+              >
+                <LineIcon size={50} round />
+              </LineShareButton>
+            </div>
           </div>
-          <div className={classes.articleShareButton}>
-            <FacebookShareButton
-              url={`https://mie998.github.io/portfolio/posts/${post.id}`}
-              title={post.title}
-            >
-              <FacebookIcon size={50} round />
-            </FacebookShareButton>
-            <TwitterShareButton
-              url={`https://mie998.github.io/portfolio/posts/${post.id}`}
-              title={post.title}
-            >
-              <TwitterIcon size={50} round />
-            </TwitterShareButton>
-            <HatenaShareButton
-              url={`https://mie998.github.io/portfolio/posts/${post.id}`}
-              title={post.title}
-            >
-              <HatenaIcon size={50} round />
-            </HatenaShareButton>
-            <LineShareButton
-              url={`https://mie998.github.io/portfolio/posts/${post.id}`}
-              title={post.title}
-            >
-              <LineIcon size={50} round />
-            </LineShareButton>
+          <div className={classes.articleSideBarContainer}>
+            <div className={classes.articleTOC}>
+              <p>目次</p>
+              <ReactMarkdownHeading markdown={post.body} />
+            </div>
           </div>
         </div>
       </div>
