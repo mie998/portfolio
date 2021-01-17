@@ -7,6 +7,9 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
   wrapper: {
     padding: '.5rem 0',
+    backgroundColor: 'white',
+    borderRadius: '.2rem',
+    boxShadow: '0 .5rem 1rem black',
   },
   tagList: {
     '& > p': {

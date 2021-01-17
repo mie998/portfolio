@@ -16,6 +16,7 @@ import {
 } from 'react-share';
 
 import CodeBlock from './CodeBlock';
+import TagList from './TagList';
 import { Post, postsData } from './data/posts';
 
 const useStyles = makeStyles({
@@ -119,6 +120,8 @@ const useStyles = makeStyles({
   articleSideBarContent: {
     backgroundColor: 'white',
     borderRadius: '.5rem',
+    textAlign: 'left',
+    marginBottom: '2rem',
   },
   articleTOC: {
     color: 'white',
@@ -198,6 +201,9 @@ const DescribePost: FC = () => {
             </div>
           </div>
           <div className={classes.articleSideBarContainer}>
+            <div className={classes.articleSideBarContent}>
+              <TagList />
+            </div>
             <div className={classes.articleTOC}>
               <p>目次</p>
               <ReactMarkdownHeading markdown={post.body} />

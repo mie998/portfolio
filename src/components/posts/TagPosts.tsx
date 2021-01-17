@@ -24,6 +24,12 @@ const useStyles = makeStyles(() => ({
     width: '80%',
     borderRadius: '.5rem',
     backgroundColor: 'white',
+    boxShadow: '0 .5rem 1rem black',
+    '& > div': {
+      '& > div': {
+        border: '1px solid #dedede',
+      },
+    },
   },
   cardListContainer: {
     width: '90%',
@@ -32,10 +38,6 @@ const useStyles = makeStyles(() => ({
   SidebarWrapper: {
     marginLeft: '2rem',
     width: '20%',
-  },
-  SidebarContents: {
-    borderRadius: '.2rem',
-    backgroundColor: 'white',
   },
 }));
 
@@ -66,9 +68,7 @@ const TagPosts: FC = () => {
             </div>
           </div>
           <div className={classes.SidebarWrapper}>
-            <div className={classes.SidebarContents}>
-              <TagList />
-            </div>
+            <TagList />
           </div>
         </div>
       </>
