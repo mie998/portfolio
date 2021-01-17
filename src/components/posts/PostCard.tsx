@@ -17,8 +17,8 @@ type Props = {
 const useStyles = makeStyles({
   root: {
     margin: '1rem auto',
-    boxSizing: 'inherit',
   },
+  tagButton: {},
   readMore: {
     float: 'right',
     marginRight: '1rem',
@@ -32,15 +32,20 @@ const PostCard: FC<Props> = ({ post = {}, isLoading = false }) => {
       <Card className={classes.root}>
         <CardContent>
           <Typography variant="h4">{post.title}</Typography>
-          <Typography variant="body2" component="p">
+          <CardActions className={classes.tagButton}>
+            <Button size="medium">
+              <Link to={`/posts/tags/${post.tag}`}>#{post.tag}</Link>
+            </Button>
+          </CardActions>
+          <Typography variant="body1" component="p" display="inline">
             {post.date}
           </Typography>
+          <CardActions className={classes.readMore}>
+            <Button size="large">
+              <Link to={`/posts/${post.id}`}>この記事を読む</Link>
+            </Button>
+          </CardActions>
         </CardContent>
-        <CardActions className={classes.readMore}>
-          <Button size="large">
-            <Link to={`/posts/${post.id}`}>この記事を読む</Link>
-          </Button>
-        </CardActions>
       </Card>
     </>
   );
