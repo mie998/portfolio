@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { Helmet } from 'react-helmet';
 import { useLocation, Link } from 'react-router-dom';
 import { parse } from 'query-string';
 import { makeStyles } from '@material-ui/core/styles';

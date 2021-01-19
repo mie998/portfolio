@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Navigate, useLocation, useParams, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import ReactMarkdown from 'react-markdown';
 import ReactMarkdownHeading from 'react-markdown-heading';
 import gfm from 'remark-gfm';
@@ -155,62 +156,69 @@ const DescribePost: FC = () => {
     const post: Post = postFilteredById[0];
 
     return (
-      <div className={classes.articleWrapper}>
-        <h2 className={classes.articleTitle}>{post.title}</h2>
-        <div className={classes.articleSuffix}>
-          <div className={classes.articleSuffixItem}>投稿日時: {post.date}</div>
-          <div className={classes.articleSuffixItem}>
-            <Link to={'/posts/tags/' + post.tag}>#{post.tag}</Link>
+      <>
+        <Helmet>
+          <title>{post.title}</title>
+        </Helmet>
+        <div className={classes.articleWrapper}>
+          <h2 className={classes.articleTitle}>{post.title}</h2>
+          <div className={classes.articleSuffix}>
+            <div className={classes.articleSuffixItem}>
+              投稿日時: {post.date}
+            </div>
+            <div className={classes.articleSuffixItem}>
+              <Link to={'/posts/tags/' + post.tag}>#{post.tag}</Link>
+            </div>
+          </div>
+          <div className={classes.articleContainer}>
+            <div className={classes.articleMainContainer}>
+              <div className={classes.articleMainWrapper}>
+                <ReactMarkdown
+                  className={classes.articleMain}
+                  plugins={[gfm]}
+                  children={post.body}
+                  renderers={{ code: CodeBlock }}
+                />
+              </div>
+              <div className={classes.articleShareButton}>
+                <FacebookShareButton
+                  url={`https://mie998.github.io/portfolio/posts/${post.id}`}
+                  title={post.title}
+                >
+                  <FacebookIcon size={50} round />
+                </FacebookShareButton>
+                <TwitterShareButton
+                  url={`https://mie998.github.io/portfolio/posts/${post.id}`}
+                  title={post.title}
+                >
+                  <TwitterIcon size={50} round />
+                </TwitterShareButton>
+                <HatenaShareButton
+                  url={`https://mie998.github.io/portfolio/posts/${post.id}`}
+                  title={post.title}
+                >
+                  <HatenaIcon size={50} round />
+                </HatenaShareButton>
+                <LineShareButton
+                  url={`https://mie998.github.io/portfolio/posts/${post.id}`}
+                  title={post.title}
+                >
+                  <LineIcon size={50} round />
+                </LineShareButton>
+              </div>
+            </div>
+            <div className={classes.articleSideBarContainer}>
+              <div className={classes.articleSideBarContent}>
+                <TagList />
+              </div>
+              <div className={classes.articleTOC}>
+                <p>目次</p>
+                <ReactMarkdownHeading markdown={post.body} />
+              </div>
+            </div>
           </div>
         </div>
-        <div className={classes.articleContainer}>
-          <div className={classes.articleMainContainer}>
-            <div className={classes.articleMainWrapper}>
-              <ReactMarkdown
-                className={classes.articleMain}
-                plugins={[gfm]}
-                children={post.body}
-                renderers={{ code: CodeBlock }}
-              />
-            </div>
-            <div className={classes.articleShareButton}>
-              <FacebookShareButton
-                url={`https://mie998.github.io/portfolio/posts/${post.id}`}
-                title={post.title}
-              >
-                <FacebookIcon size={50} round />
-              </FacebookShareButton>
-              <TwitterShareButton
-                url={`https://mie998.github.io/portfolio/posts/${post.id}`}
-                title={post.title}
-              >
-                <TwitterIcon size={50} round />
-              </TwitterShareButton>
-              <HatenaShareButton
-                url={`https://mie998.github.io/portfolio/posts/${post.id}`}
-                title={post.title}
-              >
-                <HatenaIcon size={50} round />
-              </HatenaShareButton>
-              <LineShareButton
-                url={`https://mie998.github.io/portfolio/posts/${post.id}`}
-                title={post.title}
-              >
-                <LineIcon size={50} round />
-              </LineShareButton>
-            </div>
-          </div>
-          <div className={classes.articleSideBarContainer}>
-            <div className={classes.articleSideBarContent}>
-              <TagList />
-            </div>
-            <div className={classes.articleTOC}>
-              <p>目次</p>
-              <ReactMarkdownHeading markdown={post.body} />
-            </div>
-          </div>
-        </div>
-      </div>
+      </>
     );
   }
 };
