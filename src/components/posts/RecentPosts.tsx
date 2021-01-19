@@ -43,7 +43,7 @@ const RecentPosts: FC = () => {
 
   return (
     <>
-      <div id="all-posts" className="content-wrapper">
+      <div id="recent-post" className="content-wrapper">
         <h2 className={classes.title}>Recent Posts</h2>
         <div className={classes.cardWrapperRoot}>
           <PostCardList posts={posts} isLoading={isLoading} />
