@@ -48,6 +48,13 @@ const useStyles = makeStyles({
     fontSize: '1rem',
     margin: '.8rem .5em',
     color: 'rgb(200, 200, 200)',
+    '& > a': {
+      textDecoration: 'none',
+      color: 'rgb(200, 200, 200)',
+      '&:hover': {
+        color: 'white',
+      },
+    },
   },
   articleMainContainer: {
     backgroundColor: 'white',
@@ -166,9 +173,11 @@ const DescribePost: FC = () => {
             <div className={classes.articleSuffixItem}>
               投稿日時: {post.date}
             </div>
-            <div className={classes.articleSuffixItem}>
-              <Link to={'/posts/tags/' + post.tag}>#{post.tag}</Link>
-            </div>
+            {post.tag.map((item) => (
+              <div className={classes.articleSuffixItem}>
+                <Link to={'/posts/tags/' + item}>#{item}</Link>
+              </div>
+            ))}
           </div>
           <div className={classes.articleContainer}>
             <div className={classes.articleMainContainer}>

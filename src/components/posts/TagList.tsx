@@ -47,6 +47,7 @@ const TagList: FC = () => {
   const classes = useStyles();
   const tags = postsData
     .map((post: Post) => post.tag)
+    .flat()
     .filter((x, i, self) => self.indexOf(x) === i);
 
   return (

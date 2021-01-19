@@ -46,8 +46,8 @@ const TagPosts: FC = () => {
   const { tagCode } = useParams();
   const { search } = useLocation();
   const isLoading = !!parse(search)?.loading;
-  const postsDataFilteredByTagCode: Post[] = postsData.filter(
-    (post) => post.tag === tagCode,
+  const postsDataFilteredByTagCode: Post[] = postsData.filter((post) =>
+    post.tag.includes(tagCode),
   );
 
   if (postsDataFilteredByTagCode.length === 0) {

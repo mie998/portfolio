@@ -18,7 +18,14 @@ const useStyles = makeStyles({
   root: {
     margin: '1rem auto',
   },
-  tagButton: {},
+  tagButton: {
+    '& > span': {
+      '& > a': {
+        textDecoration: 'none',
+        color: '#3273dc',
+      },
+    },
+  },
   readMore: {
     float: 'right',
     marginRight: '1rem',
@@ -32,10 +39,17 @@ const PostCard: FC<Props> = ({ post = {}, isLoading = false }) => {
       <Card className={classes.root}>
         <CardContent>
           <Typography variant="h4">{post.title}</Typography>
-          <CardActions className={classes.tagButton}>
-            <Button size="medium">
-              <Link to={`/posts/tags/${post.tag}`}>#{post.tag}</Link>
-            </Button>
+          <CardActions>
+            {post.tag?.map((item) => (
+              <Button
+                className={classes.tagButton}
+                variant="contained"
+                size="small"
+                disableElevation
+              >
+                <Link to={`/posts/tags/${item}`}>#{item}</Link>
+              </Button>
+            ))}
           </CardActions>
           <Typography variant="body1" component="p" display="inline">
             {post.date}
