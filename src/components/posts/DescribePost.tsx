@@ -27,6 +27,9 @@ const useStyles = makeStyles({
     width: '80%',
     height: '100%',
     fontFamily: "'Open Sans', sans-serif'",
+    '@media (max-width: 670px)': {
+      width: '90%',
+    },
   },
   articleContainer: {
     display: 'flex',
@@ -68,6 +71,9 @@ const useStyles = makeStyles({
   articleMainWrapper: {
     padding: '0.8rem 2.5rem',
     textAlign: 'left',
+    '@media (max-width: 670px)': {
+      padding: '0.8rem 1rem',
+    },
   },
   articleMain: {
     fontSize: '1.1rem',

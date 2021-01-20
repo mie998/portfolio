@@ -69,9 +69,10 @@ const ResponsiveDrawer: React.FC<Props> = (props: Props) => {
           <List
             component="nav"
             aria-label="mobile menu bar"
-            className={classes.root}
+            className="header-sub"
             subheader={
-              <ListSubheader component="nav" className={classes.subHeader}>
+              // <ListSubheader component="nav" className={classes.subHeader}>
+              <ListSubheader component="nav" className="header-sub-nav">
                 Find more!
               </ListSubheader>
             }
@@ -133,10 +134,10 @@ const Header: React.FC = () => {
   return (
     <div className="header-wrapper">
       <div className="header-left">
-        <HashLink	to="/#about">About</HashLink>
-        <HashLink	to="/#experience">Experience</HashLink>
-        <HashLink	to="/#skill">Skill</HashLink>
-        <HashLink	to="/#works">Works</HashLink>
+        <HashLink to="/#about">About</HashLink>
+        <HashLink to="/#experience">Experience</HashLink>
+        <HashLink to="/#skill">Skill</HashLink>
+        <HashLink to="/#works">Works</HashLink>
         <Link to="/posts/">Posts</Link>
       </div>
       <div className="header-right">{refItems}</div>

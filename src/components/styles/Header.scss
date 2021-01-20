@@ -2,10 +2,10 @@
 
 $header-height: 3.4rem;
 .header-wrapper {
-  box-sizing: inherit;
   width: 100%;
   height: $header-height;
   position: fixed;
+  box-sizing: border-box;
   background-color: rgba(0, 0, 0, 1);
   top: 0;
   z-index: 10;
@@ -68,6 +68,16 @@ $header-height: 3.4rem;
   font-size: 2rem;
   color: white;
   display: none;
+}
+
+.header-sub {
+  width: 100%;
+  background-color: white;
+  //   max-width: 500px,
+}
+
+.header-sub-nav {
+  position: relative;
 }
 
 @media (max-width: 670px) {
