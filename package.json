@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mie998.github.io/",
+  "homepage": "https://mie998.github.io/portfolio/",
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@emotion/core": "^10.0.28",
