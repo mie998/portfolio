@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) =>
     backView: {
       height: '100vh',
       width: '100%',
+      boxSizing: 'inherit',
       background: `linear-gradient(
                 -45deg, rgba(150, 150, 150, .9), rgba(0, 0, 0, .9)
             ), url(${cityImg})`,
@@ -20,7 +21,8 @@ const useStyles = makeStyles((theme) =>
       fontFamily: 'Anton, sans-serif',
       borderBottom: 'double 1px black',
       textAlign: 'center',
-      paddingTop: '40vh',
+      marginTop: '43vh',
+      wordWrap: 'break-word',
     },
   }),
 );

@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Card } from '@material-ui/core';
-import './styles/Skill.scss';
 
 interface Content {
   key: string;
@@ -10,11 +9,11 @@ interface Content {
 const useStyles = makeStyles(() => ({
   cardContainer: {
     textAlign: 'center',
-    width: '60%',
+    width: '90%',
     margin: '0 auto',
   },
   cardStyle: {
-    width: '10rem',
+    width: '8rem',
     height: '5rem',
   },
 }));
@@ -35,9 +34,6 @@ const Skill: React.FC = () => {
   ];
 
   const table_contents: JSX.Element[] = data.map((item) => (
-    // <tr key={item.key}>
-    //     <th>{item.key}</th>
-    // </tr>
     <Grid item xl key={item.key}>
       <Card className={classes.cardStyle}>
         <h5>{item.key}</h5>

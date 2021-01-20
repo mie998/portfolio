@@ -1,8 +1,7 @@
 @import 'colors';
 
 .container {
-  width: 100%;
-  height: 100%;
+  box-sizing: inherit;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -10,6 +9,8 @@
 }
 
 .content-wrapper {
+  box-sizing: inherit;
+  word-wrap: break-word;
   padding: 5rem 0;
   color: white;
   font-size: 1.2rem;
@@ -19,24 +20,5 @@
   font-size: 4rem;
   font-family: Anton, sans-serif;
   text-align: center;
-  padding: 1rem, 0;
-}
-
-.table-wrapper {
-  display: grid;
-  flex-wrap: wrap;
-  justify-content: center;
-  border-spacing: 0.5rem;
-  border-collapse: separate;
-
-  tr {
-    td {
-      padding: 8px;
-    }
-    li {
-      font-size: 1.2rem;
-      padding-bottom: 0.5rem;
-      flex-wrap: nowrap;
-    }
-  }
+  padding: 1rem 0;
 }

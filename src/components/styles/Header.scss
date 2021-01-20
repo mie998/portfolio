@@ -2,10 +2,10 @@
 
 $header-height: 3.4rem;
 .header-wrapper {
+  box-sizing: inherit;
   width: 100%;
   height: $header-height;
   position: fixed;
-  box-sizing: border-box;
   background-color: rgba(0, 0, 0, 1);
   top: 0;
   z-index: 10;
@@ -70,10 +70,11 @@ $header-height: 3.4rem;
   display: none;
 }
 
-@media (max-width: 1000px) {
-}
-
 @media (max-width: 670px) {
+  .header-left {
+    display: none;
+  }
+
   .header-right {
     display: none;
   }

@@ -16,7 +16,7 @@ interface Contents {
   img: string;
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   ref: {
     textDecoration: 'none',
     '&:hover': {
