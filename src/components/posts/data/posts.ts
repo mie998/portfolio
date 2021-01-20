@@ -17,7 +17,7 @@ export const postsData: Post[] = [
     id: '0',
     title: 'テストtest',
     date: '2020/1/24',
-    tag: ['test', 'intern', 'math'],
+    tag: ['test', 'intern', 'math', 'random'],
     body: test,
   },
   {

@@ -28,7 +28,6 @@ const useStyles = makeStyles({
   },
   readMore: {
     float: 'right',
-    marginRight: '1rem',
   },
 });
 

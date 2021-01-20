@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
     margin: '1rem auto',
   },
   cardWrapperRoot: {
-    width: '50%',
+    width: '70%',
     margin: '1rem auto',
   },
   readMore: {

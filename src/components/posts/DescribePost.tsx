@@ -61,6 +61,9 @@ const useStyles = makeStyles({
     borderRadius: '1rem',
     boxShadow: '0 .5rem 1rem black',
     width: '75%',
+    '@media (max-width: 670px)': {
+      width: '100%',
+    },
   },
   articleMainWrapper: {
     padding: '0.8rem 2.5rem',
@@ -124,6 +127,9 @@ const useStyles = makeStyles({
     width: '20%',
     marginLeft: '2rem',
     display: 'unset',
+    '@media (max-width: 670px)': {
+      display: 'none',
+    },
   },
   articleSideBarContent: {
     backgroundColor: 'white',
