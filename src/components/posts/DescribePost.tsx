@@ -187,7 +187,7 @@ const DescribePost: FC = () => {
             </div>
             {post.tag.map((item) => (
               <div className={classes.articleSuffixItem}>
-                <Link to={'/posts/tags/' + item}>#{item}</Link>
+                <Link to={'/portfolio/posts/tags/' + item}>#{item}</Link>
               </div>
             ))}
           </div>

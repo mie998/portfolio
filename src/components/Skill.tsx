@@ -8,13 +8,19 @@ interface Content {
 
 const useStyles = makeStyles(() => ({
   cardContainer: {
+    alignItems: 'center',
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-start',
     textAlign: 'center',
-    width: '90%',
+    width: '80%',
     margin: '0 auto',
   },
   cardStyle: {
-    width: '8rem',
-    height: '5rem',
+    margin: '0 1rem 1rem 0',
+    padding: '0 1rem 0 1rem',
+    lineHeight: '1.5rem',
+    borderRadius: '0.3rem',
   },
 }));
 
@@ -44,16 +50,7 @@ const Skill: React.FC = () => {
   return (
     <div id="skill" className="content-wrapper">
       <h2 className="title">Skill</h2>
-      <Grid
-        container
-        spacing={3}
-        direction="row"
-        justify="center"
-        alignItems="flex-start"
-        className={classes.cardContainer}
-      >
-        {table_contents}
-      </Grid>
+      <div className={classes.cardContainer}>{table_contents}</div>
     </div>
   );
 };

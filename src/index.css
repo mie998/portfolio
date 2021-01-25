@@ -10,6 +10,18 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+@media (max-width: 1000px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 12px;
+  }
+}
+
 body {
   margin: 0;
 }

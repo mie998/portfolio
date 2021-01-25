@@ -18,7 +18,17 @@ const useStyles = makeStyles({
   root: {
     margin: '1rem auto',
   },
+  tagButtonWrapper: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-start',
+  },
   tagButton: {
+    margin: '0 .5rem .5rem 0',
+    padding: '0 .5rem 0 .5rem',
+    lineHeight: '1.8rem',
+    backgroundColor: '#ebebeb',
+    borderRadius: '.3rem',
     '& > span': {
       '& > a': {
         textDecoration: 'none',
@@ -39,16 +49,18 @@ const PostCard: FC<Props> = ({ post = {}, isLoading = false }) => {
         <CardContent>
           <Typography variant="h4">{post.title}</Typography>
           <CardActions>
-            {post.tag?.map((item) => (
-              <Button
-                className={classes.tagButton}
-                variant="contained"
-                size="small"
-                disableElevation
-              >
-                <Link to={`/portfolio/posts/tags/${item}`}>#{item}</Link>
-              </Button>
-            ))}
+            <div className={classes.tagButtonWrapper}>
+              {post.tag?.map((item) => (
+                <Button
+                  className={classes.tagButton}
+                  variant="contained"
+                  size="small"
+                  disableElevation
+                >
+                  <Link to={`/portfolio/posts/tags/${item}`}>#{item}</Link>
+                </Button>
+              ))}
+            </div>
           </CardActions>
           <Typography variant="body1" component="p" display="inline">
             {post.date}

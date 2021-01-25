@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) =>
       fontFamily: 'Anton, sans-serif',
       borderBottom: 'double 1px black',
       textAlign: 'center',
-      marginTop: '43vh',
+      marginTop: '40vh',
       wordWrap: 'break-word',
     },
   }),

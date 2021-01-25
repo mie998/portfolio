@@ -49,7 +49,7 @@ const Experiences: React.FC = () => {
     <div className={classes.contents}>
       <p>{item.period}</p>
       <p>
-        {item.key}: {item.role}
+        <b>{item.key}</b>: {item.role}
       </p>
       <br></br>
     </div>

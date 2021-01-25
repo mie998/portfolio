@@ -1,10 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
+
 import polyImg from './images/polygon2.jpg';
+import { smartPhoneMaxSize } from './common/settings';
 import { useWindowDimensions } from './common/UsefulHooks';
 
-const smartPhoneMaxSize = 670;
 const useStyles = makeStyles(() => ({
   contact: {
     fontSize: '1.5rem',
