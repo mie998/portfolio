@@ -52,7 +52,7 @@ const RecentPosts: FC = () => {
             variant="contained"
             color="primary"
           >
-            <Link to={`posts/`}>{'>>'} Read More!</Link>
+            <Link to={`/portfolio/posts/`}>{'>>'} Read More!</Link>
           </Button>
         </div>
       </div>

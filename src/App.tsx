@@ -26,16 +26,16 @@ const App: FC = () => {
 
   return (
     <div className={classes.wrapper}>
-      <Routes>
-        <Route path="/portfolio/" element={<Home />} />
-        <Route path="/portfolio/posts" element={<Posts />}>
+      <Routes basename="/portfolio">
+        <Route path="/" element={<Home />} />
+        <Route path="/posts" element={<Posts />}>
           <Route path="/" element={<AllPosts />} />
           <Route path="tags">
             <Route path=":tagCode" element={<TagPosts />} />
           </Route>
           <Route path=":postId" element={<DescribePost />} />
         </Route>
-        <Route path="*" element={<Navigate to="/portfolio/" replace />} />;
+        <Route path="*" element={<Navigate to="/" replace />} />;
       </Routes>
     </div>
   );
