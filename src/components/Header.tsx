@@ -97,7 +97,7 @@ const Header: React.FC = () => {
     {
       name: 'home',
       foreign: false,
-      link: '/',
+      link: '/portfolio/',
       class: 'fas fa-home fa-2x',
     },
     {
@@ -134,11 +134,11 @@ const Header: React.FC = () => {
   return (
     <div className="header-wrapper">
       <div className="header-left">
-        <HashLink to="/#about">About</HashLink>
-        <HashLink to="/#experience">Experience</HashLink>
-        <HashLink to="/#skill">Skill</HashLink>
-        <HashLink to="/#works">Works</HashLink>
-        <Link to="/posts/">Posts</Link>
+        <HashLink to="/portfolio/#about">About</HashLink>
+        <HashLink to="/portfolio/#experience">Experience</HashLink>
+        <HashLink to="/portfolio/#skill">Skill</HashLink>
+        <HashLink to="/portfolio/#works">Works</HashLink>
+        <Link to="/portfolio/posts/">Posts</Link>
       </div>
       <div className="header-right">{refItems}</div>
       <ResponsiveDrawer refItems={references} />

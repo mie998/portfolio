@@ -58,7 +58,7 @@ const TagList: FC = () => {
           <div className={classes.tagList}>
             {tags.map((tag) => (
               <span>
-                <Link to={`/posts/tags/${tag}`}>#{tag}</Link>
+                <Link to={`/portfolio/posts/tags/${tag}`}>#{tag}</Link>
               </span>
             ))}
           </div>

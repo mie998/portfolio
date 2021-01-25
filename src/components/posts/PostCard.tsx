@@ -46,7 +46,7 @@ const PostCard: FC<Props> = ({ post = {}, isLoading = false }) => {
                 size="small"
                 disableElevation
               >
-                <Link to={`/posts/tags/${item}`}>#{item}</Link>
+                <Link to={`/portfolio/posts/tags/${item}`}>#{item}</Link>
               </Button>
             ))}
           </CardActions>
@@ -55,7 +55,7 @@ const PostCard: FC<Props> = ({ post = {}, isLoading = false }) => {
           </Typography>
           <CardActions className={classes.readMore}>
             <Button size="large">
-              <Link to={`/posts/${post.id}`}>この記事を読む</Link>
+              <Link to={`/portfolio/posts/${post.id}`}>この記事を読む</Link>
             </Button>
           </CardActions>
         </CardContent>
