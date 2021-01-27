@@ -1,19 +1,15 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { useState, useEffect } from 'react';
-import Grid, { GridProps } from '@material-ui/core/Grid';
+import Grid from '@material-ui/core/Grid';
 import { Card, CardContent, CardMedia, Typography } from '@material-ui/core';
-import Container from '@material-ui/core/Container';
-import { useWindowDimensions } from './common/UsefulHooks';
+
 import polyImg from './images/polygon2.jpg';
 
-const smartPhoneSizeMedium = 420;
-const smartPhoneSizeSmall = 320;
 interface Contents {
   key: string;
   url: string;
   description: string;
-  img: string;
+  tools: string[];
 }
 
 const useStyles = makeStyles(() => ({
@@ -24,33 +20,16 @@ const useStyles = makeStyles(() => ({
     },
   },
   cardContainer: {
-    textAlign: 'center',
     maxWidth: '100%',
   },
+  cardStyle: {
+    display: 'flex',
+  },
+  cardTitle: {},
   cardDescription: {},
-  noCardDescription: {
-    display: 'None',
+  cover: {
+    width: '100%',
   },
-  largeCard: {
-    display: 'flex',
-    width: '25rem',
-    height: '10rem',
-    // transition: 'box-shadow 1s',
-    '&:hover': {
-      // boxShadow: '0 1rem 1rem gray',
-    },
-  },
-  mediumCard: {
-    display: 'flex',
-    width: '20rem',
-    height: '8rem',
-  },
-  smallCard: {
-    display: 'flex',
-    width: '15rem',
-    height: '5rem',
-  },
-  cover: { width: '100%' },
 }));
 
 const Works: React.FC = () => {
@@ -59,47 +38,49 @@ const Works: React.FC = () => {
     {
       key: 'portfolio',
       url: 'https://mie998.github.io/portfolio/',
-      description: '自身のポートフォリオサイト. React, TypeScript などを使用.',
-      img: polyImg,
+      description:
+        '自身のポートフォリオサイト. 自己紹介を含め,react-routerにてルーティングを行ったブログ機能も追加してある.ブログもちょくちょく投稿しているのでぜひみてください！！',
+      tools: ['reactDOM', 'react-router', 'MaterialUI', 'TypeScript'],
     },
   ];
-  const { width, height } = useWindowDimensions();
 
   const table_contents = data.map((item) => (
-    <Grid item xl key={item.key}>
+    <Grid item xs={8} sm={8} md={5} lg={5} key={item.key}>
       <a href={item.url} className={classes.ref}>
-        <Card
-          className={
-            width > smartPhoneSizeMedium
-              ? classes.largeCard
-              : width > smartPhoneSizeSmall
-              ? classes.mediumCard
-              : classes.smallCard
-          }
-        >
-          <CardContent>
-            <Typography component="h5" variant="h5">
-              {item.key}
-            </Typography>
-            <Typography
-              component="h6"
-              variant="subtitle1"
-              color="textSecondary"
-              className={
-                width < smartPhoneSizeMedium
-                  ? classes.noCardDescription
-                  : classes.cardDescription
-              }
-            >
-              {item.description}
-            </Typography>
-          </CardContent>
-          <CardMedia
-            className={classes.cover}
-            image={item.img}
-            title="portfolio"
-          ></CardMedia>
-        </Card>
+        <div className={classes.cardContainer}>
+          <Card className={classes.cardStyle}>
+            <CardContent>
+              <Typography
+                component="h4"
+                variant="h4"
+                className={classes.cardTitle}
+              >
+                {item.key}
+              </Typography>
+              <Typography
+                variant="subtitle1"
+                color="primary"
+                className={classes.cardDescription}
+              >
+                {item.description}
+              </Typography>
+              <Typography
+                variant="h5"
+                color="initial"
+                className={classes.cardDescription}
+              >
+                使用技術
+              </Typography>
+              {item.tools.map((tool) => {
+                return (
+                  <Typography variant="body1" color="textSecondary">
+                    {tool}
+                  </Typography>
+                );
+              })}
+            </CardContent>
+          </Card>
+        </div>
       </a>
     </Grid>
   ));
@@ -109,10 +90,10 @@ const Works: React.FC = () => {
       <h2 className="title">Works</h2>
       <Grid
         container
-        spacing={3}
+        spacing={4}
         direction="row"
         justify="center"
-        alignItems="flex-start"
+        alignItems="center"
         className={classes.cardContainer}
       >
         {table_contents}

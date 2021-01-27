@@ -3,8 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 
 import polyImg from './images/polygon2.jpg';
-import { smartPhoneMaxSize } from './common/settings';
-import { useWindowDimensions } from './common/UsefulHooks';
 
 const useStyles = makeStyles(() => ({
   contact: {
@@ -16,10 +14,16 @@ const useStyles = makeStyles(() => ({
       color: 'rgba(255, 255, 255, .3)',
     },
   },
-  imgs: {
+  imgContainer: {
+    textAlign: 'center',
+  },
+  profileImgPc: {
     width: '70%',
     border: '1px solid black',
-    borderRadius: '1rem',
+    borderRadius: '5rem',
+  },
+  profileImgSmartPhone: {
+    width: '70%',
   },
   gridContainer: {
     maxWidth: '100%',
@@ -34,34 +38,7 @@ interface Content {
 
 const About: React.FC = () => {
   const classes = useStyles();
-  const data: Content[] = [
-    { key: 'Name', value: 'Keisuke Nishiwaki', url: '' },
-    {
-      key: 'University',
-      value: '京都大学情報学科',
-      url: '',
-    },
-    { key: 'GitHub', value: 'mie998', url: 'https://github.com/mie998' },
-    {
-      key: 'Twitter',
-      value: 'MIE98838',
-      url: 'https://twitter.com/Mie98838',
-    },
-    { key: 'Contact', value: 'nishiwaki.kyoto[at]gmail.com', url: '' },
-  ];
 
-  // const table_contents = data.map((item) => (
-  //     <tr>
-  //         <th>{item.key}</th>
-  //         <td>
-  //             <a href={item.url} className={classes.hovers}>
-  //                 {item.value}
-  //             </a>
-  //         </td>
-  //     </tr>
-  // ));
-
-  const { width, _ } = useWindowDimensions();
   return (
     <div id="about" className="content-wrapper">
       <h2 className="title">About</h2>
@@ -73,14 +50,10 @@ const About: React.FC = () => {
         spacing={3}
         className={classes.gridContainer}
       >
-        {width > smartPhoneMaxSize ? (
-          <Grid xs={3} item>
-            <img src={polyImg} className={classes.imgs} />
-          </Grid>
-        ) : (
-          <></>
-        )}
-        <Grid xs={width > 670 ? 5 : 8} item>
+        <Grid item xs={5} lg={3} md={3} sm={5} className={classes.imgContainer}>
+          <img src={polyImg} className={classes.profileImgPc} />
+        </Grid>
+        <Grid item xs={8} lg={5} md={5} sm={8}>
           <p>
             京都大学情報学科現4回生。ゲームは古来からの趣味であり、嵌まり込みすぎて情報学科に入学。現在は京都大学の神田研究室にて
             Human Robot Interaction に関する研究を行なっている。
