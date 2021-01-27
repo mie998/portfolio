@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import {
+  makeStyles,
+  Theme,
+  createStyles,
+  createMuiTheme,
+} from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem, { ListItemProps } from '@material-ui/core/ListItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
@@ -24,6 +29,16 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   }),
 );
+
+const theme = createMuiTheme({
+  overrides: {
+    MuiList: {
+      root: {
+        margin: 'auto',
+      },
+    },
+  },
+});
 
 interface References {
   name: string;
@@ -71,8 +86,11 @@ const ResponsiveDrawer: React.FC<Props> = (props: Props) => {
             aria-label="mobile menu bar"
             className="header-sub"
             subheader={
-              // <ListSubheader component="nav" className={classes.subHeader}>
-              <ListSubheader component="nav" className="header-sub-nav">
+              <ListSubheader
+                component="nav"
+                className="header-sub-nav"
+                disableSticky={true}
+              >
                 Find more!
               </ListSubheader>
             }

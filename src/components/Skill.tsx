@@ -9,16 +9,17 @@ interface Content {
 const useStyles = makeStyles(() => ({
   cardContainer: {
     alignItems: 'center',
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'flex-start',
+    display: 'grid',
+    gridAutoRows: 'auto',
+    gridColumnGap: '2rem',
+    gridRowGap: '1rem',
+    gridTemplateColumns: 'repeat(auto-fit,10rem)',
+    justifyContent: 'center',
     textAlign: 'center',
     width: '80%',
     margin: '0 auto',
   },
   cardStyle: {
-    margin: '0 1rem 1rem 0',
-    padding: '0 1rem 0 1rem',
     lineHeight: '1.5rem',
     borderRadius: '0.3rem',
   },
