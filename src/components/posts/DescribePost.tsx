@@ -126,8 +126,7 @@ const useStyles = makeStyles({
   articleShareButton: {
     width: '90%',
     padding: '1.5rem 0',
-    margin: '3rem auto 0',
-    borderTop: '1px solid rgba(155,155,155,.7);',
+    margin: '1rem auto 0',
     '& > p': {
       fontSize: '1.5rem',
       fontWeight: 'bold',
