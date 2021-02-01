@@ -18,7 +18,10 @@ import {
 
 import CodeBlock from './CodeBlock';
 import TagList from './TagList';
+import { smartPhoneMaxSize } from '../common/settings';
 import { Post, postsData } from './data/posts';
+
+const temple_str = `@media (max-width: ${smartPhoneMaxSize})`;
 
 const useStyles = makeStyles({
   articleWrapper: {
@@ -27,12 +30,15 @@ const useStyles = makeStyles({
     width: '80%',
     height: '100%',
     fontFamily: "'Open Sans', sans-serif'",
-    '@media (max-width: 670px)': {
+    '@media (max-width: 500px)': {
       width: '90%',
     },
   },
   articleContainer: {
     display: 'flex',
+    '@media (max-width: 500px)': {
+      display: 'block',
+    },
   },
   articleTitle: {
     margin: '3rem 1rem 0 0',
@@ -64,14 +70,14 @@ const useStyles = makeStyles({
     borderRadius: '1rem',
     boxShadow: '0 .5rem 1rem black',
     width: '75%',
-    '@media (max-width: 670px)': {
+    '@media (max-width: 500px)': {
       width: '100%',
     },
   },
   articleMainWrapper: {
     padding: '0.8rem 2.5rem',
     textAlign: 'left',
-    '@media (max-width: 670px)': {
+    '@media (max-width: 500px)': {
       padding: '0.8rem 1rem',
     },
   },
@@ -133,7 +139,7 @@ const useStyles = makeStyles({
     width: '20%',
     marginLeft: '2rem',
     display: 'unset',
-    '@media (max-width: 670px)': {
+    '@media (max-width: 500px)': {
       display: 'none',
     },
   },
@@ -142,6 +148,37 @@ const useStyles = makeStyles({
     borderRadius: '.5rem',
     textAlign: 'left',
     marginBottom: '2rem',
+  },
+  articleSmartphoneSuffixContainer: {
+    backgroundColor: 'white',
+    borderRadius: '.5rem',
+  },
+  articleSmartphoneSuffixContent: {},
+  articleSmartphoneSuffixTOC: {
+    '@media (min-width: 500px)': {
+      display: 'none',
+    },
+    '@media (max-width: 500px)': {
+      display: 'block',
+      color: 'white',
+      textAlign: 'left',
+      padding: '.2rem 0',
+      margin: '0 0 1rem 0',
+      border: '1px solid white',
+      borderRadius: '.5rem',
+      '& > p': {
+        fontWeight: '900',
+        fontSize: '1.3rem',
+        margin: '.2rem .5rem',
+      },
+      '& > ul': {
+        margin: '0 auto',
+        '& > li': {
+          lineHeight: '1.5rem',
+          textDecoration: 'none',
+        },
+      },
+    },
   },
   articleTOC: {
     color: 'white',
@@ -160,6 +197,10 @@ const useStyles = makeStyles({
         lineHeight: '1.5rem',
         textDecoration: 'none',
       },
+    },
+
+    '@media (max-width: 500px)': {
+      display: 'block',
     },
   },
 });
@@ -192,6 +233,10 @@ const DescribePost: FC = () => {
             ))}
           </div>
           <div className={classes.articleContainer}>
+            <div className={classes.articleSmartphoneSuffixTOC}>
+              <p>目次</p>
+              <ReactMarkdownHeading markdown={post.body} />
+            </div>
             <div className={classes.articleMainContainer}>
               <div className={classes.articleMainWrapper}>
                 <ReactMarkdown
