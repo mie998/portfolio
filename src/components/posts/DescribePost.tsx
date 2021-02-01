@@ -128,6 +128,11 @@ const useStyles = makeStyles({
     padding: '1.5rem 0',
     margin: '3rem auto 0',
     borderTop: '1px solid rgba(155,155,155,.7);',
+    '& > p': {
+      fontSize: '1.5rem',
+      fontWeight: 'bold',
+      color: 'rgba(0, 0, 0, 0.6)',
+    },
     '& > button': {
       margin: '0 1rem',
       '&:hover': {
@@ -247,6 +252,7 @@ const DescribePost: FC = () => {
                 />
               </div>
               <div className={classes.articleShareButton}>
+                <p>SHARE!!</p>
                 <FacebookShareButton
                   url={`https://mie998.github.io/portfolio/posts/${post.id}`}
                   title={post.title}
