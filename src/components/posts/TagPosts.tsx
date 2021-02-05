@@ -13,18 +13,25 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     width: '80%',
     margin: '5rem auto',
+    '@media (max-width: 500px)': {
+      display: 'block',
+      width: '90%',
+    },
   },
   tagTitle: {
     fontSize: '2rem',
     fontFamily: 'Anton, sans-serif',
     textAlign: 'center',
-    color: '',
   },
   articleListContainer: {
     width: '80%',
     borderRadius: '.5rem',
     backgroundColor: 'white',
     boxShadow: '0 .5rem 1rem black',
+    '@media (max-width: 500px)': {
+      padding: '1rem 0',
+      width: '100%',
+    },
     '& > div': {
       '& > div': {
         border: '1px solid #dedede',
@@ -38,6 +45,16 @@ const useStyles = makeStyles(() => ({
   SidebarWrapper: {
     marginLeft: '2rem',
     width: '20%',
+    '@media (max-width: 500px)': {
+      display: 'none',
+    },
+  },
+  ButtomContentsWrapper: {
+    display: 'none',
+    '@media (max-width: 500px)': {
+      marginTop: '2rem',
+      display: 'block',
+    },
   },
 }));
 
@@ -68,6 +85,9 @@ const TagPosts: FC = () => {
             </div>
           </div>
           <div className={classes.SidebarWrapper}>
+            <TagList />
+          </div>
+          <div className={classes.ButtomContentsWrapper}>
             <TagList />
           </div>
         </div>
