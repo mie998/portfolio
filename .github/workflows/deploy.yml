@@ -1,14 +1,14 @@
 name: CD
 on: 
   push:
-    branch: master 
+    branch: main
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy: 
       matrix:
-        node-version: '14'
+        node-version: ['14']
     steps:
       - name: Checkout
         uses: actions/checkout@v2.0.0
