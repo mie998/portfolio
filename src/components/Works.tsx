@@ -3,8 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { Card, CardContent, CardMedia, Typography } from '@material-ui/core';
 
-import polyImg from './images/polygon2.jpg';
-
 interface Contents {
   key: string;
   url: string;

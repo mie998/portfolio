@@ -13,13 +13,13 @@ export type Post = {
 };
 
 export const postsData: Post[] = [
-  // {
-  //   id: '0',
-  //   title: 'テストtest',
-  //   date: '2020/1/24',
-  //   tag: ['test', 'intern', 'math', 'random'],
-  //   body: test,
-  // },
+  {
+    id: '0',
+    title: 'テストtest',
+    date: '2020/1/24',
+    tag: ['test', 'intern', 'math', 'random'],
+    body: test,
+  },
   {
     id: '1',
     title: 'chatworkにてインターンシップに行ってきました',

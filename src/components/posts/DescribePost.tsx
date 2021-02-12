@@ -228,7 +228,7 @@ const DescribePost: FC = () => {
           <h2 className={classes.articleTitle}>{post.title}</h2>
           <div className={classes.articleSuffix}>
             <div className={classes.articleSuffixItem}>
-              投稿日時: {post.date}
+              <i className="fa fa-clock-o"></i> {post.date}
             </div>
             {post.tag.map((item) => (
               <div className={classes.articleSuffixItem}>
@@ -247,11 +247,11 @@ const DescribePost: FC = () => {
                   className={classes.articleMain}
                   plugins={[gfm]}
                   children={post.body}
+                  allowDangerousHtml
                   renderers={{ code: CodeBlock }}
                 />
               </div>
               <div className={classes.articleShareButton}>
-                <p>SHARE!!</p>
                 <FacebookShareButton
                   url={`https://mie998.github.io/portfolio/posts/${post.id}`}
                   title={post.title}
