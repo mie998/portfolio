@@ -1,0 +1,30 @@
+name: CD
+on: 
+  push:
+    branch: master 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy: 
+      matrix:
+        node-version: [12.x]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.0.0
+      - name: Set Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v1.3.0
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Install dependencies
+        run: yarn install
+      - name: build
+        run: yarn run build
+      - name: deploy
+        run: |
+          gitconfig --global user.name ${{secrets.USER_NAME}}
+          gitconfig --global user.email ${{secrets.USER_EMAIL}}
+          git remote set-url origin https://${{secrets.ACCESS_TOKEN}}@github.com/${{secrets.USER_NAME}}/portfolio
+          yarn run deploy
+        
+
