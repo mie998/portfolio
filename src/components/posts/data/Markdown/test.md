@@ -60,5 +60,4 @@ $${}\_n \mathrm{ P }\_k$$
 
 $$x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b}.$$
 
-<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="ja" dir="ltr">試問会終わり！<br>自由だ！！！</p>&mdash; Mie (@Mie98838) <a href="https://twitter.com/Mie98838/status/1359364949928079360?ref_src=twsrc%5Etfw">February 10, 2021</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">試問会終わり！<br>自由だ！！！</p>&mdash; Mie (@Mie98838) <a href="https://twitter.com/Mie98838/status/1359364949928079360?ref_src=twsrc%5Etfw">February 10, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

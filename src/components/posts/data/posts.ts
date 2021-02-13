@@ -3,6 +3,7 @@ import raw from 'raw.macro';
 
 const test = raw('./Markdown/test.md');
 const chatwork = raw('./Markdown/20191009.md');
+const blog_created = raw('./Markdown/20210212.md');
 
 export type Post = {
   id: string;
@@ -26,5 +27,12 @@ export const postsData: Post[] = [
     date: '2019/10/09',
     tag: ['intern'],
     body: chatwork,
+  },
+  {
+    id: '2',
+    title: 'ポートフォリオサイトに個人ブログ機能を追加してみた',
+    date: '2021/02/12',
+    tag: ['React', 'MaterialUI', 'random'],
+    body: blog_created,
   },
 ];
