@@ -66,11 +66,11 @@ const TagPosts: FC = () => {
   const postsDataFilteredByTagCode: Post[] = postsData.filter((post) =>
     post.tag.includes(tagCode),
   );
-  const parsedDate = (date: string) => {
-    date.split('/').join();
+  const parsedDate = (date: string): number => {
+    return parseInt(date.split('/').join());
   };
   const sortedPosts = postsDataFilteredByTagCode.sort((a, b) =>
-    parsedDate(a.date) > parsedDate(b.date) ? 1 : -1,
+    parsedDate(a.date) > parsedDate(b.date) ? -1 : 1,
   );
 
   if (postsDataFilteredByTagCode.length === 0) {
