@@ -1,6 +1,5 @@
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import raw from 'raw.macro';
-// import { ulid } from 'ulid';
 
 const test = raw('./Markdown/test.md');
 const chatwork = raw('./Markdown/20191009.md');

@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router';
+import ReactGA from 'react-ga';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Home from './components/Home';
@@ -18,11 +19,17 @@ const useStyles = makeStyles(() => ({
 
 const App: FC = () => {
   const classes = useStyles();
-  const { hash, pathname } = useLocation();
+  const location = useLocation();
 
+  // SPA scroll improvement
   useEffect(() => {
-    if (!hash) window.scrollTo(0, 0);
-  }, [hash, pathname]);
+    if (!location.hash) window.scrollTo(0, 0);
+  }, [location.hash, location.pathname]);
+
+  // Google Analytics
+  useEffect(() => {
+    ReactGA.pageview(location.pathname + location.search);
+  }, [location.key]);
 
   return (
     <div className={classes.wrapper}>

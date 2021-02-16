@@ -21,6 +21,7 @@
     "raw-loader": "^4.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-ga": "^3.3.0",
     "react-helmet": "^6.1.0",
     "react-markdown": "^5.0.3",
     "react-markdown-heading": "^1.1.2",
@@ -31,8 +32,7 @@
     "react-syntax-highlighter": "^15.4.3",
     "remark-gfm": "^1.0.0",
     "semantic-ui-react": "^2.0.1",
-    "typescript": "^4.0.2",
-    "ulid": "^2.3.0"
+    "typescript": "^4.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
