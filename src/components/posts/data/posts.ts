@@ -4,6 +4,7 @@ import raw from 'raw.macro';
 const test = raw('./Markdown/test.md');
 const chatwork = raw('./Markdown/20191009.md');
 const blog_created = raw('./Markdown/20210212.md');
+const influence_science_and_practice = raw('./Markdown/20210309.md');
 
 export type Post = {
   id: string;
@@ -34,5 +35,12 @@ export const postsData: Post[] = [
     date: '2021/02/12',
     tag: ['React', 'MaterialUI', 'random'],
     body: blog_created,
+  },
+  {
+    id: '3',
+    title: '「影響力の武器」を読んだ',
+    date: '2021/03/09',
+    tag: ['books', 'phychology'],
+    body: influence_science_and_practice,
   },
 ];

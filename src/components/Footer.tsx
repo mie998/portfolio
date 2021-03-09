@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
   return (
     <div className={classes.footerWrapper}>
       <p>Produced by Keisuke Nishiwaki</p>
-      <p>last modified: 2021/1/14</p>
+      <p>last modified: 2021/2/16</p>
     </div>
   );
 };
