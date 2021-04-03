@@ -5,6 +5,7 @@ const test = raw('./Markdown/test.md');
 const chatwork = raw('./Markdown/20191009.md');
 const blog_created = raw('./Markdown/20210212.md');
 const influence_science_and_practice = raw('./Markdown/20210309.md');
+const tex_environment = raw('./Markdown/20210403.md');
 
 export type Post = {
   id: string;
@@ -42,5 +43,12 @@ export const postsData: Post[] = [
     date: '2021/03/09',
     tag: ['books', 'phychology'],
     body: influence_science_and_practice,
+  },
+  {
+    id: '4',
+    title: 'docker や github actions を用いた tex 環境を作ってみた(無料)',
+    date: '2021/04/03',
+    tag: ['docker', 'tex', 'github actions'],
+    body: tex_environment,
   },
 ];
