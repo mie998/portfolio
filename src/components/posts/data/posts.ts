@@ -6,7 +6,7 @@ const chatwork = raw('./Markdown/20191009.md');
 const blog_created = raw('./Markdown/20210212.md');
 const influence_science_and_practice = raw('./Markdown/20210309.md');
 const tex_environment = raw('./Markdown/20210403.md');
-const supporters_1on1 = raw('./Markdown/20210403.md');
+const supporters_1on1 = raw('./Markdown/20210517.md');
 
 export type Post = {
   id: string;
