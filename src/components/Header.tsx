@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import {
-  makeStyles,
-  Theme,
-  createStyles,
-  createMuiTheme,
-} from '@material-ui/core/styles';
+import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem, { ListItemProps } from '@material-ui/core/ListItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
@@ -30,19 +25,9 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const theme = createMuiTheme({
-  overrides: {
-    MuiList: {
-      root: {
-        margin: 'auto',
-      },
-    },
-  },
-});
-
 interface References {
   name: string;
-  foreign: boolean;
+  external: boolean;
   link: string;
   class: string;
 }
@@ -114,31 +99,31 @@ const Header: React.FC = () => {
   const references: References[] = [
     {
       name: 'home',
-      foreign: false,
+      external: false,
       link: '/portfolio/',
       class: 'fas fa-home fa-2x',
     },
     {
       name: 'github',
-      foreign: true,
+      external: true,
       link: 'https://github.com/mie998',
       class: 'fa fa-github fa-2x',
     },
     {
       name: 'twitter',
-      foreign: true,
+      external: true,
       link: 'https://twitter.com/Mie98838',
       class: 'fa fa-twitter-square fa-2x',
     },
     {
       name: 'hatena',
-      foreign: true,
+      external: true,
       link: 'https://mie999.hatenablog.com/',
       class: 'fas fa-blog fa-2x',
     },
   ];
   const refItems: JSX.Element[] = references.map((item) =>
-    item.foreign ? (
+    item.external ? (
       <a href={item.link} key={item.name}>
         <i className={item.class} />
       </a>
