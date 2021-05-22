@@ -10,16 +10,19 @@ import Works from './Works';
 import Footer from './Footer';
 import RecentPosts from './posts/RecentPosts';
 
-import './styles/mixin.scss';
+import { useCommonStyles } from './styles/commonStyle';
+import { Box } from '@material-ui/core';
 
 const Home: React.FC = () => {
+  const commonClasses = useCommonStyles();
+
   return (
     <>
       <Helmet>
         <title>HOME</title>
       </Helmet>
-      <div className="container">
-        <Header />
+      <Box className={commonClasses.container}>
+        {/* <Header /> */}
         <Top />
         <About />
         <History />
@@ -27,7 +30,7 @@ const Home: React.FC = () => {
         <Works />
         <RecentPosts />
         <Footer />
-      </div>
+      </Box>
     </>
   );
 };

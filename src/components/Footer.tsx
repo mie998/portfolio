@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Box } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   footerWrapper: {
@@ -8,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     color: 'white',
     textAlign: 'center',
-    backgroundColor: 'rgba(0, 0, 0, .5)',
+    backgroundColor: theme.palette.grey[900],
     marginTop: 'auto',
     bottom: '0',
   },
@@ -16,11 +17,14 @@ const useStyles = makeStyles((theme) => ({
 
 const Footer: React.FC = () => {
   const classes = useStyles();
+  const today = new Date();
   return (
-    <div className={classes.footerWrapper}>
-      <p>Produced by Keisuke Nishiwaki</p>
-      <p>last modified: 2021/2/16</p>
-    </div>
+    <Box className={classes.footerWrapper}>
+      <p>© Keisuke Nishiwaki</p>
+      <p>
+        last modified: {today.getFullYear()}/{today.getMonth()}/{today.getDay()}
+      </p>
+    </Box>
   );
 };
 

@@ -5,7 +5,6 @@ import { makeStyles } from '@material-ui/core';
 
 import Header from './Header';
 import Footer from './Footer';
-import './styles/mixin.scss';
 
 const useStyles = makeStyles(() => ({
   postComponentContainer: {

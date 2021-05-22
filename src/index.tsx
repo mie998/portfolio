@@ -3,7 +3,7 @@ import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from '@material-ui/core';
+import { StylesProvider, ThemeProvider } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { theme } from './MuiTheme';
 
@@ -13,8 +13,10 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <BrowserRouter>
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <App />
+      <StylesProvider injectFirst>
+        <CssBaseline />
+        <App />
+      </StylesProvider>
     </ThemeProvider>
   </BrowserRouter>,
   document.getElementById('root'),
