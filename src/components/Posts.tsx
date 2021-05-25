@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import { Helmet } from 'react-helmet';
 import { Outlet } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Box } from '@material-ui/core';
+import { useCommonStyles } from './styles/commonStyle';
 
 import Header from './Header';
 import Footer from './Footer';
@@ -14,19 +15,20 @@ const useStyles = makeStyles(() => ({
 
 const Posts: FC = () => {
   const classes = useStyles();
+  const commonClasses = useCommonStyles();
 
   return (
     <>
       <Helmet>
         <title>POST</title>
       </Helmet>
-      <div className="container">
-        <Header />
+      <Box className={commonClasses.container}>
+        {/* <Header /> */}
         <div className={classes.postComponentContainer}>
           <Outlet />
         </div>
         <Footer />
-      </div>
+      </Box>
     </>
   );
 };
