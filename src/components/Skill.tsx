@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Card } from '@material-ui/core';
+import { useCommonStyles } from './styles/commonStyle';
+import { Box, Grid, Card } from '@material-ui/core';
 
 interface Content {
   key: string;
@@ -27,6 +28,8 @@ const useStyles = makeStyles(() => ({
 
 const Skill: React.FC = () => {
   const classes = useStyles();
+  const commonClasses = useCommonStyles();
+
   const data: Content[] = [
     { key: 'html/css(scss)' },
     { key: 'JS/TS/React' },
@@ -49,10 +52,10 @@ const Skill: React.FC = () => {
   ));
 
   return (
-    <div id="skill" className="content-wrapper">
-      <h2 className="title">Skill</h2>
+    <Box className={commonClasses.contentWrapper}>
+      <h2 className={commonClasses.title}>Skill</h2>
       <div className={classes.cardContainer}>{table_contents}</div>
-    </div>
+    </Box>
   );
 };
 

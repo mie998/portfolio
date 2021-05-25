@@ -10,9 +10,12 @@ interface WorkData {
   date: string;
 }
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   contents: {
     textAlign: 'center',
+  },
+  jobIdentifier: {
+    color: theme.palette.secondary.light,
   },
 }));
 
@@ -60,7 +63,7 @@ const Experiences: React.FC = () => {
     <div className={classes.contents}>
       <p>{item.period}</p>
       <p>
-        <b>{item.key}</b> as {item.role}
+        <b className={classes.jobIdentifier}>{item.key}</b> as {item.role}
       </p>
       <br></br>
     </div>

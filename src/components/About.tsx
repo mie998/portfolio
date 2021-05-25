@@ -65,8 +65,7 @@ const About: React.FC = () => {
             ゲーム開発やWEB開発,ロボットプログラミングなどさまざまな分野に対して広く興味を持っている。
           </p>
           <p className={classes.contact}>
-            <MarkunreadIcon />
-            nishiwaki.kyoto[at]gmail.com
+            <MarkunreadIcon fontSize="small" />: nishiwaki.kyoto[at]gmail.com
           </p>
         </Grid>
       </Grid>

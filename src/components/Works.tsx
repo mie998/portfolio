@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import { Card, CardContent, CardMedia, Typography } from '@material-ui/core';
+import { useCommonStyles } from './styles/commonStyle';
+import { Grid, Box, Card, CardContent, Typography } from '@material-ui/core';
 
 interface Contents {
   key: string;
@@ -32,6 +32,8 @@ const useStyles = makeStyles(() => ({
 
 const Works: React.FC = () => {
   const classes = useStyles();
+  const commonClasses = useCommonStyles();
+
   const data: Contents[] = [
     {
       key: 'portfolio',
@@ -39,6 +41,13 @@ const Works: React.FC = () => {
       description:
         '自身のポートフォリオサイト. 自己紹介を含め,react-routerにてルーティングを行ったブログ機能も追加してある.ブログもちょくちょく投稿しているのでぜひみてください！！',
       tools: ['reactDOM', 'react-router', 'MaterialUI', 'TypeScript'],
+    },
+    {
+      key: 'latex-template',
+      url: 'https://github.com/mie998/texlive_ja_template',
+      description:
+        'tex を docker コンテナで手軽に扱えるテンプレート。自動で diff.pdf を作成したりと便利な機能をそろえている',
+      tools: ['latex', 'docker', 'github-actions', 'vscode'],
     },
   ];
 
@@ -84,8 +93,8 @@ const Works: React.FC = () => {
   ));
 
   return (
-    <div id="works" className="content-wrapper">
-      <h2 className="title">Works</h2>
+    <Box className={commonClasses.contentWrapper}>
+      <h2 className={commonClasses.title}>Works</h2>
       <Grid
         container
         spacing={4}
@@ -96,7 +105,7 @@ const Works: React.FC = () => {
       >
         {table_contents}
       </Grid>
-    </div>
+    </Box>
   );
 };
 

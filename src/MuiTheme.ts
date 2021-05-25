@@ -5,6 +5,10 @@ export const theme = createMuiTheme({
   palette: {
     primary: grey,
     secondary: blue,
+    text: {
+      primary: grey[900],
+      secondary: grey[100],
+    },
   },
   breakpoints: {
     keys: ['xs', 'sm', 'md', 'lg', 'xl'],
@@ -21,6 +25,12 @@ export const theme = createMuiTheme({
       root: {
         // don't change text to uppercase in button component
         textTransform: 'none',
+      },
+    },
+    MuiLink: {
+      root: {
+        // don't describe underline on link component
+        textDecoration: 'none',
       },
     },
   },

@@ -2,12 +2,13 @@ import React, { FC } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { parse } from 'query-string';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button } from '@material-ui/core';
+import { useCommonStyles } from '../styles/commonStyle';
+import { Button, Box } from '@material-ui/core';
 
 import PostCardList from './PostCardList';
-import { Post, postsData } from './data/posts';
+import { postsData } from './data/posts';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   title: {
     fontSize: '4rem',
     fontFamily: 'Anton, sans-serif',
@@ -18,12 +19,16 @@ const useStyles = makeStyles(() => ({
     width: '70%',
     margin: '1rem auto',
   },
-  readMore: {
+  readMoreButton: {
     fontSize: '1.2rem',
+    backgroundColor: theme.palette.primary.main,
+    /* stylelint-disable */
     float: 'right',
+    /* stylelint-enable */
+
     '& > span': {
       '& > a': {
-        color: 'inherit',
+        color: theme.palette.secondary.dark,
         textDecoration: 'none',
       },
     },
@@ -32,6 +37,8 @@ const useStyles = makeStyles(() => ({
 
 const RecentPosts: FC = () => {
   const classes = useStyles();
+  const commonClasses = useCommonStyles();
+
   const { search } = useLocation();
   const isLoading = !!parse(search)?.loading;
   const raw_posts = postsData.sort((a, b) => (a > b ? 1 : -1));
@@ -42,21 +49,19 @@ const RecentPosts: FC = () => {
   );
 
   return (
-    <>
-      <div id="recent-post" className="content-wrapper">
-        <h2 className={classes.title}>Recent Posts</h2>
-        <div className={classes.cardWrapperRoot}>
-          <PostCardList posts={posts} isLoading={isLoading} />
-          <Button
-            className={classes.readMore}
-            variant="contained"
-            color="primary"
-          >
-            <Link to={`/portfolio/posts/`}>{'>>'} Read More!</Link>
-          </Button>
-        </div>
+    <Box className={commonClasses.contentWrapper}>
+      <h2 className={commonClasses.title}>Recent Posts</h2>
+      <div className={classes.cardWrapperRoot}>
+        <PostCardList posts={posts} isLoading={isLoading} />
+        <Button
+          className={classes.readMoreButton}
+          variant="contained"
+          color="primary"
+        >
+          <Link to={`/portfolio/posts/`}>{'>>'} Read More!</Link>
+        </Button>
       </div>
-    </>
+    </Box>
   );
 };
 

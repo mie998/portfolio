@@ -14,7 +14,7 @@ type Props = {
   isLoading?: boolean;
 };
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     margin: '1rem auto',
   },
@@ -27,19 +27,30 @@ const useStyles = makeStyles({
     margin: '0 .5rem .5rem 0',
     padding: '0 .5rem 0 .5rem',
     lineHeight: '1.8rem',
-    backgroundColor: '#ebebeb',
+    backgroundColor: theme.palette.primary.light,
     borderRadius: '.3rem',
     '& > span': {
       '& > a': {
         textDecoration: 'none',
-        color: '#3273dc',
+        color: theme.palette.secondary.light,
       },
     },
   },
-  readMore: {
+  readMoreButtonWrapper: {
+    /* stylelint-disable */
     float: 'right',
+    /* stylelint-enable */
   },
-});
+  readMoreButton: {
+    backgroundColor: theme.palette.primary.light,
+    '& > span': {
+      '& > a': {
+        textDecoration: 'none',
+        color: theme.palette.secondary.light,
+      },
+    },
+  },
+}));
 
 const PostCard: FC<Props> = ({ post = {}, isLoading = false }) => {
   const classes = useStyles();
@@ -65,8 +76,8 @@ const PostCard: FC<Props> = ({ post = {}, isLoading = false }) => {
           <Typography variant="body1" component="p" display="inline">
             {post.date}
           </Typography>
-          <CardActions className={classes.readMore}>
-            <Button size="large">
+          <CardActions className={classes.readMoreButtonWrapper}>
+            <Button size="large" className={classes.readMoreButton}>
               <Link to={`/portfolio/posts/${post.id}`}>この記事を読む</Link>
             </Button>
           </CardActions>
