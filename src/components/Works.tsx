@@ -24,9 +24,18 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
   },
   cardTitle: {},
-  cardDescription: {},
-  cover: {
-    width: '100%',
+  cardDescription: {
+    paddingTop: '.4rem',
+  },
+  cardUsedTechs: {
+    paddingTop: '.4rem',
+    alignItems: 'center',
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-start',
+  },
+  cardUsedTechsItem: {
+    paddingRight: '.2rem',
   },
 }));
 
@@ -71,20 +80,18 @@ const Works: React.FC = () => {
               >
                 {item.description}
               </Typography>
-              <Typography
-                variant="h5"
-                color="initial"
-                className={classes.cardDescription}
-              >
-                使用技術
-              </Typography>
-              {item.tools.map((tool) => {
-                return (
-                  <Typography variant="body1" color="textSecondary">
-                    {tool}
-                  </Typography>
-                );
-              })}
+              <Box className={classes.cardUsedTechs}>
+                {item.tools.map((tool) => {
+                  return (
+                    <Typography
+                      variant="body1"
+                      className={classes.cardUsedTechsItem}
+                    >
+                      {tool}
+                    </Typography>
+                  );
+                })}
+              </Box>
             </CardContent>
           </Card>
         </div>
