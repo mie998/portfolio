@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Box } from '@material-ui/core';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import ReactMarkdown from 'react-markdown';
@@ -18,25 +19,22 @@ import {
 
 import CodeBlock from './CodeBlock';
 import TagList from './TagList';
-import { smartPhoneMaxSize } from '../common/settings';
 import { Post, postsData } from './data/posts';
 
-const temple_str = `@media (max-width: ${smartPhoneMaxSize})`;
-
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   articleWrapper: {
     textAlign: 'center',
     margin: '5rem auto',
     width: '80%',
     height: '100%',
     fontFamily: "'Open Sans', sans-serif'",
-    '@media (max-width: 500px)': {
+    [theme.breakpoints.down('xs')]: {
       width: '90%',
     },
   },
   articleContainer: {
     display: 'flex',
-    '@media (max-width: 500px)': {
+    [theme.breakpoints.down('xs')]: {
       display: 'block',
     },
   },
@@ -70,15 +68,15 @@ const useStyles = makeStyles({
     borderRadius: '1rem',
     boxShadow: '0 .5rem 1rem black',
     width: '75%',
-    '@media (max-width: 500px)': {
+    [theme.breakpoints.down('xs')]: {
       width: '100%',
     },
   },
   articleMainWrapper: {
     padding: '0.8rem 2.5rem',
     textAlign: 'left',
-    '@media (max-width: 500px)': {
-      padding: '0.8rem 1rem',
+    [theme.breakpoints.down('xs')]: {
+      padding: '1rem 1.4rem',
     },
   },
   articleMain: {
@@ -143,7 +141,7 @@ const useStyles = makeStyles({
     width: '20%',
     marginLeft: '2rem',
     display: 'unset',
-    '@media (max-width: 500px)': {
+    [theme.breakpoints.down('xs')]: {
       display: 'none',
     },
   },
@@ -159,10 +157,10 @@ const useStyles = makeStyles({
   },
   articleSmartphoneSuffixContent: {},
   articleSmartphoneSuffixTOC: {
-    '@media (min-width: 500px)': {
+    [theme.breakpoints.up('xs')]: {
       display: 'none',
     },
-    '@media (max-width: 500px)': {
+    [theme.breakpoints.down('xs')]: {
       display: 'block',
       color: 'white',
       textAlign: 'left',
@@ -202,12 +200,11 @@ const useStyles = makeStyles({
         textDecoration: 'none',
       },
     },
-
-    '@media (max-width: 500px)': {
+    [theme.breakpoints.down('xs')]: {
       display: 'block',
     },
   },
-});
+}));
 
 const DescribePost: FC = () => {
   const classes = useStyles();
@@ -224,25 +221,25 @@ const DescribePost: FC = () => {
         <Helmet>
           <title>{post.title}</title>
         </Helmet>
-        <div className={classes.articleWrapper}>
+        <Box className={classes.articleWrapper}>
           <h2 className={classes.articleTitle}>{post.title}</h2>
-          <div className={classes.articleSuffix}>
-            <div className={classes.articleSuffixItem}>
+          <Box className={classes.articleSuffix}>
+            <Box className={classes.articleSuffixItem}>
               <i className="fa fa-clock-o"></i> {post.date}
-            </div>
+            </Box>
             {post.tag.map((item) => (
-              <div className={classes.articleSuffixItem}>
+              <Box className={classes.articleSuffixItem}>
                 <Link to={'/portfolio/posts/tags/' + item}>#{item}</Link>
-              </div>
+              </Box>
             ))}
-          </div>
-          <div className={classes.articleContainer}>
-            <div className={classes.articleSmartphoneSuffixTOC}>
+          </Box>
+          <Box className={classes.articleContainer}>
+            <Box className={classes.articleSmartphoneSuffixTOC}>
               <p>目次</p>
               <ReactMarkdownHeading markdown={post.body} />
-            </div>
-            <div className={classes.articleMainContainer}>
-              <div className={classes.articleMainWrapper}>
+            </Box>
+            <Box className={classes.articleMainContainer}>
+              <Box className={classes.articleMainWrapper}>
                 <ReactMarkdown
                   className={classes.articleMain}
                   plugins={[gfm]}
@@ -250,8 +247,8 @@ const DescribePost: FC = () => {
                   allowDangerousHtml
                   renderers={{ code: CodeBlock }}
                 />
-              </div>
-              <div className={classes.articleShareButton}>
+              </Box>
+              <Box className={classes.articleShareButton}>
                 <FacebookShareButton
                   url={`https://mie998.github.io/portfolio/posts/${post.id}`}
                   title={post.title}
@@ -276,19 +273,19 @@ const DescribePost: FC = () => {
                 >
                   <LineIcon size={50} round />
                 </LineShareButton>
-              </div>
-            </div>
-            <div className={classes.articleSideBarContainer}>
-              <div className={classes.articleSideBarContent}>
+              </Box>
+            </Box>
+            <Box className={classes.articleSideBarContainer}>
+              <Box className={classes.articleSideBarContent}>
                 <TagList />
-              </div>
-              <div className={classes.articleTOC}>
+              </Box>
+              <Box className={classes.articleTOC}>
                 <p>目次</p>
                 <ReactMarkdownHeading markdown={post.body} />
-              </div>
-            </div>
-          </div>
-        </div>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
       </>
     );
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import { Card, CardContent, CardMedia, Typography } from '@material-ui/core';
+import { useCommonStyles } from './styles/commonStyle';
+import { Grid, Box, Card, CardContent, Typography } from '@material-ui/core';
 
 interface Contents {
   key: string;
@@ -24,14 +24,25 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
   },
   cardTitle: {},
-  cardDescription: {},
-  cover: {
-    width: '100%',
+  cardDescription: {
+    paddingTop: '.4rem',
+  },
+  cardUsedTechs: {
+    paddingTop: '.4rem',
+    alignItems: 'center',
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-start',
+  },
+  cardUsedTechsItem: {
+    paddingRight: '.2rem',
   },
 }));
 
 const Works: React.FC = () => {
   const classes = useStyles();
+  const commonClasses = useCommonStyles();
+
   const data: Contents[] = [
     {
       key: 'portfolio',
@@ -39,6 +50,13 @@ const Works: React.FC = () => {
       description:
         '自身のポートフォリオサイト. 自己紹介を含め,react-routerにてルーティングを行ったブログ機能も追加してある.ブログもちょくちょく投稿しているのでぜひみてください！！',
       tools: ['reactDOM', 'react-router', 'MaterialUI', 'TypeScript'],
+    },
+    {
+      key: 'latex-template',
+      url: 'https://github.com/mie998/texlive_ja_template',
+      description:
+        'tex を docker コンテナで手軽に扱えるテンプレート。自動で diff.pdf を作成したりと便利な機能をそろえている',
+      tools: ['latex', 'docker', 'github-actions', 'vscode'],
     },
   ];
 
@@ -62,20 +80,18 @@ const Works: React.FC = () => {
               >
                 {item.description}
               </Typography>
-              <Typography
-                variant="h5"
-                color="initial"
-                className={classes.cardDescription}
-              >
-                使用技術
-              </Typography>
-              {item.tools.map((tool) => {
-                return (
-                  <Typography variant="body1" color="textSecondary">
-                    {tool}
-                  </Typography>
-                );
-              })}
+              <Box className={classes.cardUsedTechs}>
+                {item.tools.map((tool) => {
+                  return (
+                    <Typography
+                      variant="body1"
+                      className={classes.cardUsedTechsItem}
+                    >
+                      {tool}
+                    </Typography>
+                  );
+                })}
+              </Box>
             </CardContent>
           </Card>
         </div>
@@ -84,8 +100,8 @@ const Works: React.FC = () => {
   ));
 
   return (
-    <div id="works" className="content-wrapper">
-      <h2 className="title">Works</h2>
+    <Box className={commonClasses.contentWrapper}>
+      <h2 className={commonClasses.title}>Works</h2>
       <Grid
         container
         spacing={4}
@@ -96,7 +112,7 @@ const Works: React.FC = () => {
       >
         {table_contents}
       </Grid>
-    </div>
+    </Box>
   );
 };
 

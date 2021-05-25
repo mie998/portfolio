@@ -11,13 +11,13 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
   html {
     font-size: 14px;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 430px) {
   html {
     font-size: 12px;
   }

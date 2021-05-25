@@ -1,8 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid } from '@material-ui/core';
+import { Grid, Box } from '@material-ui/core';
+import MarkunreadIcon from '@material-ui/icons/Markunread';
 
 import polyImg from './images/polygon2.jpg';
+import { useCommonStyles } from './styles/commonStyle';
 
 const useStyles = makeStyles(() => ({
   contact: {
@@ -38,10 +40,11 @@ interface Content {
 
 const About: React.FC = () => {
   const classes = useStyles();
+  const commonClasses = useCommonStyles();
 
   return (
-    <div id="about" className="content-wrapper">
-      <h2 className="title">About</h2>
+    <Box className={commonClasses.contentWrapper}>
+      <h2 className={commonClasses.title}>About</h2>
       <Grid
         container
         direction="row"
@@ -62,11 +65,11 @@ const About: React.FC = () => {
             ゲーム開発やWEB開発,ロボットプログラミングなどさまざまな分野に対して広く興味を持っている。
           </p>
           <p className={classes.contact}>
-            連絡先: nishiwaki.kyoto[at]gmail.com
+            <MarkunreadIcon fontSize="small" />: nishiwaki.kyoto[at]gmail.com
           </p>
         </Grid>
       </Grid>
-    </div>
+    </Box>
   );
 };
 

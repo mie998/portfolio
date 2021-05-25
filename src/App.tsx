@@ -1,6 +1,6 @@
 import React, { FC, useEffect } from 'react';
-import { Navigate, Route, Routes, useLocation } from 'react-router';
 import ReactGA from 'react-ga';
+import { Navigate, Route, Routes, useLocation } from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Home from './components/Home';
@@ -9,11 +9,12 @@ import AllPosts from './components/posts/AllPosts';
 import TagPosts from './components/posts/TagPosts';
 import DescribePost from './components/posts/DescribePost';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   wrapper: {
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
+    backgroundColor: theme.palette.grey[50],
   },
 }));
 

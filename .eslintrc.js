@@ -6,24 +6,23 @@ module.exports = {
     'jest/globals': true,
   },
   extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:jsx-a11y/recommended',
-    'plugin:jest/recommended',
     'airbnb',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
+    'plugin:jest/recommended',
+    'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
+    'plugin:react/recommended',
     'prettier',
-    'prettier/@typescript-eslint',
-    'prettier/react',
-    'prettier/standard',
   ],
   globals: {
     Atomics: 'readonly',
+    cy: 'readonly',
+    Cypress: 'readonly',
     SharedArrayBuffer: 'readonly',
     __DEV__: true,
   },
@@ -32,6 +31,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
+    ecmaVersion: 2018,
     project: './tsconfig.json',
     sourceType: 'module',
   },
@@ -48,10 +48,16 @@ module.exports = {
   root: true,
   rules: {
     // eslint official
+    'linebreak-style': ['error', 'unix'],
+    'no-use-before-define': 'off',
+    'react-hooks/exhaustive-deps': 'warn',
+    '@typescript-eslint/no-use-before-define': ['error'],
     'newline-before-return': 'error',
     'no-console': 'warn',
     'no-continue': 'off',
+    quotes: ['error', 'single', { avoidEscape: true }],
     'require-yield': 'error',
+    semi: ['error', 'always'],
     // for react-app-env.d.ts (https://github.com/facebook/create-react-app/issues/6560)
     'spaced-comment': [
       'error',
@@ -67,7 +73,28 @@ module.exports = {
     indent: 'off',
     '@typescript-eslint/indent': 'off',
     '@typescript-eslint/no-unnecessary-type-assertion': 'error',
+    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/prefer-interface': 'off',
 
+    // airbnb
+    'no-restricted-syntax': [
+      'error',
+      {
+        selector: 'ForInStatement',
+        message:
+          'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.',
+      },
+      {
+        selector: 'LabeledStatement',
+        message:
+          'Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.',
+      },
+      {
+        selector: 'WithStatement',
+        message:
+          '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
+      },
+    ],
     // prefer-arrow
     'prefer-arrow/prefer-arrow-functions': [
       'error',
@@ -92,7 +119,6 @@ module.exports = {
       },
     ],
     'react/prop-types': 'off',
-    'react/prefer-stateless-function': 'off',
 
     // react hooks
     'react-hooks/rules-of-hooks': 'error',
@@ -107,6 +133,22 @@ module.exports = {
         jsx: 'never',
         ts: 'never',
         tsx: 'never',
+      },
+    ],
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: [
+          '.storybook/**',
+          'stories/**',
+          '**/*/*.story.*',
+          '**/*/*.stories.*',
+          '**/__specs__/**',
+          '**/*/*.spec.*',
+          '**/__tests__/**',
+          '**/*/*.test.*',
+          'src/setupTests.*',
+        ],
       },
     ],
     'import/prefer-default-export': 'off',
