@@ -3,10 +3,11 @@ import { Helmet } from 'react-helmet';
 import { useLocation } from 'react-router-dom';
 import { parse } from 'query-string';
 import { makeStyles } from '@material-ui/core/styles';
+import { useCommonStyles } from '../styles/commonStyle';
+import { Button, Menu, MenuItem, Box } from '@material-ui/core';
 
 import PostCardList from './PostCardList';
 import { postsData } from './data/posts';
-import { Button, Menu, MenuItem } from '@material-ui/core';
 
 interface Sort {
   key: string;
@@ -37,6 +38,7 @@ const useStyles = makeStyles(() => ({
 
 const AllPosts: FC = () => {
   const classes = useStyles();
+  const commonClasses = useCommonStyles();
   const { search } = useLocation();
   const isLoading = !!parse(search)?.loading;
 
@@ -81,8 +83,8 @@ const AllPosts: FC = () => {
       <Helmet>
         <title>投稿一覧</title>
       </Helmet>
-      <div id="all-posts" className="content-wrapper">
-        <h2 className={classes.allPostsTitle}>過去投稿一覧</h2>
+      <Box className={commonClasses.contentWrapper}>
+        <h2 className={classes.allPostsTitle}>All Posts</h2>
         <div className={classes.sortButtonWrapper}>
           <Button
             aria-controls="simple-menu"
@@ -116,7 +118,7 @@ const AllPosts: FC = () => {
         <div className={classes.cardAdjust}>
           <PostCardList posts={sortedPosts} isLoading={isLoading} />
         </div>
-      </div>
+      </Box>
     </>
   );
 };
