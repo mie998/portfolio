@@ -38,6 +38,7 @@ const Skill: React.FC = () => {
     { key: 'Rust' },
     { key: 'Unity(C#)' },
     { key: 'bash/zsh' },
+    { key: 'atcoder(highest: 1078)' },
     { key: 'vim' },
     { key: 'TOEIC 870' },
     { key: '応用情報技術者' },

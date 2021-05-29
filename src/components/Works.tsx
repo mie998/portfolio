@@ -10,7 +10,7 @@ interface Contents {
   tools: string[];
 }
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   ref: {
     textDecoration: 'none',
     '&:hover': {
@@ -35,7 +35,10 @@ const useStyles = makeStyles(() => ({
     justifyContent: 'flex-start',
   },
   cardUsedTechsItem: {
-    paddingRight: '.2rem',
+    padding: '.2rem',
+    marginRight: '.3rem',
+    backgroundColor: theme.palette.primary.light,
+    borderRadius: '.3rem',
   },
 }));
 
