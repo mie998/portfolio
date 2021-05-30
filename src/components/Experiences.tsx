@@ -60,7 +60,7 @@ const Experiences: React.FC = () => {
   );
 
   const contents: JSX.Element[] = sortedData.map((item) => (
-    <div className={classes.contents}>
+    <div className={classes.contents} key={item.key}>
       <p>{item.period}</p>
       <p>
         <b className={classes.jobIdentifier}>{item.key}</b> as {item.role}

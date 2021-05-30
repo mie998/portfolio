@@ -89,6 +89,7 @@ const Works: React.FC = () => {
                     <Typography
                       variant="body1"
                       className={classes.cardUsedTechsItem}
+                      key={tool}
                     >
                       {tool}
                     </Typography>

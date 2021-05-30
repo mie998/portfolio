@@ -55,35 +55,34 @@ const useStyles = makeStyles((theme) => ({
 const PostCard: FC<Props> = ({ post = {}, isLoading = false }) => {
   const classes = useStyles();
   return (
-    <>
-      <Card className={classes.root}>
-        <CardContent>
-          <Typography variant="h4">{post.title}</Typography>
-          <CardActions>
-            <div className={classes.tagButtonWrapper}>
-              {post.tag?.map((item) => (
-                <Button
-                  className={classes.tagButton}
-                  variant="contained"
-                  size="small"
-                  disableElevation
-                >
-                  <Link to={`/portfolio/posts/tags/${item}`}>#{item}</Link>
-                </Button>
-              ))}
-            </div>
-          </CardActions>
-          <Typography variant="body1" component="p" display="inline">
-            {post.date}
-          </Typography>
-          <CardActions className={classes.readMoreButtonWrapper}>
-            <Button size="large" className={classes.readMoreButton}>
-              <Link to={`/portfolio/posts/${post.id}`}>この記事を読む</Link>
-            </Button>
-          </CardActions>
-        </CardContent>
-      </Card>
-    </>
+    <Card className={classes.root}>
+      <CardContent>
+        <Typography variant="h4">{post.title}</Typography>
+        <CardActions>
+          <div className={classes.tagButtonWrapper}>
+            {post.tag?.map((item) => (
+              <Button
+                className={classes.tagButton}
+                variant="contained"
+                size="small"
+                disableElevation
+                key={item}
+              >
+                <Link to={`/portfolio/posts/tags/${item}`}>#{item}</Link>
+              </Button>
+            ))}
+          </div>
+        </CardActions>
+        <Typography variant="body1" component="p" display="inline">
+          {post.date}
+        </Typography>
+        <CardActions className={classes.readMoreButtonWrapper}>
+          <Button size="large" className={classes.readMoreButton}>
+            <Link to={`/portfolio/posts/${post.id}`}>この記事を読む</Link>
+          </Button>
+        </CardActions>
+      </CardContent>
+    </Card>
   );
 };
 
