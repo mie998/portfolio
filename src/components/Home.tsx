@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import About from './About';
+import MenuButton from './MenuButton';
 import History from './Experiences';
 import Skill from './Skill';
 import Top from './Top';
@@ -23,6 +24,7 @@ const Home: React.FC = () => {
       <Box className={commonClasses.container}>
         <Top />
         <About />
+        <MenuButton />
         <History />
         <Skill />
         <Works />
