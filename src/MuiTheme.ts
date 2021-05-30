@@ -30,7 +30,7 @@ export const theme = createMuiTheme({
     MuiLink: {
       root: {
         // don't describe underline on link component
-        textDecoration: 'none',
+        underline: 'none',
       },
     },
   },

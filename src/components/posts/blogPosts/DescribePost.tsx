@@ -1,10 +1,11 @@
 import React, { FC } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Box } from '@material-ui/core';
+import { Box, Button } from '@material-ui/core';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import ReactMarkdown from 'react-markdown';
 import ReactMarkdownHeading from 'react-markdown-heading';
+import BackspaceIcon from '@material-ui/icons/Backspace';
 import gfm from 'remark-gfm';
 import {
   TwitterIcon,
@@ -204,6 +205,13 @@ const useStyles = makeStyles((theme) => ({
       display: 'block',
     },
   },
+  linkButton: {
+    textDecoration: 'none',
+  },
+  backButton: {
+    marginTop: '3rem',
+    fontSize: '1.3rem',
+  },
 }));
 
 const DescribePost: FC = () => {
@@ -285,6 +293,16 @@ const DescribePost: FC = () => {
               </Box>
             </Box>
           </Box>
+          <Link to="/portfolio/posts" className={classes.linkButton}>
+            <Button
+              variant="contained"
+              color="default"
+              className={classes.backButton}
+              startIcon={<BackspaceIcon />}
+            >
+              記事一覧へ
+            </Button>
+          </Link>
         </Box>
       </>
     );

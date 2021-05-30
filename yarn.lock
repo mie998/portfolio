@@ -1733,10 +1733,25 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
+"@types/eslint-plugin-prettier@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@types/eslint-plugin-prettier/-/eslint-plugin-prettier-3.1.0.tgz#451b5e1e5f148a38dc41e9c5b61d45cd2e97af2c"
+  integrity sha512-6/UIuz99F0IvtDez4U3bRwAmN4VKnuw10Ibblf0iZhtNbmbonMSLqs/qqsXrGIAWvjy+vXqYwOljgtLhrETSMg==
+  dependencies:
+    "@types/eslint" "*"
+
 "@types/eslint-visitor-keys@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@types/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#1ee30d79544ca84d68d4b3cdb0af4f205663dd2d"
   integrity sha512-OCutwjDZ4aFS6PB1UZ988C4YgwlBHJd6wCeQqaLdmadZ/7e+w79+hbMUFC1QXDNCmdyoRfAFdm0RypzwR+Qpag==
+
+"@types/eslint@*":
+  version "7.2.12"
+  resolved "https://registry.yarnpkg.com/@types/eslint/-/eslint-7.2.12.tgz#fefaa48a4db2415b621fe315e4baeedde525927e"
+  integrity sha512-HjikV/jX6e0Pg4DcB+rtOBKSrG6w5IaxWpmi3efL/eLxMz5lZTK+W1DKERrX5a+mNzL78axfsDNXu7JHFP4uLg==
+  dependencies:
+    "@types/estree" "*"
+    "@types/json-schema" "*"
 
 "@types/eslint@^6.8.1":
   version "6.8.1"
@@ -1859,6 +1874,11 @@
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
+
+"@types/prettier@^2.2.3":
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.2.3.tgz#ef65165aea2924c9359205bf748865b8881753c0"
+  integrity sha512-PijRCG/K3s3w1We6ynUKdxEc5AcuuH3NBmMDP8uvKVp6X43UY7NQlTzczakXP3DJR0F4dfNQIGjU2cUeRYs2AA==
 
 "@types/prop-types@*":
   version "15.7.3"
@@ -4871,6 +4891,11 @@ eslint-module-utils@^2.4.1:
     debug "^2.6.9"
     pkg-dir "^2.0.0"
 
+eslint-plugin-airbnb@^0.0.1-security:
+  version "0.0.1-security"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-airbnb/-/eslint-plugin-airbnb-0.0.1-security.tgz#c9150fbc5c31ee78f02595edb6079bf591ddb72a"
+  integrity sha512-etPWgqKnv1plcSIt2cHZ/wgH5uQTSzFi4rnvr3YKMWdMzKb8Ca7LHP+F2IODv/J3wuzvkq9mCzwGxEG85KsioQ==
+
 eslint-plugin-flowtype@4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-4.6.0.tgz#82b2bd6f21770e0e5deede0228e456cb35308451"
@@ -4910,6 +4935,13 @@ eslint-plugin-jsx-a11y@6.2.3:
     emoji-regex "^7.0.2"
     has "^1.0.3"
     jsx-ast-utils "^2.2.1"
+
+eslint-plugin-prettier@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.4.0.tgz#cdbad3bf1dbd2b177e9825737fe63b476a08f0c7"
+  integrity sha512-UDK6rJT6INSfcOo545jiaOwB701uAIt2/dR7WnFQoGCVl1/EMqdANBmwUaqqQ45aXprsTGzSa39LI1PyuRBxxw==
+  dependencies:
+    prettier-linter-helpers "^1.0.0"
 
 eslint-plugin-react-hooks@^1.6.1:
   version "1.7.0"
@@ -5267,6 +5299,11 @@ fast-deep-equal@^3.1.1:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz#3a7d56b559d6cbc3eb512325244e619a65c6c525"
   integrity sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==
+
+fast-diff@^1.1.2:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/fast-diff/-/fast-diff-1.2.0.tgz#73ee11982d86caaf7959828d519cfe927fac5f03"
+  integrity sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==
 
 fast-glob@^2.0.2:
   version "2.2.7"
@@ -10234,6 +10271,13 @@ prepend-http@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
   integrity sha1-1PRWKwzjaW5BrFLQ4ALlemNdxtw=
+
+prettier-linter-helpers@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/prettier-linter-helpers/-/prettier-linter-helpers-1.0.0.tgz#d23d41fe1375646de2d0104d3454a3008802cf7b"
+  integrity sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==
+  dependencies:
+    fast-diff "^1.1.2"
 
 prettier@^2.3.0:
   version "2.3.0"

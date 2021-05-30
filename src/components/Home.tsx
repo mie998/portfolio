@@ -1,7 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import Header from './Header';
 import About from './About';
 import History from './Experiences';
 import Skill from './Skill';
@@ -22,7 +21,6 @@ const Home: React.FC = () => {
         <title>HOME</title>
       </Helmet>
       <Box className={commonClasses.container}>
-        {/* <Header /> */}
         <Top />
         <About />
         <History />
