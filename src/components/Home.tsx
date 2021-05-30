@@ -8,7 +8,7 @@ import Skill from './Skill';
 import Top from './Top';
 import Works from './Works';
 import Footer from './Footer';
-import RecentPosts from './posts/RecentPosts';
+import RecentPosts from './posts/List/RecentPosts';
 
 import { useCommonStyles } from './styles/commonStyle';
 import { Box } from '@material-ui/core';

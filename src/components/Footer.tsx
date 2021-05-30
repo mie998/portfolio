@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import moment from 'moment';
 import { Box } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -18,11 +17,11 @@ const useStyles = makeStyles((theme) => ({
 
 const Footer: React.FC = () => {
   const classes = useStyles();
-  const today = new Date();
+  const today = document.lastModified.split(' ')[0];
   return (
     <Box className={classes.footerWrapper}>
       <p>© Keisuke Nishiwaki</p>
-      <p>last modified: {moment().format('LL')}</p>
+      <p>last modified: {today}</p>
     </Box>
   );
 };

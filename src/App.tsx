@@ -5,9 +5,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Home from './components/Home';
 import Posts from './components/Posts';
-import AllPosts from './components/posts/AllPosts';
-import TagPosts from './components/posts/TagPosts';
-import DescribePost from './components/posts/DescribePost';
+import AllPosts from './components/posts/List/AllPosts';
+import TagPosts from './components/posts/List/TagPosts';
+import DescribePost from './components/posts/blogPosts/DescribePost';
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {

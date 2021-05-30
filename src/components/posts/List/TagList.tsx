@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { Post, postsData } from './data/posts';
+import { Post, postsData } from '../data/posts';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 

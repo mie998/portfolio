@@ -1,7 +1,5 @@
-// eslint-disable-next-line import/no-webpack-loader-syntax
 import raw from 'raw.macro';
 
-const test = raw('./Markdown/test.md');
 const chatwork = raw('./Markdown/20191009.md');
 const blog_created = raw('./Markdown/20210212.md');
 const influence_science_and_practice = raw('./Markdown/20210309.md');
@@ -56,7 +54,7 @@ export const postsData: Post[] = [
     id: '5',
     title: 'サポーターズの1on1イベントに参加してきたぞ！',
     date: '2021/05/16',
-    tag: ['intern', 'event', ],
+    tag: ['intern', 'event'],
     body: supporters_1on1,
-  }
+  },
 ];

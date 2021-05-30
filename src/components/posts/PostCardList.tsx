@@ -11,7 +11,7 @@ type Props = {
 const PostCardList: FC<Props> = ({ posts = [], isLoading = false }) => (
   <>
     {posts.map((post) => (
-      <PostCard post={post} isLoading={isLoading} />
+      <PostCard post={post} isLoading={isLoading} key={post.id} />
     ))}
   </>
 );

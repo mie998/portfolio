@@ -3,11 +3,11 @@ import { Helmet } from 'react-helmet';
 import { useLocation } from 'react-router-dom';
 import { parse } from 'query-string';
 import { makeStyles } from '@material-ui/core/styles';
-import { useCommonStyles } from '../styles/commonStyle';
+import { useCommonStyles } from '../../styles/commonStyle';
 import { Button, Menu, MenuItem, Box } from '@material-ui/core';
 
-import PostCardList from './PostCardList';
-import { postsData } from './data/posts';
+import PostCardList from '../PostCardList';
+import { postsData } from '../data/posts';
 
 interface Sort {
   key: string;

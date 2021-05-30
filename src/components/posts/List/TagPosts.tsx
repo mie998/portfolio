@@ -4,9 +4,9 @@ import { Navigate, useLocation, useParams } from 'react-router-dom';
 import { parse } from 'query-string';
 import { makeStyles } from '@material-ui/core/styles';
 
-import PostCardList from './PostCardList';
+import PostCardList from '../PostCardList';
 import TagList from './TagList';
-import { Post, postsData } from './data/posts';
+import { Post, postsData } from '../data/posts';
 
 const useStyles = makeStyles(() => ({
   Wrapper: {

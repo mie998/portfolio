@@ -18,8 +18,8 @@ import {
 } from 'react-share';
 
 import CodeBlock from './CodeBlock';
-import TagList from './TagList';
-import { Post, postsData } from './data/posts';
+import TagList from '../List/TagList';
+import { Post, postsData } from '../data/posts';
 
 const useStyles = makeStyles((theme) => ({
   articleWrapper: {

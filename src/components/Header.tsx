@@ -9,8 +9,6 @@ import EventListener from 'react-event-listener';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
-import './styles/Header.scss';
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
