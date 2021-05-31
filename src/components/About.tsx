@@ -47,7 +47,7 @@ const About: React.FC = () => {
   const commonClasses = useCommonStyles();
 
   return (
-    <Box className={commonClasses.contentWrapper}>
+    <Box id="about" className={commonClasses.contentWrapper}>
       <h2 className={commonClasses.title}>About</h2>
       <Grid
         container

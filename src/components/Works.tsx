@@ -104,7 +104,7 @@ const Works: React.FC = () => {
   ));
 
   return (
-    <Box className={commonClasses.contentWrapper}>
+    <Box id="works" className={commonClasses.contentWrapper}>
       <h2 className={commonClasses.title}>Works</h2>
       <Grid
         container

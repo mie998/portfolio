@@ -53,7 +53,7 @@ const Skill: React.FC = () => {
   ));
 
   return (
-    <Box className={commonClasses.contentWrapper}>
+    <Box id="skill" className={commonClasses.contentWrapper}>
       <h2 className={commonClasses.title}>Skill</h2>
       <div className={classes.cardContainer}>{table_contents}</div>
     </Box>
