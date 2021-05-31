@@ -23,8 +23,8 @@ const Home: React.FC = () => {
       </Helmet>
       <Box className={commonClasses.container}>
         <Top />
-        <About />
         <MenuButton />
+        <About />
         <History />
         <Skill />
         <Works />

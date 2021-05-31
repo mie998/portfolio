@@ -4,6 +4,7 @@ import { HashLink } from 'react-router-hash-link';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
 import List from '@material-ui/core/List';
 import Link from '@material-ui/core/Link';
 import Divider from '@material-ui/core/Divider';
@@ -28,14 +29,21 @@ interface dividerExternalLink {
 }
 
 const useStyles = makeStyles({
+  menuButtonWrapper: {
+    paddingTop: '1rem',
+    paddingRight: '1rem',
+  },
   menuButton: {
-    height: '4.6rem',
-    padding: '0',
-    margin: '0 auto',
+    height: '4.5rem',
+    width: '4.5rem',
+    lineHeight: '4.5rem',
     color: 'black',
     backgroundColor: 'white',
-    borderRadius: '10rem',
-    // stylelint-disable-next-line
+    borderRadius: '50%',
+    position: 'sticky',
+    top: '0',
+    right: '0',
+    zIndex: 1,
   },
   dividerList: {
     width: 250,
@@ -76,9 +84,15 @@ const MenuButton: FC = () => {
 
   return (
     <>
-      <Button onClick={toggleDrawer(true)} className={classes.menuButton}>
-        <MenuOpenIcon fontSize="large" />
-      </Button>
+      <Box
+        display="flex"
+        flexDirection="row-reverse"
+        className={classes.menuButtonWrapper}
+      >
+        <Button onClick={toggleDrawer(true)} className={classes.menuButton}>
+          <MenuOpenIcon fontSize="large" />
+        </Button>
+      </Box>
       <Drawer anchor={'right'} open={open} onClose={toggleDrawer(false)}>
         <div
           className={classes.dividerList}
