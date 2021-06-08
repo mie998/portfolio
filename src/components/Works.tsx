@@ -51,15 +51,22 @@ const Works: React.FC = () => {
       key: 'portfolio',
       url: 'https://mie998.github.io/portfolio/',
       description:
-        '自身のポートフォリオサイト. 自己紹介を含め,react-routerにてルーティングを行ったブログ機能も追加してある.ブログもちょくちょく投稿しているのでぜひみてください！！',
+        '自身のポートフォリオサイト.。自己紹介を含め、react-routerにてルーティングを行ったブログ機能も追加してある。ブログもちょくちょく投稿しているのでぜひみてください！！',
       tools: ['reactDOM', 'react-router', 'MaterialUI', 'TypeScript'],
     },
     {
       key: 'latex-template',
       url: 'https://github.com/mie998/texlive_ja_template',
       description:
-        'tex を docker コンテナで手軽に扱えるテンプレート。自動で diff.pdf を作成したりと便利な機能をそろえている',
+        'overleaf が無料枠で git 管理できないことで環境整備を決意。tex を docker コンテナで手軽に扱えるテンプレートで、github actions を使って自動で diff.pdf を作成したりと便利な機能をそろえている。',
       tools: ['latex', 'docker', 'github-actions', 'vscode'],
+    },
+    {
+      key: 'ku-cafeRecommender',
+      url: 'https://ku-caferecommender.web.app/',
+      description:
+        '京都大学の食堂の込み具合を推定して最適な食堂を推薦してくれる...はずだったのだが込み具合の推定のためのカメラを設置する許可が下りず日の目を見なかった悲しきアプリ。チーム開発で主にフロントを担当しました。',
+      tools: ['react', 'firebase', 'computer vision'],
     },
   ];
 
