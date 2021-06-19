@@ -27,10 +27,7 @@ const useStyles = makeStyles((theme) => ({
     /* stylelint-enable */
 
     '& > span': {
-      '& > a': {
-        color: theme.palette.secondary.dark,
-        textDecoration: 'none',
-      },
+      color: theme.palette.secondary.dark,
     },
   },
 }));
@@ -53,13 +50,15 @@ const RecentPosts: FC = () => {
       <h2 className={commonClasses.title}>Recent Posts</h2>
       <div className={classes.cardWrapperRoot}>
         <PostCardList posts={posts} isLoading={isLoading} />
-        <Button
-          className={classes.readMoreButton}
-          variant="contained"
-          color="primary"
-        >
-          <Link to={`/posts/`}>{'>>'} Read More!</Link>
-        </Button>
+        <Link to={`/posts/`}>
+          <Button
+            className={classes.readMoreButton}
+            variant="contained"
+            color="primary"
+          >
+            {'>>'} Read More!
+          </Button>
+        </Link>
       </div>
     </Box>
   );

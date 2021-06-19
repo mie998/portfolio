@@ -70,7 +70,7 @@ const About: React.FC = () => {
           </p>
           <p className={classes.contact}>
             <MarkunreadIcon fontSize="default" className={classes.mailIcon} />:
-            nishiwaki[at]mie998.dev
+            nishiwaki @ mie998.dev
           </p>
         </Grid>
       </Grid>

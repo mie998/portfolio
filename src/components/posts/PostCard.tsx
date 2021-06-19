@@ -30,10 +30,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.primary.light,
     borderRadius: '.3rem',
     '& > span': {
-      '& > a': {
-        textDecoration: 'none',
-        color: theme.palette.secondary.light,
-      },
+      color: theme.palette.secondary.light,
     },
   },
   readMoreButtonWrapper: {
@@ -44,10 +41,7 @@ const useStyles = makeStyles((theme) => ({
   readMoreButton: {
     backgroundColor: theme.palette.primary.light,
     '& > span': {
-      '& > a': {
-        textDecoration: 'none',
-        color: theme.palette.secondary.light,
-      },
+      color: theme.palette.secondary.light,
     },
   },
 }));
@@ -61,15 +55,19 @@ const PostCard: FC<Props> = ({ post = {}, isLoading = false }) => {
         <CardActions>
           <div className={classes.tagButtonWrapper}>
             {post.tag?.map((item) => (
-              <Button
-                className={classes.tagButton}
-                variant="contained"
-                size="small"
-                disableElevation
-                key={item}
+              <Link
+                to={`/posts/tags/${post.id}`}
+                style={{ textDecoration: 'none' }}
               >
-                <Link to={`/posts/tags/${item}`}>#{item}</Link>
-              </Button>
+                <Button
+                  className={classes.tagButton}
+                  variant="contained"
+                  size="small"
+                  disableElevation
+                >
+                  {item}
+                </Button>
+              </Link>
             ))}
           </div>
         </CardActions>
@@ -77,9 +75,11 @@ const PostCard: FC<Props> = ({ post = {}, isLoading = false }) => {
           {post.date}
         </Typography>
         <CardActions className={classes.readMoreButtonWrapper}>
-          <Button size="large" className={classes.readMoreButton}>
-            <Link to={`/posts/${post.id}`}>この記事を読む</Link>
-          </Button>
+          <Link to={`/posts/${post.id}`} style={{ textDecoration: 'none' }}>
+            <Button size="large" className={classes.readMoreButton}>
+              この記事を読む
+            </Button>
+          </Link>
         </CardActions>
       </CardContent>
     </Card>
