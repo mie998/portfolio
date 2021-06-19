@@ -65,12 +65,12 @@ const MenuButton: FC = () => {
   };
 
   const dividerRoutes: dividerRoute[] = [
-    { text: 'home', route: '/portfolio/', hash: false },
-    { text: 'about', route: '/portfolio/#about', hash: true },
-    { text: 'experience', route: '/portfolio/#experience', hash: true },
-    { text: 'skill', route: '/portfolio/#skill', hash: true },
-    { text: 'works', route: '/portfolio/#works', hash: true },
-    { text: 'posts', route: '/portfolio/posts/', hash: false },
+    { text: 'home', route: '/', hash: false },
+    { text: 'about', route: '/#about', hash: true },
+    { text: 'experience', route: '/#experience', hash: true },
+    { text: 'skill', route: '/#skill', hash: true },
+    { text: 'works', route: '/#works', hash: true },
+    { text: 'posts', route: '/posts/', hash: false },
   ];
 
   const dividerExternalLinks: dividerExternalLink[] = [

@@ -32,9 +32,11 @@ const App: FC = () => {
     ReactGA.pageview(location.pathname + location.search);
   }, [location.key]);
 
+  console.log(process.env.PUBLIC_URL);
+
   return (
     <div className={classes.wrapper}>
-      <Routes basename="/portfolio">
+      <Routes basename={process.env.PUBLIC_URL}>
         <Route path="/" element={<Home />} />
         <Route path="/posts" element={<Posts />}>
           <Route path="/" element={<AllPosts />} />

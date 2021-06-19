@@ -41,7 +41,7 @@ const RecentPosts: FC = () => {
 
   const { search } = useLocation();
   const isLoading = !!parse(search)?.loading;
-  const raw_posts = postsData.sort((a, b) => (a > b ? 1 : -1));
+  const raw_posts = postsData.sort((a, b) => (a.date > b.date ? 1 : -1));
   const range = (start: number, end: number) =>
     [...new Array(end - start).keys()].map((n) => n + start);
   const posts = range(0, Math.min(raw_posts.length, 5)).map(
@@ -58,7 +58,7 @@ const RecentPosts: FC = () => {
           variant="contained"
           color="primary"
         >
-          <Link to={`/portfolio/posts/`}>{'>>'} Read More!</Link>
+          <Link to={`/posts/`}>{'>>'} Read More!</Link>
         </Button>
       </div>
     </Box>

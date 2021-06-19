@@ -218,6 +218,7 @@ const DescribePost: FC = () => {
   const classes = useStyles();
   const { postId } = useParams();
   const postFilteredById = postsData.filter((post) => post.id === postId);
+  const postBlogUrl = 'https://log.mie998.dev/posts/';
 
   if (postFilteredById.length !== 1) {
     return <></>;
@@ -237,7 +238,7 @@ const DescribePost: FC = () => {
             </Box>
             {post.tag.map((item) => (
               <Box className={classes.articleSuffixItem}>
-                <Link to={'/portfolio/posts/tags/' + item}>#{item}</Link>
+                <Link to={'/posts/tags/' + item}>#{item}</Link>
               </Box>
             ))}
           </Box>
@@ -258,27 +259,24 @@ const DescribePost: FC = () => {
               </Box>
               <Box className={classes.articleShareButton}>
                 <FacebookShareButton
-                  url={`https://mie998.github.io/portfolio/posts/${post.id}`}
+                  url={postBlogUrl + post.id}
                   title={post.title}
                 >
                   <FacebookIcon size={50} round />
                 </FacebookShareButton>
                 <TwitterShareButton
-                  url={`https://mie998.github.io/portfolio/posts/${post.id}`}
+                  url={postBlogUrl + post.id}
                   title={post.title}
                 >
                   <TwitterIcon size={50} round />
                 </TwitterShareButton>
                 <HatenaShareButton
-                  url={`https://mie998.github.io/portfolio/posts/${post.id}`}
+                  url={postBlogUrl + post.id}
                   title={post.title}
                 >
                   <HatenaIcon size={50} round />
                 </HatenaShareButton>
-                <LineShareButton
-                  url={`https://mie998.github.io/portfolio/posts/${post.id}`}
-                  title={post.title}
-                >
+                <LineShareButton url={postBlogUrl + post.id} title={post.title}>
                   <LineIcon size={50} round />
                 </LineShareButton>
               </Box>
@@ -293,7 +291,7 @@ const DescribePost: FC = () => {
               </Box>
             </Box>
           </Box>
-          <Link to="/portfolio/posts" className={classes.linkButton}>
+          <Link to="/posts" className={classes.linkButton}>
             <Button
               variant="contained"
               color="default"
