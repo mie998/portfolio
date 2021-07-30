@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { parse } from 'query-string';
 import { makeStyles } from '@material-ui/core/styles';
-import { useCommonStyles } from '../../styles/commonStyle';
 import { Button, Box } from '@material-ui/core';
+import { useCommonStyles } from '../../styles/commonStyle';
 
 import PostCardList from '../PostCardList';
 import { postsData } from '../data/posts';
@@ -50,7 +50,7 @@ const RecentPosts: FC = () => {
       <h2 className={commonClasses.title}>Recent Posts</h2>
       <div className={classes.cardWrapperRoot}>
         <PostCardList posts={posts} isLoading={isLoading} />
-        <Link to={`/posts/`}>
+        <Link to="/posts/">
           <Button
             className={classes.readMoreButton}
             variant="contained"

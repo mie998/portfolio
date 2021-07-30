@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
-import { Post, postsData } from '../data/posts';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
+import { Post, postsData } from '../data/posts';
 
 const useStyles = makeStyles({
   wrapper: {
@@ -57,7 +57,7 @@ const TagList: FC = () => {
           <p>topics</p>
           <div className={classes.tagList}>
             {tags.map((tag) => (
-              <span>
+              <span key={tag}>
                 <Link to={`/posts/tags/${tag}`}>#{tag}</Link>
               </span>
             ))}

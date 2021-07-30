@@ -34,12 +34,8 @@ const useStyles = makeStyles({
     paddingRight: '1rem',
   },
   menuButton: {
-    height: '4.5rem',
-    width: '4.5rem',
-    lineHeight: '4.5rem',
     color: 'black',
     backgroundColor: 'white',
-    borderRadius: '50%',
     position: 'sticky',
     top: '0',
     right: '0',
@@ -89,11 +85,15 @@ const MenuButton: FC = () => {
         flexDirection="row-reverse"
         className={classes.menuButtonWrapper}
       >
-        <Button onClick={toggleDrawer(true)} className={classes.menuButton}>
+        <Button
+          onClick={toggleDrawer(true)}
+          className={classes.menuButton}
+          size="medium"
+        >
           <MenuOpenIcon fontSize="large" />
         </Button>
       </Box>
-      <Drawer anchor={'right'} open={open} onClose={toggleDrawer(false)}>
+      <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
         <div
           className={classes.dividerList}
           role="presentation"

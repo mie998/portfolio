@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 const Footer: React.FC = () => {
   const classes = useStyles();
   const today = document.lastModified.split(' ')[0];
+
   return (
     <Box className={classes.footerWrapper}>
       <p>© Keisuke Nishiwaki</p>

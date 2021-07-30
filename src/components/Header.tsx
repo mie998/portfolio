@@ -44,7 +44,7 @@ const ResponsiveDrawer: React.FC<Props> = (props: Props) => {
   const refItems = references.map((item) => (
     <ListItemLink href={item.link}>
       <ListItemIcon>
-        <i className={item.class}></i>
+        <i className={item.class} />
       </ListItemIcon>
       <ListItemText primary={item.name} />
     </ListItemLink>
@@ -53,6 +53,7 @@ const ResponsiveDrawer: React.FC<Props> = (props: Props) => {
   const handleResize = (): void => {
     setMobileMenuIsOpen(false);
   };
+
   return (
     <>
       <EventListener target="window" onResize={handleResize} />
@@ -61,8 +62,8 @@ const ResponsiveDrawer: React.FC<Props> = (props: Props) => {
           <div className="header-menu">
             <i
               className="fa fa-times menu-icon"
-              onClick={() => setMobileMenuIsOpen(mobileOpen ? false : true)}
-            ></i>
+              onClick={() => setMobileMenuIsOpen(!mobileOpen)}
+            />
           </div>
           <List
             component="nav"
@@ -72,7 +73,7 @@ const ResponsiveDrawer: React.FC<Props> = (props: Props) => {
               <ListSubheader
                 component="nav"
                 className="header-sub-nav"
-                disableSticky={true}
+                disableSticky
               >
                 Find more!
               </ListSubheader>
@@ -85,8 +86,8 @@ const ResponsiveDrawer: React.FC<Props> = (props: Props) => {
         <div className="header-menu">
           <i
             className="fa fa-bars menu-icon"
-            onClick={() => setMobileMenuIsOpen(mobileOpen ? false : true)}
-          ></i>
+            onClick={() => setMobileMenuIsOpen(!mobileOpen)}
+          />
         </div>
       )}
     </>

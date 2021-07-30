@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import { useCommonStyles } from './styles/commonStyle';
 import { Box, Grid, Card } from '@material-ui/core';
 import Tooltip from '@material-ui/core/Tooltip';
+import { useCommonStyles } from './styles/commonStyle';
 
 interface Content {
   key: string;
@@ -97,7 +97,7 @@ const Skill: React.FC = () => {
     {
       key: 'vim',
       description:
-        'vim が好きです。純粋な vim というより jetbrainsIDE や VScode の vim 拡張でカスタマイズして使ってます。わかりやすく最強。',
+        'vim が好きです。純粋な vim というより jetbrainsIDE や VScode の vim 拡張でカスタマイズして使ってます。。',
     },
     {
       key: 'TOEIC 870',

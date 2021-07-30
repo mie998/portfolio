@@ -48,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
 
 const PostCard: FC<Props> = ({ post = {}, isLoading = false }) => {
   const classes = useStyles();
+
   return (
     <Card className={classes.root}>
       <CardContent>
@@ -56,6 +57,7 @@ const PostCard: FC<Props> = ({ post = {}, isLoading = false }) => {
           <div className={classes.tagButtonWrapper}>
             {post.tag?.map((item) => (
               <Link
+                key={item}
                 to={`/posts/tags/${post.id}`}
                 style={{ textDecoration: 'none' }}
               >

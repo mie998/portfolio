@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { useCommonStyles } from './styles/commonStyle';
 import { Grid, Box, Card, CardContent, Typography } from '@material-ui/core';
+import { useCommonStyles } from './styles/commonStyle';
 
 interface Contents {
   key: string;
@@ -51,7 +51,7 @@ const Works: React.FC = () => {
       key: 'portfolio',
       url: 'https://mie998.github.io/portfolio/',
       description:
-        '自身のポートフォリオサイト.。自己紹介を含め、react-routerにてルーティングを行ったブログ機能も追加してある。ブログもちょくちょく投稿しているのでぜひみてください！！',
+        '自身のポートフォリオサイト。自己紹介を含め、react-routerにてルーティングを行ったブログ機能も追加してある。ブログもちょくちょく投稿しているのでぜひみてください！！',
       tools: ['reactDOM', 'react-router', 'MaterialUI', 'TypeScript'],
     },
     {
@@ -85,7 +85,6 @@ const Works: React.FC = () => {
               </Typography>
               <Typography
                 variant="subtitle1"
-                color="primary"
                 className={classes.cardDescription}
               >
                 {item.description}

@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const gaMeasurementId = process.env.REACT_APP_GA_MEASUREMENT_ID || '';
+ReactGA.initialize(gaMeasurementId);
+
 const App: FC = () => {
   const classes = useStyles();
   const location = useLocation();
@@ -31,8 +34,6 @@ const App: FC = () => {
   useEffect(() => {
     ReactGA.pageview(location.pathname + location.search);
   }, [location.key]);
-
-  console.log(process.env.PUBLIC_URL);
 
   return (
     <div className={classes.wrapper}>

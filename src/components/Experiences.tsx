@@ -1,7 +1,6 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Box } from '@material-ui/core';
 import { useCommonStyles } from './styles/commonStyle';
-import { Box } from '@material-ui/core';
 
 interface WorkData {
   key: string;
@@ -51,7 +50,7 @@ const Experiences: React.FC = () => {
     {
       key: 'Datagrid Inc.',
       role: 'Enginner',
-      period: 'September/2020 ~ March/2021',
+      period: 'March/2021 ~ current',
       date: '20210301',
     },
   ];
@@ -65,7 +64,7 @@ const Experiences: React.FC = () => {
       <p>
         <b className={classes.jobIdentifier}>{item.key}</b> as {item.role}
       </p>
-      <br></br>
+      <br />
     </div>
   ));
 

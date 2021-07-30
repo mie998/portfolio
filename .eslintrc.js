@@ -50,7 +50,7 @@ module.exports = {
     // eslint official
     'linebreak-style': ['error', 'unix'],
     'no-use-before-define': 'off',
-    'react-hooks/exhaustive-deps': 'warn',
+    'react-hooks/exhaustive-deps': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
     'newline-before-return': 'error',
     'no-console': 'warn',

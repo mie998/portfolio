@@ -29,6 +29,7 @@ const useStyles = makeStyles(() => ({
   },
   contact: {
     fontSize: '1.5rem',
+    textAlign: 'center',
   },
   mailIcon: {
     verticalAlign: '-0.3rem',
@@ -58,7 +59,7 @@ const About: React.FC = () => {
         className={classes.gridContainer}
       >
         <Grid item xs={5} lg={3} md={3} sm={5} className={classes.imgContainer}>
-          <img src={polyImg} className={classes.profileImgPc} />
+          <img src={polyImg} alt="polygon" className={classes.profileImgPc} />
         </Grid>
         <Grid item xs={8} lg={5} md={5} sm={8}>
           <p>
