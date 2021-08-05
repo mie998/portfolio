@@ -237,7 +237,7 @@ const DescribePost: FC = () => {
             <i className="fa fa-clock-o" /> {post.date}
           </Box>
           {post.tag.map((item) => (
-            <Box className={classes.articleSuffixItem}>
+            <Box key={item} className={classes.articleSuffixItem}>
               <Link to={`/posts/tags/${item}`}>#{item}</Link>
             </Box>
           ))}
@@ -252,6 +252,7 @@ const DescribePost: FC = () => {
               <ReactMarkdown
                 className={classes.articleMain}
                 plugins={[gfm]}
+                // eslint-disable-next-line
                 children={post.body}
                 allowDangerousHtml
                 renderers={{ code: CodeBlock }}

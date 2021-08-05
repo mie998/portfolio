@@ -6,6 +6,7 @@ const influenceScienceAndPractice = raw('./Markdown/20210309.md');
 const texEnvironment = raw('./Markdown/20210403.md');
 const supporters1on1 = raw('./Markdown/20210517.md');
 const gotDomain = raw('./Markdown/20210619.md');
+const JSAT1day = raw('./Markdown/20210619.md');
 
 export type Post = {
   id: string;
@@ -57,5 +58,12 @@ export const postsData: Post[] = [
     date: '2021/06/19',
     tag: ['random'],
     body: gotDomain,
+  },
+  {
+    id: '7',
+    title: '1dayインターンでディスカッションしてリフレッシュしてきた',
+    date: '2021/08/05',
+    tag: ['intern', 'business'],
+    body: JSAT1day,
   },
 ];
