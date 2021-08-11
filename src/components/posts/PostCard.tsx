@@ -30,10 +30,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.primary.light,
     borderRadius: '.3rem',
     '& > span': {
-      '& > a': {
-        textDecoration: 'none',
-        color: theme.palette.secondary.light,
-      },
+      color: theme.palette.secondary.light,
     },
   },
   readMoreButtonWrapper: {
@@ -44,46 +41,50 @@ const useStyles = makeStyles((theme) => ({
   readMoreButton: {
     backgroundColor: theme.palette.primary.light,
     '& > span': {
-      '& > a': {
-        textDecoration: 'none',
-        color: theme.palette.secondary.light,
-      },
+      color: theme.palette.secondary.light,
     },
   },
 }));
 
 const PostCard: FC<Props> = ({ post = {}, isLoading = false }) => {
   const classes = useStyles();
+
   return (
-    <>
-      <Card className={classes.root}>
-        <CardContent>
-          <Typography variant="h4">{post.title}</Typography>
-          <CardActions>
-            <div className={classes.tagButtonWrapper}>
-              {post.tag?.map((item) => (
+    <Card className={classes.root}>
+      <CardContent>
+        <Typography variant="h4">{post.title}</Typography>
+        <CardActions>
+          <div className={classes.tagButtonWrapper}>
+            {post.tag?.map((item) => (
+              <Link
+                key={item}
+                to={`/posts/tags/${post.id}`}
+                style={{ textDecoration: 'none' }}
+              >
                 <Button
                   className={classes.tagButton}
                   variant="contained"
                   size="small"
                   disableElevation
                 >
-                  <Link to={`/portfolio/posts/tags/${item}`}>#{item}</Link>
+                  {item}
                 </Button>
-              ))}
-            </div>
-          </CardActions>
-          <Typography variant="body1" component="p" display="inline">
-            {post.date}
-          </Typography>
-          <CardActions className={classes.readMoreButtonWrapper}>
+              </Link>
+            ))}
+          </div>
+        </CardActions>
+        <Typography variant="body1" component="p" display="inline">
+          {post.date}
+        </Typography>
+        <CardActions className={classes.readMoreButtonWrapper}>
+          <Link to={`/posts/${post.id}`} style={{ textDecoration: 'none' }}>
             <Button size="large" className={classes.readMoreButton}>
-              <Link to={`/portfolio/posts/${post.id}`}>この記事を読む</Link>
+              この記事を読む
             </Button>
-          </CardActions>
-        </CardContent>
-      </Card>
-    </>
+          </Link>
+        </CardActions>
+      </CardContent>
+    </Card>
   );
 };
 

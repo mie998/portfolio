@@ -1,10 +1,11 @@
 import React, { FC } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Box } from '@material-ui/core';
+import { Box, Button } from '@material-ui/core';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import ReactMarkdown from 'react-markdown';
 import ReactMarkdownHeading from 'react-markdown-heading';
+import BackspaceIcon from '@material-ui/icons/Backspace';
 import gfm from 'remark-gfm';
 import {
   TwitterIcon,
@@ -18,8 +19,8 @@ import {
 } from 'react-share';
 
 import CodeBlock from './CodeBlock';
-import TagList from './TagList';
-import { Post, postsData } from './data/posts';
+import TagList from '../List/TagList';
+import { Post, postsData } from '../data/posts';
 
 const useStyles = makeStyles((theme) => ({
   articleWrapper: {
@@ -204,91 +205,103 @@ const useStyles = makeStyles((theme) => ({
       display: 'block',
     },
   },
+  linkButton: {
+    textDecoration: 'none',
+  },
+  backButton: {
+    marginTop: '3rem',
+    fontSize: '1.3rem',
+  },
 }));
 
 const DescribePost: FC = () => {
   const classes = useStyles();
   const { postId } = useParams();
   const postFilteredById = postsData.filter((post) => post.id === postId);
+  const postBlogUrl = 'https://log.mie998.dev/posts/';
 
   if (postFilteredById.length !== 1) {
     return <></>;
-  } else {
-    const post: Post = postFilteredById[0];
+  }
+  const post: Post = postFilteredById[0];
 
-    return (
-      <>
-        <Helmet>
-          <title>{post.title}</title>
-        </Helmet>
-        <Box className={classes.articleWrapper}>
-          <h2 className={classes.articleTitle}>{post.title}</h2>
-          <Box className={classes.articleSuffix}>
-            <Box className={classes.articleSuffixItem}>
-              <i className="fa fa-clock-o"></i> {post.date}
-            </Box>
-            {post.tag.map((item) => (
-              <Box className={classes.articleSuffixItem}>
-                <Link to={'/portfolio/posts/tags/' + item}>#{item}</Link>
-              </Box>
-            ))}
+  return (
+    <>
+      <Helmet>
+        <title>{post.title}</title>
+      </Helmet>
+      <Box className={classes.articleWrapper}>
+        <h2 className={classes.articleTitle}>{post.title}</h2>
+        <Box className={classes.articleSuffix}>
+          <Box className={classes.articleSuffixItem}>
+            <i className="fa fa-clock-o" /> {post.date}
           </Box>
-          <Box className={classes.articleContainer}>
-            <Box className={classes.articleSmartphoneSuffixTOC}>
+          {post.tag.map((item) => (
+            <Box key={item} className={classes.articleSuffixItem}>
+              <Link to={`/posts/tags/${item}`}>#{item}</Link>
+            </Box>
+          ))}
+        </Box>
+        <Box className={classes.articleContainer}>
+          <Box className={classes.articleSmartphoneSuffixTOC}>
+            <p>目次</p>
+            <ReactMarkdownHeading markdown={post.body} />
+          </Box>
+          <Box className={classes.articleMainContainer}>
+            <Box className={classes.articleMainWrapper}>
+              <ReactMarkdown
+                className={classes.articleMain}
+                plugins={[gfm]}
+                // eslint-disable-next-line
+                children={post.body}
+                allowDangerousHtml
+                renderers={{ code: CodeBlock }}
+              />
+            </Box>
+            <Box className={classes.articleShareButton}>
+              <FacebookShareButton
+                url={postBlogUrl + post.id}
+                title={post.title}
+              >
+                <FacebookIcon size={50} round />
+              </FacebookShareButton>
+              <TwitterShareButton
+                url={postBlogUrl + post.id}
+                title={post.title}
+              >
+                <TwitterIcon size={50} round />
+              </TwitterShareButton>
+              <HatenaShareButton url={postBlogUrl + post.id} title={post.title}>
+                <HatenaIcon size={50} round />
+              </HatenaShareButton>
+              <LineShareButton url={postBlogUrl + post.id} title={post.title}>
+                <LineIcon size={50} round />
+              </LineShareButton>
+            </Box>
+          </Box>
+          <Box className={classes.articleSideBarContainer}>
+            <Box className={classes.articleSideBarContent}>
+              <TagList />
+            </Box>
+            <Box className={classes.articleTOC}>
               <p>目次</p>
               <ReactMarkdownHeading markdown={post.body} />
             </Box>
-            <Box className={classes.articleMainContainer}>
-              <Box className={classes.articleMainWrapper}>
-                <ReactMarkdown
-                  className={classes.articleMain}
-                  plugins={[gfm]}
-                  children={post.body}
-                  allowDangerousHtml
-                  renderers={{ code: CodeBlock }}
-                />
-              </Box>
-              <Box className={classes.articleShareButton}>
-                <FacebookShareButton
-                  url={`https://mie998.github.io/portfolio/posts/${post.id}`}
-                  title={post.title}
-                >
-                  <FacebookIcon size={50} round />
-                </FacebookShareButton>
-                <TwitterShareButton
-                  url={`https://mie998.github.io/portfolio/posts/${post.id}`}
-                  title={post.title}
-                >
-                  <TwitterIcon size={50} round />
-                </TwitterShareButton>
-                <HatenaShareButton
-                  url={`https://mie998.github.io/portfolio/posts/${post.id}`}
-                  title={post.title}
-                >
-                  <HatenaIcon size={50} round />
-                </HatenaShareButton>
-                <LineShareButton
-                  url={`https://mie998.github.io/portfolio/posts/${post.id}`}
-                  title={post.title}
-                >
-                  <LineIcon size={50} round />
-                </LineShareButton>
-              </Box>
-            </Box>
-            <Box className={classes.articleSideBarContainer}>
-              <Box className={classes.articleSideBarContent}>
-                <TagList />
-              </Box>
-              <Box className={classes.articleTOC}>
-                <p>目次</p>
-                <ReactMarkdownHeading markdown={post.body} />
-              </Box>
-            </Box>
           </Box>
         </Box>
-      </>
-    );
-  }
+        <Link to="/posts" className={classes.linkButton}>
+          <Button
+            variant="contained"
+            color="default"
+            className={classes.backButton}
+            startIcon={<BackspaceIcon />}
+          >
+            記事一覧へ
+          </Button>
+        </Link>
+      </Box>
+    </>
+  );
 };
 
 export default DescribePost;

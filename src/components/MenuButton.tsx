@@ -1,0 +1,141 @@
+import React, { FC, useState } from 'react';
+import { Link as RouteLink } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+import List from '@material-ui/core/List';
+import Link from '@material-ui/core/Link';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import { SvgIconProps } from '@material-ui/core/SvgIcon';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import MenuOpenIcon from '@material-ui/icons/MenuOpen';
+
+interface dividerRoute {
+  text: string;
+  route: string;
+  hash: boolean;
+}
+
+interface dividerExternalLink {
+  text: string;
+  url: string;
+  icon: React.ReactElement<SvgIconProps>;
+}
+
+const useStyles = makeStyles({
+  menuButtonWrapper: {
+    paddingTop: '1rem',
+    paddingRight: '1rem',
+  },
+  menuButton: {
+    color: 'black',
+    backgroundColor: 'white',
+    position: 'sticky',
+    top: '0',
+    right: '0',
+    zIndex: 1,
+  },
+  dividerList: {
+    width: 250,
+  },
+});
+
+const MenuButton: FC = () => {
+  const classes = useStyles();
+  const [open, setOpen] = useState(false);
+  const toggleDrawer = (b: boolean) => (event: any) => {
+    if (
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
+    ) {
+      return;
+    }
+
+    setOpen(b);
+  };
+
+  const dividerRoutes: dividerRoute[] = [
+    { text: 'home', route: '/', hash: false },
+    { text: 'about', route: '/#about', hash: true },
+    { text: 'experience', route: '/#experience', hash: true },
+    { text: 'skill', route: '/#skill', hash: true },
+    { text: 'works', route: '/#works', hash: true },
+    { text: 'posts', route: '/posts/', hash: false },
+  ];
+
+  const dividerExternalLinks: dividerExternalLink[] = [
+    {
+      text: 'twitter',
+      url: 'https://twitter.com/Mie98838',
+      icon: <TwitterIcon />,
+    },
+    { text: 'github', url: 'https://github.com/mie998', icon: <GitHubIcon /> },
+  ];
+
+  return (
+    <>
+      <Box
+        display="flex"
+        flexDirection="row-reverse"
+        className={classes.menuButtonWrapper}
+      >
+        <Button
+          onClick={toggleDrawer(true)}
+          className={classes.menuButton}
+          size="medium"
+        >
+          <MenuOpenIcon fontSize="large" />
+        </Button>
+      </Box>
+      <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
+        <div
+          className={classes.dividerList}
+          role="presentation"
+          onClick={toggleDrawer(false)}
+          onKeyDown={toggleDrawer(false)}
+        >
+          <List>
+            {dividerRoutes.map((item) =>
+              item.hash ? (
+                <ListItem
+                  button
+                  key={item.text}
+                  component={HashLink}
+                  to={item.route}
+                >
+                  <ListItemText primary={item.text} />
+                </ListItem>
+              ) : (
+                <ListItem
+                  button
+                  key={item.text}
+                  component={RouteLink}
+                  to={item.route}
+                >
+                  <ListItemText primary={item.text} />
+                </ListItem>
+              ),
+            )}
+          </List>
+          <Divider />
+          <List>
+            {dividerExternalLinks.map((item) => (
+              <ListItem button key={item.text} component={Link} href={item.url}>
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItem>
+            ))}
+          </List>
+        </div>
+      </Drawer>
+    </>
+  );
+};
+
+export default MenuButton;

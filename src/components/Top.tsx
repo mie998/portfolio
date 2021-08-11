@@ -1,6 +1,5 @@
 import React from 'react';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import catImg from './images/catImage.jpg';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 import cityImg from './images/buildingImage.jpg';
 
 const useStyles = makeStyles((theme) =>

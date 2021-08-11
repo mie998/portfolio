@@ -1,13 +1,13 @@
-import React, { FC, useState, useMemo, useEffect } from 'react';
+import React, { FC, useState, useMemo } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocation } from 'react-router-dom';
 import { parse } from 'query-string';
 import { makeStyles } from '@material-ui/core/styles';
-import { useCommonStyles } from '../styles/commonStyle';
 import { Button, Menu, MenuItem, Box } from '@material-ui/core';
+import { useCommonStyles } from '../../styles/commonStyle';
 
-import PostCardList from './PostCardList';
-import { postsData } from './data/posts';
+import PostCardList from '../PostCardList';
+import { postsData } from '../data/posts';
 
 interface Sort {
   key: string;
@@ -54,7 +54,8 @@ const AllPosts: FC = () => {
           (a.title === b.title ? 0 : a.title > b.title ? 1 : -1) *
           (sort.order === 'ASC' ? 1 : -1),
       );
-    } else if (sort.key === 'date') {
+    }
+    if (sort.key === 'date') {
       return posts.sort(
         (a, b) =>
           (parsedDate(a.date) === parsedDate(b.date)
@@ -63,7 +64,9 @@ const AllPosts: FC = () => {
             ? 1
             : -1) * (sort.order === 'ASC' ? -1 : 1),
       );
-    } else return posts;
+    }
+
+    return posts;
   }, [sort]);
 
   // drawer event handler
@@ -75,7 +78,7 @@ const AllPosts: FC = () => {
   };
   const handleSort = (key: string, order: string) => {
     setAnchorEl(null);
-    setSort({ ...sort, key: key, order: order });
+    setSort({ ...sort, key, order });
   };
 
   return (
@@ -91,7 +94,7 @@ const AllPosts: FC = () => {
             aria-haspopup="true"
             onClick={handleClick}
           >
-            <i className="fas fa-sort"></i>
+            <i className="fas fa-sort" />
             {'　'}sort by
           </Button>
           <Menu

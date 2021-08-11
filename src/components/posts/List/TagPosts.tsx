@@ -4,9 +4,9 @@ import { Navigate, useLocation, useParams } from 'react-router-dom';
 import { parse } from 'query-string';
 import { makeStyles } from '@material-ui/core/styles';
 
-import PostCardList from './PostCardList';
+import PostCardList from '../PostCardList';
 import TagList from './TagList';
-import { Post, postsData } from './data/posts';
+import { Post, postsData } from '../data/posts';
 
 const useStyles = makeStyles(() => ({
   Wrapper: {
@@ -75,31 +75,31 @@ const TagPosts: FC = () => {
 
   if (postsDataFilteredByTagCode.length === 0) {
     return <Navigate to="/posts/" replace />;
-  } else {
-    const tagName = tagCode;
-    const posts = sortedPosts;
-    return (
-      <>
-        <Helmet>
-          <title>{tagName}タグの投稿一覧</title>
-        </Helmet>
-        <div className={classes.Wrapper}>
-          <div className={classes.articleListContainer}>
-            <h3 className={classes.tagTitle}>#{tagName}</h3>
-            <div className={classes.cardListContainer}>
-              <PostCardList posts={posts} isLoading={isLoading} />
-            </div>
-          </div>
-          <div className={classes.SidebarWrapper}>
-            <TagList />
-          </div>
-          <div className={classes.ButtomContentsWrapper}>
-            <TagList />
+  }
+  const tagName = tagCode;
+  const posts = sortedPosts;
+
+  return (
+    <>
+      <Helmet>
+        <title>{tagName}タグの投稿一覧</title>
+      </Helmet>
+      <div className={classes.Wrapper}>
+        <div className={classes.articleListContainer}>
+          <h3 className={classes.tagTitle}>#{tagName}</h3>
+          <div className={classes.cardListContainer}>
+            <PostCardList posts={posts} isLoading={isLoading} />
           </div>
         </div>
-      </>
-    );
-  }
+        <div className={classes.SidebarWrapper}>
+          <TagList />
+        </div>
+        <div className={classes.ButtomContentsWrapper}>
+          <TagList />
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default TagPosts;

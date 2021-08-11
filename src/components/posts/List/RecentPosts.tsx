@@ -2,11 +2,11 @@ import React, { FC } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { parse } from 'query-string';
 import { makeStyles } from '@material-ui/core/styles';
-import { useCommonStyles } from '../styles/commonStyle';
 import { Button, Box } from '@material-ui/core';
+import { useCommonStyles } from '../../styles/commonStyle';
 
-import PostCardList from './PostCardList';
-import { postsData } from './data/posts';
+import PostCardList from '../PostCardList';
+import { postsData } from '../data/posts';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -27,10 +27,7 @@ const useStyles = makeStyles((theme) => ({
     /* stylelint-enable */
 
     '& > span': {
-      '& > a': {
-        color: theme.palette.secondary.dark,
-        textDecoration: 'none',
-      },
+      color: theme.palette.secondary.dark,
     },
   },
 }));
@@ -41,7 +38,7 @@ const RecentPosts: FC = () => {
 
   const { search } = useLocation();
   const isLoading = !!parse(search)?.loading;
-  const raw_posts = postsData.sort((a, b) => (a > b ? 1 : -1));
+  const raw_posts = postsData.sort((a, b) => (a.date > b.date ? -1 : 1));
   const range = (start: number, end: number) =>
     [...new Array(end - start).keys()].map((n) => n + start);
   const posts = range(0, Math.min(raw_posts.length, 5)).map(
@@ -53,13 +50,15 @@ const RecentPosts: FC = () => {
       <h2 className={commonClasses.title}>Recent Posts</h2>
       <div className={classes.cardWrapperRoot}>
         <PostCardList posts={posts} isLoading={isLoading} />
-        <Button
-          className={classes.readMoreButton}
-          variant="contained"
-          color="primary"
-        >
-          <Link to={`/portfolio/posts/`}>{'>>'} Read More!</Link>
-        </Button>
+        <Link to="/posts/">
+          <Button
+            className={classes.readMoreButton}
+            variant="contained"
+            color="primary"
+          >
+            {'>>'} Read More!
+          </Button>
+        </Link>
       </div>
     </Box>
   );

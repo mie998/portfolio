@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 import { makeStyles, Box } from '@material-ui/core';
 import { useCommonStyles } from './styles/commonStyle';
 
-import Header from './Header';
+import MenuButton from './MenuButton';
 import Footer from './Footer';
 
 const useStyles = makeStyles(() => ({
@@ -23,7 +23,7 @@ const Posts: FC = () => {
         <title>POST</title>
       </Helmet>
       <Box className={commonClasses.container}>
-        {/* <Header /> */}
+        <MenuButton />
         <div className={classes.postComponentContainer}>
           <Outlet />
         </div>

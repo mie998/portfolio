@@ -7,9 +7,6 @@ import polyImg from './images/polygon2.jpg';
 import { useCommonStyles } from './styles/commonStyle';
 
 const useStyles = makeStyles(() => ({
-  contact: {
-    fontSize: '1.5rem',
-  },
   hovers: {
     color: 'white',
     '&:hover': {
@@ -30,6 +27,14 @@ const useStyles = makeStyles(() => ({
   gridContainer: {
     maxWidth: '100%',
   },
+  contact: {
+    fontSize: '1.5rem',
+    textAlign: 'center',
+  },
+  mailIcon: {
+    verticalAlign: '-0.3rem',
+    marginRight: '0.3rem',
+  },
 }));
 
 interface Content {
@@ -43,7 +48,7 @@ const About: React.FC = () => {
   const commonClasses = useCommonStyles();
 
   return (
-    <Box className={commonClasses.contentWrapper}>
+    <Box id="about" className={commonClasses.contentWrapper}>
       <h2 className={commonClasses.title}>About</h2>
       <Grid
         container
@@ -54,7 +59,7 @@ const About: React.FC = () => {
         className={classes.gridContainer}
       >
         <Grid item xs={5} lg={3} md={3} sm={5} className={classes.imgContainer}>
-          <img src={polyImg} className={classes.profileImgPc} />
+          <img src={polyImg} alt="polygon" className={classes.profileImgPc} />
         </Grid>
         <Grid item xs={8} lg={5} md={5} sm={8}>
           <p>
@@ -65,7 +70,8 @@ const About: React.FC = () => {
             ゲーム開発やWEB開発,ロボットプログラミングなどさまざまな分野に対して広く興味を持っている。
           </p>
           <p className={classes.contact}>
-            <MarkunreadIcon fontSize="small" />: nishiwaki.kyoto[at]gmail.com
+            <MarkunreadIcon fontSize="default" className={classes.mailIcon} />:
+            nishiwaki @ mie998.dev
           </p>
         </Grid>
       </Grid>

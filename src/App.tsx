@@ -5,9 +5,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Home from './components/Home';
 import Posts from './components/Posts';
-import AllPosts from './components/posts/AllPosts';
-import TagPosts from './components/posts/TagPosts';
-import DescribePost from './components/posts/DescribePost';
+import AllPosts from './components/posts/List/AllPosts';
+import TagPosts from './components/posts/List/TagPosts';
+import DescribePost from './components/posts/blogPosts/DescribePost';
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.grey[50],
   },
 }));
+
+const gaMeasurementId = process.env.REACT_APP_GA_MEASUREMENT_ID || '';
+ReactGA.initialize(gaMeasurementId);
 
 const App: FC = () => {
   const classes = useStyles();
@@ -34,7 +37,7 @@ const App: FC = () => {
 
   return (
     <div className={classes.wrapper}>
-      <Routes basename="/portfolio">
+      <Routes basename={process.env.PUBLIC_URL}>
         <Route path="/" element={<Home />} />
         <Route path="/posts" element={<Posts />}>
           <Route path="/" element={<AllPosts />} />
