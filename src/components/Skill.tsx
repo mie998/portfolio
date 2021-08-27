@@ -29,7 +29,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const SkillCardTooltip = withStyles((theme) => ({
+const SkillCardTooltip = withStyles(() => ({
   tooltip: {
     backgroundColor: '#f5f5f9',
     color: 'rgba(0, 0, 0, 0.7)',
@@ -110,7 +110,7 @@ const Skill: React.FC = () => {
     },
   ];
 
-  const table_contents: JSX.Element[] = data.map((item) => (
+  const tableContents: JSX.Element[] = data.map((item) => (
     <Grid item xl key={item.key}>
       <SkillCardTooltip title={item.description}>
         <Card className={classes.cardStyle}>
@@ -123,7 +123,7 @@ const Skill: React.FC = () => {
   return (
     <Box id="skill" className={commonClasses.contentWrapper}>
       <h2 className={commonClasses.title}>Skill</h2>
-      <div className={classes.cardContainer}>{table_contents}</div>
+      <div className={classes.cardContainer}>{tableContents}</div>
     </Box>
   );
 };

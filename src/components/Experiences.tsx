@@ -53,6 +53,12 @@ const Experiences: React.FC = () => {
       period: 'March/2021 ~ current',
       date: '20210301',
     },
+    {
+      key: 'rakuten',
+      role: 'Internship',
+      period: '8/18/2021 ~ 8/25/2021',
+      date: '20210820',
+    },
   ];
   const sortedData = data.sort(
     (a: WorkData, b: WorkData) => parseInt(b.date) - parseInt(a.date),
